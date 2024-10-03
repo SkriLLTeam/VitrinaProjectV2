@@ -1,0 +1,95 @@
+<template>
+  <aside class="apartament__user">
+    <div class="apartament__user-content">
+      <div class="apartament__user-content-caption">
+        <h3 class="apartament__user-content-caption-title">
+          {{ userInfo?.name }}
+        </h3>
+        <span class="apartament__user-content-caption-price"
+          >{{ userInfo?.price.toLocaleString() }} UZS</span
+        >
+      </div>
+
+      <div class="apartament__user-content-info">
+        <div class="apartament__user-content-info-avatar">
+          <div class="apartament__user-content-info-avatar-img">
+            <img v-lazy="userInfo?.user?.photo" alt="" />
+          </div>
+          <span class="apartament__user-content-info-avatar-name">
+            {{ userInfo?.user?.fullname }}
+          </span>
+        </div>
+
+        <div class="apartament__user-content-info-btns">
+          <button class="apartament__user-content-info-btns-number">
+            Показать номер
+          </button>
+          <button class="apartament__user-content-info-btns-call">
+            Заказать звонок
+          </button>
+        </div>
+      </div>
+
+      <div class="apartament__user-content-address">
+        <div class="apartament__user-content-address-block">
+          <span class="apartament__user-content-address-block-title">
+            Адрес:</span
+          >
+          <span class="apartament__user-content-address-block-descr">
+            {{ userInfo?.address }}
+          </span>
+        </div>
+        <div class="apartament__user-content-address-block">
+          <span class="apartament__user-content-address-block-title">
+            Количество комнат:</span
+          >
+          <span class="apartament__user-content-address-block-descr">
+            {{ userInfo?.rooms_qty_from }}
+          </span>
+        </div>
+        <div class="apartament__user-content-address-block">
+          <span class="apartament__user-content-address-block-title">
+            Общая площадь:</span
+          >
+          <span class="apartament__user-content-address-block-descr">
+            {{ userInfo?.quadrature_from }}
+          </span>
+        </div>
+        <div class="apartament__user-content-address-block">
+          <span class="apartament__user-content-address-block-title">
+            Этаж:</span
+          >
+          <span class="apartament__user-content-address-block-descr">
+            {{ userInfo?.floor_from }}/{{ userInfo?.floor_to }}
+          </span>
+        </div>
+        <div class="apartament__user-content-address-block">
+          <span class="apartament__user-content-address-block-title">
+            Год постройки:</span
+          >
+          <span class="apartament__user-content-address-block-descr">
+            {{ userInfo?.creation_year }}
+          </span>
+        </div>
+        <div class="apartament__user-content-address-block">
+          <span class="apartament__user-content-address-block-title">
+            Состояние:</span
+          >
+          <span class="apartament__user-content-address-block-descr">
+            {{ userInfo?.repair_type }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </aside>
+</template>
+
+<script setup>
+const props = defineProps({
+  userInfo: {
+    type: Object,
+  },
+});
+</script>
+
+<style lang="scss" scoped></style>

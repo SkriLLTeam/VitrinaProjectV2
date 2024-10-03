@@ -1,0 +1,119 @@
+{
+  "button": {
+    "request": "submit a request",
+    "show_result": "Show result",
+    "clear": "Clear",
+    "show_number": "Show number",
+    "request_call": "Request a call",
+    "get_advice": "Get advice",
+    "calculate_the_bet": "Calculate the rate",
+    "await_call": "Awaiting a call",
+    "send":"Send"
+
+  },
+  "menu": {
+    "home": "Home",
+    "mortgage": "mortgage",
+    "career": "career",
+    "about": "about us",
+    "social": "Our social networks:"
+  },
+  "form": {
+    "choose": "Choose",
+    "name_placeholder": "Enter full name",
+    "phone_placeholder": "Leave your phone number",
+    "type_statement": "Property Type",
+    "price_statement": "Property Price",
+    "in_year": "Term in Years",
+    "down_payment": "Down Payment",
+    "percent": "Interest Rate",
+    "monthly_payment": "Monthly Payment",
+    "loan_amount": "Loan Amount",
+    "overpayment": "Credit Overpayment",
+    "total_amount": "Total Amount",
+    "fill":"Fill out the form"
+
+  },
+  "banners": {
+    "home_banner": "Test title for the home page",
+    "mortgage_banner": "Test title for the mortgage page",
+    "career_banner": "Test title for the career page",
+    "about_banner": "Test title for the about us page"
+  },
+  "description": {
+    "mortgage_descr": "Test description for the banner on the mortgage page",
+    "career_descr": "Test description for the banner on the career page",
+    "about_descr": "Test description for the banner on the about us page",
+    "currency": "UZS"
+  },
+  "contents": {
+    "title_home": "The most relevant real estate options",
+    "title_mortgage": "Mortgage in Tashkent",
+    "title_calculator": "mortgage calculator",
+    "title_career": "Сonditions:",
+    "sub_title_mortgage": "Find out the rate and monthly mortgage payment",
+    "who_are_we_looking_for": "Who are we looking for:",
+    "descr_card_career": [
+      "Active individuals who want to influence their own income and are capable of managing their working time independently",
+      "Communicative and client-oriented",
+      "Fluent in oral and written speech, confidently using a smartphone and PC"
+    ],
+    "consultation_title_mortgage": "Consultation request",
+    "consultation_descr_mortgage": "Leave a request for a consultation or call us at:",
+
+    "what_do_we_offer": "What we offer",
+    "list_offer": [
+      "High-quality express training at the company's expense during the first month of work",
+      "A cozy office in the city center with everything you need, a friendly team",
+      "Guaranteed bonuses for high performance, piece-rate timely salary",
+      "Unlimited communication (corporate number)",
+      "Advertising and support"
+    ],
+    "conditions_career": [
+      "Working hours from 10:00 to 18:00, flexible schedule",
+      "Unlimited earnings",
+      "One floating day off per week (only on weekdays)",
+      "Training from one week to one month"
+    ],
+    "why_us_title": "Why us?",
+    "why_us_list": [
+      "10 years in the real estate market",
+      "More than 1000 real estate agents in 7 cities, 3 countries",
+      "We sell real estate worth more than $650,000,000 per year",
+      "We sell over 8000 apartments a year"
+    ],
+    "what_do_we_offer_why_us": "We offer:",
+    "what_do_we_offer_why_us_list": [
+      "Buying and selling real estate in Tashkent",
+      "Commercial real estate",
+      "Exclusive objects database 'TOP100 best apartments of Tashkent'",
+      "Professional photo and video review",
+      "Paid promotion of exclusive objects at the company's expense",
+      "Elite apartments",
+      "Plots and private houses"
+    ],
+    "offer_why_us_list": [
+      "Free consultation",
+      "1% commission",
+      "Save time and energy",
+      "All developers in one place",
+      "Only verified developers"
+    ]
+  },
+  "tabs": {
+    "buy": "But",
+    "rent": "Rent",
+    "flats": "Flats",
+    "new_building": "New building",
+    "houses": "Houses",
+    "commercial": "Commercial"
+  },
+  "title": {
+    "home": "Home",
+    "mortgage": "Mortgage",
+    "career": "Career",
+    "about": "About Us",
+    "apartament": "Apartment Card",
+    "default": "Vitrina Project"
+  }
+}

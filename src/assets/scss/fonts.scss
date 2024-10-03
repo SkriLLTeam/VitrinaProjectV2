@@ -1,0 +1,23 @@
+$Inter: (
+    'Light',
+    300),
+    ('Regular', 400),
+    ('Medium', 500),
+    ('SemiBold', 600),
+    ('Bold', 700),
+;
+
+@each $name, $weight in $Inter {
+    @font-face {
+        font-family: "Inter";
+        src: url(../fonts/Inter/Inter-#{$name}.ttf) format("truetype"
+    );
+    font-weight: $weight;
+}
+}
+
+@font-face {
+    font-family: "RubikMonoOne";
+    src: url(../fonts/Rubik/RubikMonoOne-Regular.ttf) format("truetype");
+    font-weight: 400;
+}
