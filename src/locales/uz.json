@@ -8,8 +8,7 @@
     "get_advice": "Get advice",
     "calculate_the_bet": "Calculate the rate",
     "await_call": "Awaiting a call",
-    "send":"Send"
-
+    "send": "Send"
   },
   "menu": {
     "home": "Home",
@@ -31,8 +30,14 @@
     "loan_amount": "Loan Amount",
     "overpayment": "Credit Overpayment",
     "total_amount": "Total Amount",
-    "fill":"Fill out the form"
-
+    "fill": "Fill out the form",
+    "modal_name_placeholder": "Enter your name",
+    "modal_name": "Name",
+    "modal_textarea": "Note",
+    "modal_textarea_placeholder": "Write your request",
+    "modal_contact": "Contact",
+    "from": "from",
+    "to": "to"
   },
   "banners": {
     "home_banner": "Test title for the home page",
@@ -101,12 +106,19 @@
     ]
   },
   "tabs": {
-    "buy": "But",
+    "buy": "Buy",
     "rent": "Rent",
     "flats": "Flats",
     "new_building": "New building",
     "houses": "Houses",
-    "commercial": "Commercial"
+    "commercial": "Commercial",
+    "rooms": "Number of rooms",
+    "price": "Price, у.е",
+    "quadrature": "Quadrature, кв-м",
+    "floor": "Floor",
+    "repair": "Repair",
+    "district": "District",
+    "studio": "Studio"
   },
   "title": {
     "home": "Home",

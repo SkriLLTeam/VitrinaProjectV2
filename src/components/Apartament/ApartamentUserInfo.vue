@@ -21,10 +21,17 @@
         </div>
 
         <div class="apartament__user-content-info-btns">
-          <button class="apartament__user-content-info-btns-number">
-            Показать номер
-          </button>
-          <button class="apartament__user-content-info-btns-call">
+          <button
+            class="apartament__user-content-info-btns-number"
+            @click="show"
+          >
+          {{ showNumber && userInfo?.user?.phone_number ? userInfo.user.phone_number : "Показать номер" }}
+        </button>
+          
+          <button
+            @click="orderModalOpen"
+            class="apartament__user-content-info-btns-call"
+          >
             Заказать звонок
           </button>
         </div>
@@ -82,14 +89,35 @@
       </div>
     </div>
   </aside>
+
+  <Modal v-if="isOrderModal" @orderModalClose="orderModalClose" />
 </template>
 
 <script setup>
+import { ref } from "vue";
+import Modal from "../UI/Modal.vue";
+
 const props = defineProps({
   userInfo: {
     type: Object,
   },
 });
+
+const isOrderModal = ref(false);
+const showNumber = ref(false);
+
+const show = () => {
+  showNumber.value = !showNumber.value;
+};
+
+const orderModalOpen = () => {
+  isOrderModal.value = true;
+  document.body.style.overflow = "hidden";
+};
+const orderModalClose = () => {
+  isOrderModal.value = false;
+  document.body.style.overflow = "auto";
+};
 </script>
 
 <style lang="scss" scoped></style>

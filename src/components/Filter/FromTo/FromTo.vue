@@ -2,8 +2,8 @@
   <div class="filter__form-block">
     <label class="filter__form-block-label"> {{ labeltitle }} </label>
     <div class="filter__form-from-to">
-      <InputUI v-model="fromValue" placeholder="От" :required="false" />
-      <InputUI v-model="toValue" placeholder="До" :required="false" />
+      <InputUI v-model="fromValue" :placeholder="$t('form.from')" :required="false" />
+      <InputUI v-model="toValue" :placeholder="$t('form.to')" :required="false" />
     </div>
   </div>
 </template>
@@ -28,6 +28,14 @@ const props = defineProps({
 watch([fromValue, toValue], ([newFrom, newTo]) => {
   filterStore.updateFilter(props.filterFromKey, newFrom);
   filterStore.updateFilter(props.filterToKey, newTo);
+});
+
+const resetValues = () => {
+  fromValue.value = null;
+  toValue.value = null;
+};
+defineExpose({
+  resetValues,
 });
 </script>
 

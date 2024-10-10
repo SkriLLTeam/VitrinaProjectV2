@@ -26,7 +26,7 @@
           @click="updateActiveTab(index)"
           class="filter__tabs-btn"
         >
-          {{ $t(tab.name)}}
+          {{ $t(tab.name) }}
         </button>
       </div>
 

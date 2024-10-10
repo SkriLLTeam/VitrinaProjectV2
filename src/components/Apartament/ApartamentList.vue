@@ -1,7 +1,7 @@
 <template>
   <section class="apartament__list container">
-    <h2 class="apartament__list-title">
-      {{$t('contents.title_home')}}
+    <h2 v-if="!isFilterActive" class="apartament__list-title">
+      {{ $t("contents.title_home") }}
     </h2>
 
     <div class="apartament__list-wrapper">
@@ -13,6 +13,7 @@
         />
       </div>
       <Paginate
+        :force-page="currentPage"
         :page-count="totalPages"
         :click-handler="changePage"
         :container-class="'apartament__list-wrapper-pagination'"
@@ -37,12 +38,18 @@ const props = defineProps({
   totalPages: {
     type: Number,
   },
+  isFilterActive: {
+    type: Boolean,
+  },
+  currentPage: {
+    type: Number,
+  },
 });
 
 const emit = defineEmits(["changePage"]);
 
 const changePage = (page) => {
-  emit("changePage", page); // Эмитим событие изменения страницы
+  emit("changePage", page);
 };
 
 // Иконки для кнопок

@@ -26,6 +26,12 @@ const props = defineProps({
 watch(selectedValue, (newValue) => {
   filterStore.updateFilter(props.filterKey, newValue);
 });
+const resetValues = () => {
+  selectedValue.value = "default";
+};
+defineExpose({
+  resetValues,
+});
 </script>
 
 <style lang="scss" scoped></style>

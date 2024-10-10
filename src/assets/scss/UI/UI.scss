@@ -280,3 +280,114 @@
     }
   }
 }
+
+.error {
+  background-image: url(@/assets/images/notbg.png);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @include media(992) {
+    height: 70vh;
+  }
+
+  &__wrapper {
+    position: relative;
+    padding-top: 50px;
+
+    @include media(992) {
+      padding: 20px 15px;
+    }
+  }
+
+  &__content {
+    max-width: 709px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    @include media(992) {
+      gap: 20px;
+      text-align: center;
+    }
+    &-top {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      @include media(992) {
+        gap: 40px;
+      }
+      &-title {
+        color: #343434;
+        font-size: clamp(1.5rem, 1.125rem + 1.88vw, 3.375rem);
+        font-weight: 600;
+        line-height: 125%;
+      }
+
+      &-subtitle {
+        max-width: 546px;
+        width: 100%;
+        color: #343434;
+        font-size: clamp(0.75rem, 0.563rem + 0.94vw, 1.688rem);
+        font-weight: 400;
+        line-height: 125%;
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      @include media(992) {
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+      }
+      &-block {
+        max-width: 433px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        @include media(992) {
+          align-items: flex-start;
+          max-width: max-content;
+        }
+        & span,
+        p {
+          color: #343434;
+          font-size: clamp(0.75rem, 0.675rem + 0.38vw, 1.125rem);
+          font-weight: 400;
+          line-height: 150%;
+          text-align: center;
+        }
+
+        & a {
+          color: #08a1c1;
+          font-size: clamp(0.75rem, 0.675rem + 0.38vw, 1.125rem);
+          font-weight: 700;
+          line-height: 150%;
+          text-decoration-line: underline;
+        }
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: -5px;
+    right: 50px;
+    & img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    @include media(992) {
+      right: 0;
+    }
+  }
+}

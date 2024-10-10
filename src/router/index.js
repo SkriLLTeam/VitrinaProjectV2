@@ -42,14 +42,18 @@ const router = createRouter({
       name: "Карточка квартиры",
       component: () => import("@/views/ApartamentItem.vue"),
       meta: {
-        title: "Карточка квартиры",
+        title: "Объявления",
       },
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "Ошибка",
+      component: () => import("@/views/NotFoundPage.vue"),
     },
   ],
 });
 
 router.afterEach((to) => {
-  const defaultTitle = "Vite App";
-  document.title = to.meta.title || defaultTitle;
+  document.title = to.meta.title || "Vitrina";
 });
 export default router;

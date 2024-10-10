@@ -8,18 +8,19 @@
         </Banner>
         <Filter :disctrictsData="disctrictsData" @applyFilters="applyFilters" />
         <ApartamentList
+          :isFilterActive="isFilterActive"
           :totalPages="totalPages"
           @changePage="handlePageChange"
           :apartamentList="advertisementsData?.results"
+          :currentPage="currentPage"
         />
-        <!-- <Test /> -->
       </div>
     </div>
   </transition>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { useQuery } from "@tanstack/vue-query";
 import { advertisements, districts } from "@/utils/util";
 import { useFiltersStore } from "@/stores/FiltersStore";
@@ -28,7 +29,7 @@ import ApartamentList from "@/components/Apartament/ApartamentList.vue";
 import Filter from "@/components/Filter/Filter.vue";
 import Banner from "@/components/UI/Banner.vue";
 // import Test from "@/components/UI/Test.vue";
-
+const isFilterActive = ref(false);
 const currentPage = ref(1);
 const limit = 15;
 const filterStore = useFiltersStore();
@@ -50,6 +51,7 @@ const {
     }
 
     const response = await axios.get(`${advertisements}?${params.toString()}`);
+    console.log(`${advertisements}?${params.toString()}`);
 
     return response.data;
   },
@@ -70,12 +72,22 @@ const totalPages = computed(() => {
   }
   return 1;
 });
+
 const handlePageChange = (newPage) => {
   currentPage.value = newPage;
 };
+
 const applyFilters = () => {
+  console.log("applyFilters called in Home component");
+  currentPage.value = 1;
+  isFilterActive.value = !isFilterActive.value;
+
   refetch();
 };
+
+watch(currentPage, (newValue, oldValue) => {
+  console.log(`Current page changed from ${oldValue} to ${newValue}`);
+});
 </script>
 
 <style lang="scss" scoped>

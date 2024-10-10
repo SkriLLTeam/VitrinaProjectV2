@@ -8,7 +8,7 @@
     "get_advice": "получить консультацию",
     "calculate_the_bet": "просчитать ставку",
     "await_call": "жду звонка",
-    "send":"Отправить"
+    "send": "Отправить"
   },
   "menu": {
     "home": "  Главная",
@@ -30,7 +30,14 @@
     "loan_amount": "сумма кредита",
     "overpayment": "переплата по кредиту",
     "total_amount": "общая стоимость ",
-    "fill":"Заполните форму"
+    "fill": "Заполните форму",
+    "modal_name_placeholder": "Укажите имя",
+    "modal_name": "Имя",
+    "modal_textarea": "Примечание",
+    "modal_textarea_placeholder": "Напишите ваше обращение",
+    "modal_contact": "Контакты",
+    "from": "от",
+    "to": "до"
   },
   "banners": {
     "home_banner": "Тестовый заголовок для главной страницы",
@@ -106,7 +113,14 @@
     "flats": "Квартиры",
     "new_building": "Новостройки",
     "houses": "Дома",
-    "commercial": "Коммерческая"
+    "commercial": "Коммерческая",
+    "rooms": "Кол-во комнат",
+    "price": "Стоимость, у.е",
+    "quadrature": "Квадратура, кв-м",
+    "floor": "Этаж",
+    "repair": "Ремонт",
+    "district": "Район",
+    "studio": "Студия"
   },
   "title": {
     "home": "Главная",

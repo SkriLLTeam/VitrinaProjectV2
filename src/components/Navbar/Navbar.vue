@@ -94,6 +94,8 @@ const isBurgerOpen = ref(false);
 const orderModalOpen = () => {
   isOrderModal.value = true;
   isBurgerOpen.value = false;
+
+  document.body.style.overflow = "hidden";
 };
 const burgerOpen = () => {
   if (!isBurgerOpen.value) {
@@ -106,6 +108,7 @@ const burgerOpen = () => {
 };
 const orderModalClose = () => {
   isOrderModal.value = false;
+  document.body.style.overflow = "auto";
 };
 
 const { locale } = useI18n();
@@ -113,7 +116,6 @@ const currentLanguage = ref(locale.value);
 const toggleLanguage = () => {
   locale.value = locale.value === "ru" ? "uz" : "ru";
   currentLanguage.value = locale.value;
- 
 };
 </script>
 

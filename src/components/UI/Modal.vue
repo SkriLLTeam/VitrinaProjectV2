@@ -9,15 +9,19 @@
       </div>
       <form @submit.prevent="submitForm" class="order__modal-form">
         <div class="order__modal-form-block">
-          <label class="order__modal-form_label"> Имя </label>
+          <label class="order__modal-form_label">
+            {{ $t("form.modal_name") }}
+          </label>
           <InputUI
             v-model="postObj.first_name"
             type="text"
-            placeholder="Укажите имя"
+            :placeholder="$t('form.modal_name_placeholder')"
           />
         </div>
         <div class="order__modal-form-block">
-          <label class="order__modal-form_label"> Контакты </label>
+          <label class="order__modal-form_label">
+            {{ $t("form.modal_contact") }}
+          </label>
           <InputUI
             v-model="postObj.phone_number"
             type="tel"
@@ -35,16 +39,22 @@
         </div>
 
         <div class="order__modal-form-block">
-          <label class="order__modal-form_label"> Примечание </label>
+          <label class="order__modal-form_label">
+            {{ $t("form.modal_textarea") }}
+          </label>
           <textarea
             type="text"
             class="order__modal-form_textarea"
-            placeholder="Укажите email"
+            :placeholder="$t('form.modal_textarea_placeholder')"
             v-model="postObj.message"
           ></textarea>
         </div>
         <div class="order__modal-block-btns">
-          <button class="revbtn order__modal-block-btn" type="reset">
+          <button
+            class="revbtn order__modal-block-btn"
+            type="button"
+            @click="resetForm"
+          >
             {{ $t("button.clear") }}
           </button>
           <button class="btn order__modal-block-btn" type="submit">
@@ -57,21 +67,24 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
 import { useQuery, useMutation } from "@tanstack/vue-query";
 import { categories, modalPost, postHeaders } from "@/utils/util";
+import { useI18n } from "vue-i18n";
 import axios from "axios";
 import InputUI from "./Forms/InputUI.vue";
 import SelectUI from "./Forms/SelectUI.vue";
 
+const { t } = useI18n();
+
 const selectedId = ref("default");
-const typeOperation = ref([
+const typeOperation = computed(() => [
   {
-    name: "покупка",
+    name: t("tabs.buy"),
     id: "buy",
   },
   {
-    name: "аренда",
+    name: t("tabs.rent"),
     id: "rent",
   },
 ]);
@@ -125,6 +138,18 @@ const mask = ref({
   mask: "+998 (00) 000-00-00",
   lazy: false,
 });
+
+const resetForm = () => {
+  postObj.value = {
+    first_name: "",
+    operation_type: "default",
+    object_type: "",
+    phone_number: "",
+    message: "",
+  };
+  selectedId.value = "default";
+};
+
 const emit = defineEmits(["orderModalClose"]);
 const closeModal = (val) => {
   emit("orderModalClose", val);

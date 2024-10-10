@@ -2,8 +2,7 @@
   <transition name="fade" mode="out-in">
     <div>
       <Loader v-if="isLoading" />
-
-      <div v-show="!isLoading" class="apartament container">
+      <div v-else class="apartament container">
         <div class="apartament__wrapper">
           <ApartamentSlider :gallery="data?.gallery" />
           <ApartamentUserInfo :userInfo="data" />
@@ -16,7 +15,7 @@
 </template>
 
 <script setup>
-import { watch } from "vue";
+import { watch, computed } from "vue";
 import { advertisements } from "@/utils/util";
 import { useRoute } from "vue-router";
 import { useQuery } from "@tanstack/vue-query";
@@ -28,15 +27,17 @@ import SimilarAds from "@/components/Apartament/SimilarAds.vue";
 import axios from "axios";
 
 const route = useRoute();
-const apartamentId = route.params.id;
+const apartamentId = computed(() => route.params.id);
 const { locale } = useI18n();
 
 const { data, isLoading, refetch } = useQuery({
-  queryKey: ["apartamentItem"],
+  queryKey: [apartamentId],
   queryFn: async () => {
-    const response = await axios.get(`${advertisements}/${apartamentId}`);
+    const response = await axios.get(`${advertisements}/${apartamentId.value}`);
     return response.data;
   },
+  keepPreviousData: true,
+  refetchOnWindowFocus: false,
 });
 
 watch(locale, () => {

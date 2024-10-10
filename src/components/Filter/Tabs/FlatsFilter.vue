@@ -1,43 +1,47 @@
 <template>
-  <form class="filter__form flats" @submit.prevent="applyFilters">
+  <form class="filter__form flats" @submit.prevent="">
     <div class="filter__form-desktop">
       <div class="filter__form-flats-top">
         <Checkboxes
-          labeltitle="Кол-во комнат"
+          :labeltitle="$t('tabs.rooms')"
           :checkboxes="checkboxes"
           @toggleCheckbox="toggleCheckbox"
         />
         <FromTo
+          ref="priceRef"
           filterFromKey="price_from"
           filterToKey="price_to"
-          labeltitle="Стоимость, у.е"
+          :labeltitle="$t('tabs.price')"
         />
         <FromTo
+          ref="quadratureRef"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
-          labeltitle="Квадратура, кв-м"
+          :labeltitle="$t('tabs.quadrature')"
         />
       </div>
       <div class="filter__form-flats-bottom">
         <FromTo
+          ref="floorRef"
           filterFromKey="floor_from"
           filterToKey="floor_to"
-          labeltitle="Этаж"
+          :labeltitle="$t('tabs.floor')"
         />
         <FilterSelect
-          labeltitle="Ремонт"
+          ref="selectRepair"
           filterKey="repair_type"
-          :list="repairList"
+          :labeltitle="$t('tabs.repair')"
         />
         <FilterSelect
+          ref="selectDistrict"
           filterKey="district"
-          labeltitle="Район"
+          :labeltitle="$t('tabs.district')"
           :list="districts"
         />
-        <button class="btn filter__form-btn" type="submit">
+        <button class="btn filter__form-btn" @click="applyFilters">
           {{ $t("button.show_result") }}
         </button>
-        <button class="revbtn filter__form-btn">
+        <button class="revbtn filter__form-btn" @click="resetAll">
           {{ $t("button.clear") }}
         </button>
       </div>
@@ -46,39 +50,46 @@
     <div class="filter__form-mob">
       <div class="filter__form-flats-top">
         <Checkboxes
-          labeltitle="Кол-во комнат"
+          :labeltitle="$t('tabs.rooms')"
           :checkboxes="checkboxes"
           @toggleCheckbox="toggleCheckbox"
         />
         <FromTo
+          ref="priceRefMob"
           filterFromKey="price_from"
           filterToKey="price_to"
-          labeltitle="Стоимость, у.е"
+          :labeltitle="$t('tabs.price')"
         />
         <FromTo
+          ref="quadratureRefMob"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
-          labeltitle="Квадратура, кв-м"
+          :labeltitle="$t('tabs.quadrature')"
         />
         <FromTo
+          ref="floorRefMob"
           filterFromKey="floor_from"
           filterToKey="floor_to"
-          labeltitle="Этаж"
+          :labeltitle="$t('tabs.floor')"
         />
         <FilterSelect
-          labeltitle="Ремонт"
+          ref="selectRepairMob"
+          :labeltitle="$t('tabs.repair')"
           filterKey="repair_type"
           :list="repairList"
         />
         <FilterSelect
+          ref="selectDistrictMob"
           filterKey="district"
-          labeltitle="Район"
+          :labeltitle="$t('tabs.district')"
           :list="districts"
         />
         <button class="btn filter__form-btn" @click="applyFilters">
-          Показать результаты
+          {{ $t("button.show_result") }}
         </button>
-        <button class="revbtn filter__form-btn">Очистить</button>
+        <button class="revbtn filter__form-btn" @click="resetAll">
+          {{ $t("button.clear") }}
+        </button>
       </div>
     </div>
   </form>
@@ -86,10 +97,38 @@
 
 <script setup>
 import { ref } from "vue";
+import { useFiltersStore } from "@/stores/FiltersStore";
 import Checkboxes from "../Checkboxes/Checkboxes.vue";
 import FromTo from "../FromTo/FromTo.vue";
 import FilterSelect from "../Selects/FilterSelect.vue";
 
+const priceRef = ref(null);
+const quadratureRef = ref(null);
+const floorRef = ref(null);
+const priceRefMob = ref(null);
+const quadratureRefMob = ref(null);
+const floorRefMob = ref(null);
+const selectRepair = ref(null);
+const selectDistrict = ref(null);
+const selectRepairMob = ref(null);
+const selectDistrictMob = ref(null);
+const filterStore = useFiltersStore();
+
+const resetAll = () => {
+  if (priceRef.value) priceRef.value.resetValues();
+  if (quadratureRef.value) quadratureRef.value.resetValues();
+  if (floorRef.value) floorRef.value.resetValues();
+  if (priceRefMob.value) priceRefMob.value.resetValues();
+  if (quadratureRefMob.value) quadratureRefMob.value.resetValues();
+  if (floorRefMob.value) floorRefMob.value.resetValues();
+  if (selectRepair.value) selectRepair.value.resetValues();
+  if (selectDistrict.value) selectDistrict.value.resetValues();
+  if (selectRepairMob.value) selectRepairMob.value.resetValues();
+  if (selectDistrictMob.value) selectDistrictMob.value.resetValues();
+
+  filterStore.resetFilters();
+  emit("applyFilters");
+};
 const props = defineProps({
   rent: Boolean,
   sold: Boolean,
@@ -107,6 +146,7 @@ const repairList = ref([
 ]);
 
 const emit = defineEmits(["applyFilters"]);
+
 const applyFilters = () => {
   emit("applyFilters");
 };
