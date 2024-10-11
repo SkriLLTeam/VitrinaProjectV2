@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const useFiltersStore = defineStore("FiltersStore", {
   state: () => ({
     filters: {
-      operation_type: null,
+      operation_type: "buy",
       category: null,
       rooms: null,
       is_studio: null,
@@ -28,7 +28,7 @@ export const useFiltersStore = defineStore("FiltersStore", {
 
     resetFilters() {
       this.filters = {
-        operation_type: null,
+        operation_type: "buy",
         category: null,
         rooms: null,
         is_studio: null,
