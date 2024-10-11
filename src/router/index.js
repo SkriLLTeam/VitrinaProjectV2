@@ -51,11 +51,6 @@ const router = createRouter({
       component: () => import("@/views/NotFoundPage.vue"),
     },
   ],
-
-
-  scrollBehavior() {
-    return { top: 0 };
-  },
 });
 
 router.afterEach((to) => {
