@@ -15,6 +15,8 @@ export const useFiltersStore = defineStore("FiltersStore", {
       floor_to: null,
       repair_type: null,
       district: null,
+      house_quadrature_from: null,
+      house_quadrature_to: null,
     },
   }),
   actions: {

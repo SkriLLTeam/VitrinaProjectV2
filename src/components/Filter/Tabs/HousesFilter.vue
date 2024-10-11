@@ -8,8 +8,12 @@
           filterToKey="quadrature_to"
           labeltitle="Квадратура, кв-м"
         />
-        <!-- не делал так как нет ключа площади  -->
-        <FromTo labeltitle="Площадь участка, сот." />
+        <FromTo
+          ref="houseQuadrature"
+          filterFromKey="house_quadrature_from"
+          filterToKey="house_quadrature_to"
+          labeltitle="Площадь участка, сот."
+        />
       </div>
       <div class="filter__form-newbuilding-bottom">
         <FromTo
@@ -40,8 +44,12 @@
           filterToKey="quadrature_to"
           labeltitle="Квадратура, кв-м"
         />
-        <!-- не делал так как нет ключа площади  -->
-        <FromTo labeltitle="Площадь участка, сот." />
+        <FromTo
+          ref="houseQuadratureMob"
+          filterFromKey="house_quadrature_from"
+          filterToKey="house_quadrature_to"
+          labeltitle="Площадь участка, сот."
+        />
         <FromTo
           ref="priceRefMob"
           filterFromKey="price_from"
@@ -77,6 +85,8 @@ const priceRefMob = ref(null);
 const quadratureRefMob = ref(null);
 const selectDistrict = ref(null);
 const selectDistrictMob = ref(null);
+const houseQuadrature = ref(null);
+const houseQuadratureMob = ref(null);
 const filterStore = useFiltersStore();
 const props = defineProps({
   rent: Boolean,
@@ -91,6 +101,8 @@ const resetAll = () => {
   if (quadratureRefMob.value) quadratureRefMob.value.resetValues();
   if (selectDistrict.value) selectDistrict.value.resetValues();
   if (selectDistrictMob.value) selectDistrictMob.value.resetValues();
+  if (houseQuadrature.value) houseQuadrature.value.resetValues();
+  if (houseQuadratureMob.value) houseQuadratureMob.value.resetValues();
   filterStore.resetFilters();
   emit("applyFilters");
 };

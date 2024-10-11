@@ -2,8 +2,16 @@
   <div class="filter__form-block">
     <label class="filter__form-block-label"> {{ labeltitle }} </label>
     <div class="filter__form-from-to">
-      <InputUI v-model="fromValue" :placeholder="$t('form.from')" :required="false" />
-      <InputUI v-model="toValue" :placeholder="$t('form.to')" :required="false" />
+      <InputUI
+        v-model="fromValue"
+        :placeholder="$t('form.from')"
+        :required="false"
+      />
+      <InputUI
+        v-model="toValue"
+        :placeholder="$t('form.to')"
+        :required="false"
+      />
     </div>
   </div>
 </template>
