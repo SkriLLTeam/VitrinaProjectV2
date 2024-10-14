@@ -34,7 +34,6 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
 import { useFiltersStore } from "@/stores/FiltersStore";
 import CardUi from "../UI/CardUi.vue";
 import Paginate from "vuejs-paginate-next";

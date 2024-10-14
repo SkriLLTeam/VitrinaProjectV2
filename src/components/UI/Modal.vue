@@ -103,6 +103,8 @@ const { data: modalCategories } = useQuery({
     const response = await axios.get(`${categories}`);
     return response.data;
   },
+  refetchOnWindowFocus: false
+
 });
 
 watch(selectedId, (newValue) => {

@@ -63,6 +63,7 @@ const { data: disctrictsData } = useQuery({
     const response = await axios.get(`${districts}`);
     return response.data;
   },
+  refetchOnWindowFocus: false,
 });
 const totalPages = computed(() => {
   if (advertisementsData?.value?.count) {

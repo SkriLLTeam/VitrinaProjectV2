@@ -6,11 +6,13 @@
         v-model="fromValue"
         :placeholder="$t('form.from')"
         :required="false"
+        v-mask="maskOptions"
       />
       <InputUI
         v-model="toValue"
         :placeholder="$t('form.to')"
         :required="false"
+        v-mask="maskOptions"
       />
     </div>
   </div>
@@ -47,6 +49,15 @@ const resetValues = () => {
 };
 defineExpose({
   resetValues,
+});
+
+const maskOptions = ref({
+  mask: Number, // Числовой ввод
+  signed: false, // Без отрицательных чисел
+  thousandsSeparator: " ", // Разделитель тысяч — пробел
+  radix: ",", // Разделитель десятичных знаков — запятая
+  mapToRadix: ["."], // Учитываем точку как разделитель
+  min: 0,
 });
 </script>
 
