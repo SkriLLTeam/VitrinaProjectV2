@@ -124,6 +124,7 @@ const updateActiveTab = (index) => {
   const selectedTabId = tabs[index].id;
   category.value = selectedTabId;
   filterStore.updateFilter("category", selectedTabId);
+  filterStore.resetFilters();
 };
 
 const toggleCheckbox = (index) => {
