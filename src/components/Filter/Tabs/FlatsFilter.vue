@@ -31,6 +31,7 @@
           ref="selectRepair"
           filterKey="repair_type"
           :labeltitle="$t('tabs.repair')"
+          :list="repairList"
         />
         <FilterSelect
           ref="selectDistrict"
