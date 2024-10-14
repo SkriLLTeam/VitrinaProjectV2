@@ -108,6 +108,7 @@ const props = defineProps({
   districts: Array,
   checkboxes: Array,
   toggleCheckbox: Function,
+  selectedOperation: String,
 });
 const resetAll = () => {
   if (priceRef.value) priceRef.value.resetValues();
@@ -119,11 +120,11 @@ const resetAll = () => {
   if (selectDistrict.value) selectDistrict.value.resetValues();
   if (selectDistrictMob.value) selectDistrictMob.value.resetValues();
   filterStore.resetFilters();
-  emit("applyFilters");
 };
-
-const emit = defineEmits(["applyFilters"]);
 const applyFilters = () => {
-  emit("applyFilters");
+  filterStore.updateFilter("operation_type", props.selectedOperation);
+  filterStore.triggerRefetch();
+  filterStore.hideTitle();
+  filterStore.currentPage = 1;
 };
 </script>

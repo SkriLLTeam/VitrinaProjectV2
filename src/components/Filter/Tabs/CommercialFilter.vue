@@ -83,6 +83,7 @@ const selectDistrictMob = ref(null);
 const filterStore = useFiltersStore();
 const props = defineProps({
   districts: Array,
+  selectedOperation: String,
 });
 
 const resetAll = () => {
@@ -93,11 +94,13 @@ const resetAll = () => {
   if (selectDistrict.value) selectDistrict.value.resetValues();
   if (selectDistrictMob.value) selectDistrictMob.value.resetValues();
   filterStore.resetFilters();
-  emit("applyFilters");
 };
 
-const emit = defineEmits(["applyFilters"]);
 const applyFilters = () => {
-  emit("applyFilters");
+  filterStore.updateFilter("operation_type", props.selectedOperation);
+  filterStore.triggerRefetch();
+  filterStore.hideTitle();
+  filterStore.currentPage = 1
+
 };
 </script>

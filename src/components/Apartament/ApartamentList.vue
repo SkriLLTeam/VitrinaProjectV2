@@ -1,20 +1,26 @@
 <template>
   <section class="apartament__list container">
-    <h2 v-if="!isFilterActive" class="apartament__list-title">
+    <h2 v-if="filterStore.isTitleVisible" class="apartament__list-title">
       {{ $t("contents.title_home") }}
     </h2>
 
     <div class="apartament__list-wrapper">
-      <div class="apartament__list-wrapper-inner">
+      <div
+        v-if="apartamentList && apartamentList.length"
+        class="apartament__list-wrapper-inner"
+      >
         <CardUi
           v-for="apartament in apartamentList"
           :key="apartament.id"
           :apartament="apartament"
         />
       </div>
+      <div v-else class="apartament__list-wrapper-nothing">
+        <p>Ничего не найдено</p>
+      </div>
       <Paginate
-        :force-page="currentPage"
         :page-count="totalPages"
+        :force-page="computedPage"
         :click-handler="changePage"
         :container-class="'apartament__list-wrapper-pagination'"
         :prev-text="prevIcon"
@@ -28,9 +34,11 @@
 </template>
 
 <script setup>
+import { ref, computed } from "vue";
+import { useFiltersStore } from "@/stores/FiltersStore";
 import CardUi from "../UI/CardUi.vue";
 import Paginate from "vuejs-paginate-next";
-
+const filterStore = useFiltersStore();
 const props = defineProps({
   apartamentList: {
     type: Array,
@@ -41,7 +49,7 @@ const props = defineProps({
   isFilterActive: {
     type: Boolean,
   },
-  currentPage: {
+  computedPage: {
     type: Number,
   },
 });

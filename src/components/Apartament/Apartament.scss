@@ -338,8 +338,11 @@
     }
 
     &-wrapper {
+      position: relative;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
       gap: 100px;
       @include media(992) {
         gap: 40px;
@@ -356,6 +359,14 @@
           grid-template-columns: repeat(1, minmax(290px, 1fr));
         }
       }
+
+      &-nothing {
+        color: #343434;
+        font-size: clamp(1.5rem, 1.125rem + 1.88vw, 3.375rem);
+        font-weight: 600;
+        line-height: normal;
+      }
+
       &-pagination {
         display: flex;
         align-items: center;

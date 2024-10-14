@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const useFiltersStore = defineStore("FiltersStore", {
   state: () => ({
     filters: {
-      operation_type: "buy",
+      operation_type: null,
       category: null,
       rooms: null,
       is_studio: null,
@@ -18,6 +18,9 @@ export const useFiltersStore = defineStore("FiltersStore", {
       house_quadrature_from: null,
       house_quadrature_to: null,
     },
+    isTitleVisible: true,
+    refetchFn: null,
+    currentPage: 1,
   }),
   actions: {
     updateFilter(key, value) {
@@ -25,10 +28,9 @@ export const useFiltersStore = defineStore("FiltersStore", {
         this.filters[key] = value;
       }
     },
-
     resetFilters() {
       this.filters = {
-        operation_type: "buy",
+        operation_type: null,
         category: null,
         rooms: null,
         is_studio: null,
@@ -41,6 +43,24 @@ export const useFiltersStore = defineStore("FiltersStore", {
         repair_type: null,
         district: null,
       };
+      this.currentPage = 1;
+      this.isTitleVisible = true;
+      this.triggerRefetch();
+    },
+    hideTitle() {
+      this.isTitleVisible = false;
+    },
+    setRefetch(refetch) {
+      this.refetchFn = refetch;
+    },
+
+    triggerRefetch() {
+      if (this.refetchFn) {
+        this.refetchFn();
+      }
+    },
+    setCurrentPage(page) {
+      this.currentPage = page;
     },
   },
 });

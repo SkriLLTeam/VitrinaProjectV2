@@ -6,13 +6,12 @@
         <Banner subClass="banner__wrapper" mainClass="banner">
           <h1 class="banner__title">{{ $t("banners.home_banner") }}</h1>
         </Banner>
-        <Filter :disctrictsData="disctrictsData" @applyFilters="applyFilters" />
+        <Filter :disctrictsData="disctrictsData" />
         <ApartamentList
-          :isFilterActive="isFilterActive"
           :totalPages="totalPages"
           @changePage="handlePageChange"
           :apartamentList="advertisementsData?.results"
-          :currentPage="currentPage"
+          :currentPage="computedPage"
         />
       </div>
     </div>
@@ -28,21 +27,20 @@ import axios from "axios";
 import ApartamentList from "@/components/Apartament/ApartamentList.vue";
 import Filter from "@/components/Filter/Filter.vue";
 import Banner from "@/components/UI/Banner.vue";
-// import Test from "@/components/UI/Test.vue";
-const isFilterActive = ref(false);
-const currentPage = ref(1);
 const limit = 15;
 const filterStore = useFiltersStore();
+const computedPage = computed(() => filterStore.currentPage);
+
 const {
   data: advertisementsData,
   refetch,
   isLoading,
 } = useQuery({
-  queryKey: [currentPage],
+  queryKey: [computedPage],
   queryFn: async () => {
     const params = new URLSearchParams();
     params.append("limit", limit);
-    params.append("offset", (currentPage.value - 1) * limit);
+    params.append("offset", (filterStore.currentPage - 1) * limit);
     const filters = filterStore.filters;
     for (const key in filters) {
       if (filters[key] !== null && filters[key] !== undefined) {
@@ -74,20 +72,10 @@ const totalPages = computed(() => {
 });
 
 const handlePageChange = (newPage) => {
-  currentPage.value = newPage;
+  filterStore.setCurrentPage(newPage);
 };
 
-const applyFilters = () => {
-  console.log("applyFilters called in Home component");
-  currentPage.value = 1;
-  isFilterActive.value = !isFilterActive.value;
-
-  refetch();
-};
-
-watch(currentPage, (newValue, oldValue) => {
-  console.log(`Current page changed from ${oldValue} to ${newValue}`);
-});
+filterStore.setRefetch(refetch);
 </script>
 
 <style lang="scss" scoped>

@@ -114,6 +114,24 @@ const selectRepairMob = ref(null);
 const selectDistrictMob = ref(null);
 const filterStore = useFiltersStore();
 
+const props = defineProps({
+  rent: Boolean,
+  sold: Boolean,
+  districts: Array,
+  toggleCheckbox: Function,
+  checkboxes: Array,
+  selectedOperation: String,
+  category: Number,
+});
+
+const repairList = ref([
+  { name: "С ремонтом", id: "with" },
+  { name: "Без ремонта", id: "without" },
+  { name: "Дизайнерский ремонт", id: "designed" },
+  { name: "Черновая", id: "rough" },
+  { name: "Предчистовая", id: "pre_finished" },
+]);
+
 const resetAll = () => {
   if (priceRef.value) priceRef.value.resetValues();
   if (quadratureRef.value) quadratureRef.value.resetValues();
@@ -127,27 +145,13 @@ const resetAll = () => {
   if (selectDistrictMob.value) selectDistrictMob.value.resetValues();
 
   filterStore.resetFilters();
-  emit("applyFilters");
 };
-const props = defineProps({
-  rent: Boolean,
-  sold: Boolean,
-  districts: Array,
-  toggleCheckbox: Function,
-  checkboxes: Array,
-});
-
-const repairList = ref([
-  { name: "С ремонтом", id: "with" },
-  { name: "Без ремонта", id: "without" },
-  { name: "Дизайнерский ремонт", id: "designed" },
-  { name: "Черновая", id: "rough" },
-  { name: "Предчистовая", id: "pre_finished" },
-]);
-
-const emit = defineEmits(["applyFilters"]);
 
 const applyFilters = () => {
-  emit("applyFilters");
+  filterStore.updateFilter("operation_type", props.selectedOperation);
+  filterStore.updateFilter("category", props.category);
+  filterStore.triggerRefetch();
+  filterStore.hideTitle();
+  filterStore.currentPage = 1
 };
 </script>

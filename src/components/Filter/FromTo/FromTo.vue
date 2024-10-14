@@ -32,10 +32,13 @@ const props = defineProps({
   filterToKey: String,
 });
 
-// Следим за изменением полей и обновляем стор
 watch([fromValue, toValue], ([newFrom, newTo]) => {
-  filterStore.updateFilter(props.filterFromKey, newFrom);
-  filterStore.updateFilter(props.filterToKey, newTo);
+  const sanitizedFrom = newFrom ? newFrom.toString().replace(/\D/g, "") : null;
+  const sanitizedTo = newTo ? newTo.toString().replace(/\D/g, "") : null;
+
+  // Обновляем стор с очищенными данными
+  filterStore.updateFilter(props.filterFromKey, sanitizedFrom);
+  filterStore.updateFilter(props.filterToKey, sanitizedTo);
 });
 
 const resetValues = () => {

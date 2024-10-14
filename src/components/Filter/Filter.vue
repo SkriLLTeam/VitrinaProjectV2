@@ -38,9 +38,10 @@
             :sold="sold"
             :rent="rent"
             :districts="disctrictsData"
-            @applyFilters="emitApplyFilters"
             :toggleCheckbox="toggleCheckbox"
             :checkboxes="checkboxes"
+            :selectedOperation="selectedOperation"
+            :category="category"
           ></component>
         </transition>
       </div>
@@ -49,13 +50,15 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { useFiltersStore } from "@/stores/FiltersStore";
 import Tab1 from "./Tabs/FlatsFilter.vue";
 import Tab2 from "./Tabs/NewBuildingsFilter.vue";
 import Tab3 from "./Tabs/HousesFilter.vue";
 import Tab4 from "./Tabs/CommercialFilter.vue";
 
+const selectedOperation = ref("buy");
+const category = ref(1);
 const props = defineProps({
   disctrictsData: {
     type: Array,
@@ -112,13 +115,14 @@ const selectOperation = (type) => {
     sold.value = false;
     rent.value = true;
   }
-  filterStore.updateFilter("operation_type", type);
+  selectedOperation.value = type;
   activeTab.value = 0;
 };
 
 const updateActiveTab = (index) => {
   activeTab.value = index;
   const selectedTabId = tabs[index].id;
+  category.value = selectedTabId;
   filterStore.updateFilter("category", selectedTabId);
 };
 
@@ -136,11 +140,6 @@ const toggleCheckbox = (index) => {
       selectedRooms.length ? selectedRooms : null
     );
   }
-};
-
-const emit = defineEmits(["applyFilters"]);
-const emitApplyFilters = () => {
-  emit("applyFilters");
 };
 </script>
 
