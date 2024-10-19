@@ -372,10 +372,10 @@ const overpayment = ref(null);
 // Функция для расчета ипотеки
 const calculateMortgage = () => {
   // Конвертируем значения в числа
-  const propertyValueNum = parseFloat(+propertyValue.value);
-  const initialPaymentNum = parseFloat(+initialPayment.value);
-  const loanTermYearsNum = parseInt(+loanTermYears.value);
-  const interestRateNum = parseFloat(+interestRate.value);
+  const propertyValueNum = +propertyValue.value;
+  const initialPaymentNum = +initialPayment.value;
+  const loanTermYearsNum = +loanTermYears.value;
+  const interestRateNum = +interestRate.value;
 
   // Валидация введенных данных
   if (
