@@ -95,21 +95,21 @@ const overpayment = ref(null);
 // Функция для расчета ипотеки
 const calculateMortgage = () => {
   // Конвертируем значения в числа
-  const propertyValueNum = +propertyValue.value;
-  const initialPaymentNum = +initialPayment.value;
-  const loanTermYearsNum = +loanTermYears.value;
-  const interestRateNum = +interestRate.value;
+  const propertyValueNum = propertyValue.value;
+  const initialPaymentNum = initialPayment.value;
+  const loanTermYearsNum = loanTermYears.value;
+  const interestRateNum = interestRate.value;
 
   // Валидация введенных данных
-  if (
-    propertyValueNum <= 0 ||
-    initialPaymentNum < 0 ||
-    loanTermYearsNum <= 0 ||
-    interestRateNum < 0
-  ) {
-    alert("Пожалуйста, введите корректные значения");
-    return;
-  }
+  // if (
+  //   propertyValueNum <= 0 ||
+  //   initialPaymentNum <= 0 ||
+  //   loanTermYearsNum <= 0 ||
+  //   interestRateNum <= 0
+  // ) {
+  //   alert("Пожалуйста, введите корректные значения");
+  //   return;
+  // }
 
   const loanAmount = propertyValueNum - initialPaymentNum; // Сумма кредита
   const monthlyInterestRate = interestRateNum / 100 / 12; // Месячная процентная ставка
