@@ -6,7 +6,7 @@
     </div>
     <Footer />
   </div>
-  <Test />
+  <!-- <Test /> -->
 </template>
 
 <script setup>

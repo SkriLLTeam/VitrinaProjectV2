@@ -21,13 +21,23 @@
         </div>
 
         <div class="apartament__user-content-info-btns">
-          <button
-            class="apartament__user-content-info-btns-number"
-            @click="show"
-          >
-          {{ showNumber && userInfo?.user?.phone_number ? userInfo.user.phone_number : "Показать номер" }}
-        </button>
-          
+          <div class="apartament__user-content-info-btns-wrapper">
+            <button
+              v-if="!showNumber || !userInfo?.user?.phone_number"
+              class="apartament__user-content-info-btns-number"
+              @click="show"
+            >
+              Показать номер
+            </button>
+            <a
+              v-else-if="showNumber && userInfo?.user?.phone_number"
+              class="apartament__user-content-info-btns-number"
+              :href="`tel:${userInfo?.user?.phone_number}`"
+            >
+              {{ userInfo?.user?.phone_number }}
+            </a>
+          </div>
+
           <button
             @click="orderModalOpen"
             class="apartament__user-content-info-btns-call"

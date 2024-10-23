@@ -11,61 +11,106 @@
       </h3>
 
       <div class="mortgage__calculator-inner">
-        <form @click.prevent class="mortgage__calculator-inner-form">
+        <form
+          @submit.prevent="calculateMortgage"
+          class="mortgage__calculator-inner-form"
+        >
           <div class="mortgage__calculator-inner-form-content">
-            <div class="mortgage__calculator-inner-form-content-block">
-              <label>{{ $t("form.type_statement") }}</label>
-              <SelectUI :options="estateList" />
-            </div>
             <div class="mortgage__calculator-inner-form-content-block">
               <label>{{ $t("form.price_statement") }}</label>
               <InputUI
                 type="text"
-                placeholder="000000000 у.е."
-                v-model="postObj.price"
+                placeholder="000000000 сум"
+                v-model="propertyValue"
+                :required="true"
+                v-mask="maskOptions"
               />
             </div>
+
             <div class="mortgage__calculator-inner-form-content-block">
               <label>{{ $t("form.in_year") }}</label>
-              <InputUI type="text" placeholder="30" v-model="postObj.year" />
+              <InputUI
+                :required="true"
+                type="text"
+                placeholder="30"
+                v-model="loanTermYears"
+                v-mask="maskOptions"
+              />
             </div>
+
             <div class="mortgage__calculator-inner-form-content-block">
               <label>{{ $t("form.down_payment") }}</label>
               <InputUI
                 type="text"
-                placeholder="000000000 у.е."
-                v-model="postObj.down_payment"
+                placeholder="000000000 сум"
+                v-model="initialPayment"
+                :required="true"
+                v-mask="maskOptions"
               />
             </div>
             <div class="mortgage__calculator-inner-form-content-block">
               <label>{{ $t("form.percent") }}</label>
               <InputUI
                 type="text"
-                placeholder="000000000 у.е."
-                v-model="postObj.percent"
+                placeholder="000000000 сум"
+                v-model="interestRate"
+                :required="true"
+                v-mask="percentMaskOptions"
               />
             </div>
           </div>
 
-          <button class="mortgage__calculator-inner-form-btn">
+          <button type="submit" class="mortgage__calculator-inner-form-btn">
             {{ $t("button.calculate_the_bet") }}
           </button>
         </form>
-
-        <div class="mortgage__calculator-inner-calculations">
-          <div
-            class="mortgage__calculator-inner-calculations-block"
-            v-for="(calculate, index) in calculations"
-            :key="index"
-          >
-            <span class="mortgage__calculator-inner-calculations-block-title"
-              >{{ calculate.title }} {{$t('description.currency')}}</span
+        <div
+          v-if="monthlyPayment !== null"
+          class="mortgage__calculator-inner-calculations"
+        >
+          <div class="mortgage__calculator-inner-calculations-block">
+            <span class="mortgage__calculator-inner-calculations-block-title">
+              {{ monthlyPayment.toLocaleString("ru-RU") }}
+              сум</span
             >
             <span
               class="mortgage__calculator-inner-calculations-block-subtitle"
             >
-              {{ $t(calculate.subtitle) }}</span
+              Ежемесячный платеж
+            </span>
+          </div>
+          <div class="mortgage__calculator-inner-calculations-block">
+            <span class="mortgage__calculator-inner-calculations-block-title">
+              {{ sumTotal.toLocaleString("ru-RU") }}
+              сум
+            </span>
+            <span
+              class="mortgage__calculator-inner-calculations-block-subtitle"
             >
+              Сумма кредита
+            </span>
+          </div>
+          <div class="mortgage__calculator-inner-calculations-block">
+            <span class="mortgage__calculator-inner-calculations-block-title">
+              {{ overpayment.toLocaleString("ru-RU") }}
+              сум</span
+            >
+            <span
+              class="mortgage__calculator-inner-calculations-block-subtitle"
+            >
+              Переплата по кредиту
+            </span>
+          </div>
+          <div class="mortgage__calculator-inner-calculations-block">
+            <span class="mortgage__calculator-inner-calculations-block-title">
+              {{ totalPayment.toLocaleString("ru-RU") }}
+              сум</span
+            >
+            <span
+              class="mortgage__calculator-inner-calculations-block-subtitle"
+            >
+              Общая выплата
+            </span>
           </div>
         </div>
       </div>
@@ -76,34 +121,70 @@
 <script setup>
 import { ref } from "vue";
 import InputUI from "../UI/Forms/InputUI.vue";
-import SelectUI from "../UI/Forms/SelectUI.vue";
+// Реактивные переменные для ввода данных
+const propertyValue = ref(null); // Стоимость недвижимости
+const initialPayment = ref(null); // Первоначальный взнос
+const loanTermYears = ref(null); // Срок кредита
+const interestRate = ref(null); // Процентная ставка (годовая)
 
-const estateList = ref(["Коммерческая", "Вторичная"]);
-const postObj = ref({
-  price: "",
-  year: "",
-  down_payment: "",
-  percent: "",
+// Переменные для хранения результатов
+const monthlyPayment = ref(null);
+const totalPayment = ref(null);
+const overpayment = ref(null);
+const sumTotal = ref(null);
+// Функция для расчета ипотеки
+const calculateMortgage = () => {
+  // Конвертируем значения в числа
+  const propertyValueNum = +propertyValue.value.replace(/\s/g, "");
+  const initialPaymentNum = +initialPayment.value.replace(/\s/g, "");
+  const loanTermYearsNum = +loanTermYears.value.replace(/\s/g, "");
+  const interestRateNum = +interestRate.value.replace(/\s/g, "");
+  const total = +propertyValue.value.replace(/\s/g, "");
+  const loanAmount = propertyValueNum - initialPaymentNum; // Сумма кредита
+  const monthlyInterestRate = interestRateNum / 100 / 12; // Месячная процентная ставка
+  const numberOfPayments = loanTermYearsNum * 12; // Общее количество месяцев
+
+  // Если процентная ставка не равна 0, используем формулу аннуитета
+  // аннуитет - это ежемесечная выплата по кридиту
+  if (monthlyInterestRate > 0) {
+    monthlyPayment.value = Math.floor(
+      (loanAmount *
+        (monthlyInterestRate *
+          Math.pow(1 + monthlyInterestRate, numberOfPayments))) /
+        (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1)
+    );
+  } else {
+    // Если ставка равна 0, то простой расчет без процентов
+    monthlyPayment.value = Math.floor(loanAmount / numberOfPayments);
+  }
+
+  // Общая сумма выплат
+  totalPayment.value = Math.floor(monthlyPayment.value * numberOfPayments);
+
+  // Переплата по кредиту
+  overpayment.value = Math.floor(totalPayment.value - loanAmount);
+
+  sumTotal.value = total;
+};
+
+const maskOptions = ref({
+  mask: Number, // Числовой ввод
+  signed: false, // Без отрицательных чисел
+  thousandsSeparator: " ", // Разделитель тысяч — пробел
+  radix: ",", // Разделитель десятичных знаков — запятая
+  mapToRadix: ["."], // Учитываем точку как разделитель
+  min: 0,
 });
 
-const calculations = ref([
-  {
-    title: "500 000 000",
-    subtitle: "form.monthly_payment",
-  },
-  {
-    title: "500 000 000",
-    subtitle: "form.loan_amount",
-  },
-  {
-    title: "500 000 000",
-    subtitle: "form.overpayment",
-  },
-  {
-    title: "500 000 000",
-    subtitle: "form.total_amount",
-  },
-]);
+const percentMaskOptions = ref({
+  mask: Number, // Числовая маска
+  signed: false, // Без отрицательных чисел
+  min: 0, // Минимум 0
+  max: 30, // Максимум 30
+  thousandsSeparator: "", // Без разделителя тысяч
+  radix: ",", // Разделитель десятичных знаков — запятая
+  mapToRadix: ["."], // Учитываем точку как разделитель
+});
 </script>
 
 <style lang="scss" scoped></style>

@@ -126,7 +126,7 @@
         &-content {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
-          grid-template-rows: repeat(3, 1fr);
+          grid-template-rows: repeat(2, 1fr);
           column-gap: 23px;
           row-gap: 40px;
           @include media(490) {

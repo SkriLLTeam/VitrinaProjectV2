@@ -28,9 +28,32 @@
           {{ $t("button.request") }}
         </button>
 
-        <button @click="toggleLanguage">
-          {{ currentLanguage.toUpperCase() }}
-        </button>
+        <div class="header__nav-right-wrapper-drop">
+          <button
+            class="header__nav-right-wrapper-drop-btn"
+            @click="toggleDropdown"
+          >
+            {{ currentLanguage.toUpperCase() }}
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="10"
+              height="5"
+              viewBox="0 0 10 5"
+              fill="none"
+            >
+              <path d="M0 0L5 5L10 0H0Z" fill="white" />
+            </svg>
+          </button>
+
+          <div
+            v-if="isDropdownOpen"
+            class="header__nav-right-wrapper-drop-menu"
+          >
+            <span @click="changeLanguage('ru')">Русский язык</span>
+            <span @click="changeLanguage('uz')">O’zbek tili</span>
+          </div>
+        </div>
       </div>
     </nav>
 
@@ -39,10 +62,40 @@
         <router-link to="/" class="header__nav-logo">
           <img src="@assets/images/logo.svg" alt="" />
         </router-link>
-        <button class="header__mob-burger__btn" @click="burgerOpen">
-          <img src="@assets/images/icons/bar.svg" alt="" v-if="!isBurgerOpen" />
-          <img src="@assets/images/icons/close.svg" alt="" v-else />
-        </button>
+
+        <div class="header__mob-wrapper">
+          <div class="header__mob-wrapper-drop">
+            <button
+              class="header__mob-wrapper-drop-btn"
+              @click="toggleDropdown"
+            >
+              {{ currentLanguage.toUpperCase() }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="10"
+                height="5"
+                viewBox="0 0 10 5"
+                fill="none"
+              >
+                <path d="M0 0L5 5L10 0H0Z" fill="white" />
+              </svg>
+            </button>
+
+            <div class="header__mob-wrapper-drop-menu" v-if="isDropdownOpen">
+              <span @click="changeLanguage('ru')">Русский язык</span>
+              <span @click="changeLanguage('uz')">O’zbek tili</span>
+            </div>
+          </div>
+
+          <button class="header__mob-burger__btn" @click="burgerOpen">
+            <img
+              src="@assets/images/icons/bar.svg"
+              alt=""
+              v-if="!isBurgerOpen"
+            />
+            <img src="@assets/images/icons/close.svg" alt="" v-else />
+          </button>
+        </div>
       </div>
       <div class="header__mob-burger" v-if="isBurgerOpen">
         <div class="header__mob-burger-block">
@@ -113,9 +166,15 @@ const orderModalClose = () => {
 
 const { locale } = useI18n();
 const currentLanguage = ref(locale.value);
-const toggleLanguage = () => {
-  locale.value = locale.value === "ru" ? "uz" : "ru";
+const isDropdownOpen = ref(false);
+
+const toggleDropdown = () => {
+  isDropdownOpen.value = !isDropdownOpen.value;
+};
+const changeLanguage = (lang) => {
+  locale.value = lang;
   currentLanguage.value = locale.value;
+  isDropdownOpen.value = false;
 };
 </script>
 

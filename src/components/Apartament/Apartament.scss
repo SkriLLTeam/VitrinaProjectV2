@@ -200,6 +200,8 @@
             gap: 10px;
           }
           &-number {
+            text-align: center;
+            display: inline-block;
             color: #08a1c1;
             font-size: clamp(0.75rem, 0.675rem + 0.38vw, 1.125rem);
             font-weight: 500;
@@ -208,6 +210,7 @@
             padding: 8px 16px;
             border-radius: 8px;
             border: 1px solid #08a1c1;
+            width: 100%;
           }
           &-call {
             color: #fff;

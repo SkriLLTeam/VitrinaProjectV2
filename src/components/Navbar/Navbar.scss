@@ -1,116 +1,206 @@
 .header {
-    background: #F1F1F1;
-    padding: 16px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  background: #f1f1f1;
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
-    @include media(768) {
-        height: 60px;
+  @include media(790) {
+    height: 60px;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include media(790) {
+      display: none;
     }
 
-    &__nav {
-        display: flex;
+    @include media(576) {
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    &-right {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      @include media(790) {
         justify-content: space-between;
+      }
+
+      @include media(576) {
+        gap: 30px;
+        width: 100%;
+        justify-content: space-between;
+      }
+      &-wrapper {
+        display: flex;
         align-items: center;
+        gap: 20px;
 
-        @include media(768) {
+        &-drop {
+          display: block;
+          position: relative;
+          @include media(790) {
             display: none;
-        }
+          }
+          &-btn {
+            border-radius: 8px;
+            background: #08a1c1;
+            padding: 8px 8px 8px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+            font-size: clamp(0.875rem, 0.825rem + 0.25vw, 1.125rem);
+            font-style: normal;
+            font-weight: 500;
+            line-height: 120%;
+            letter-spacing: -0.36px;
+          }
 
-        @include media(576) {
+          &-menu {
+            position: absolute;
+            margin-top: 7px;
+            right: 0;
+            width: max-content;
+            display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 16px;
+            border-radius: 8px;
+            background: #f1f1f1;
+            padding: 16px;
+            box-shadow: 0px 4px 16px 0px rgba(30, 30, 30, 0.15);
+            & span {
+              display: inline-block;
+              padding-bottom: 4px;
+              border-bottom: 1px solid #08a1c1;
+              cursor: pointer;
+            }
+          }
         }
-
-        &-right {
-            display: flex;
-            align-items: center;
-            gap: 54px;
-
-            @include media(768) {
-                justify-content: space-between;
-            }
-
-            @include media(576) {
-                gap: 30px;
-                width: 100%;
-                justify-content: space-between;
-            }
-            &-wrapper {
-                display: flex;
-                align-items: center;
-                gap: 20px;
-            }
-        }
-
-        &-list {
-            display: flex;
-            align-items: center;
-            gap: 54px;
-
-            &-mob {
-                display: flex;
-                flex-direction: column;
-                gap: 30px;
-                align-items: center;
-            }
-
-            @include media(576) {
-                gap: 30px;
-            }
-
-            &_item {
-                &-link {
-                    color: #343434;
-                    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
-                    font-weight: 400;
-
-                    &.router-link-active {
-                        color: #08A1C1;
-                    }
-                }
-            }
-        }
+      }
     }
 
-    &__mob {
+    &-list {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      &-mob {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+      }
+
+      @include media(576) {
+        gap: 30px;
+      }
+
+      &_item {
+        &-link {
+          color: #343434;
+          font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+          font-weight: 400;
+
+          &.router-link-active {
+            color: #08a1c1;
+          }
+        }
+      }
+    }
+  }
+
+  &__mob {
+    display: none;
+
+    @include media(790) {
+      display: block;
+    }
+
+    &-burger {
+      position: fixed;
+      width: 100%;
+      height: 100svh;
+      top: 60px;
+      left: 0;
+      background: #00141880;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+
+      &-block {
+        background: #ffffff;
+        box-shadow: 0px 4px 16px 0px #1e1e1e26;
+        border-radius: 0 0 16px 16px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 30px 15px;
+        gap: 30px;
+      }
+
+      &__btn {
+        width: 20px;
+        height: 20px;
+
+        & img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      &-drop {
         display: none;
-
-        @include media(768) {
-            display: block;
+        @include media(790) {
+          display: block;
+        }
+        position: relative;
+        &-btn {
+          display: flex;
+          align-items: center;
+          gap: 2px;
+          border-radius: 8px;
+          background: #08a1c1;
+          padding: 8px 8px 8px 16px;
+          color: #fff;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 120%;
+          letter-spacing: -0.28px;
         }
 
-        &-burger {
-            position: fixed;
-            width: 100%;
-            height: 100svh;
-            top: 60px;
-            left: 0;
-            background: #00141880;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-
-            &-block {
-                background: #FFFFFF;
-                box-shadow: 0px 4px 16px 0px #1E1E1E26;
-                border-radius: 0 0 16px 16px;
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                padding: 30px 15px;
-                gap: 30px;
-            }
-
-            &__btn {
-                width: 20px;
-                height: 20px;
-
-                & img {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
+        &-menu {
+          position: absolute;
+          margin-top: 7px;
+          right: 0;
+          width: max-content;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          border-radius: 8px;
+          background: #f1f1f1;
+          padding: 16px;
+          box-shadow: 0px 4px 16px 0px rgba(30, 30, 30, 0.15);
+          & span {
+            display: inline-block;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #08a1c1;
+            cursor: pointer;
+          }
         }
+      }
     }
+  }
 }
