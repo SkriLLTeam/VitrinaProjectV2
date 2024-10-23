@@ -162,10 +162,11 @@
 
       &-drop {
         display: none;
+        position: relative;
         @include media(790) {
           display: block;
         }
-        position: relative;
+
         &-btn {
           display: flex;
           align-items: center;
