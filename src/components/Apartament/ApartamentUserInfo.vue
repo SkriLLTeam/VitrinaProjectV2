@@ -120,14 +120,14 @@ const show = () => {
   showNumber.value = !showNumber.value;
 };
 
-const orderModalOpen = () => {
-  isOrderModal.value = true;
-  document.body.style.overflow = "hidden";
-};
-const orderModalClose = () => {
-  isOrderModal.value = false;
-  document.body.style.overflow = "auto";
-};
+// const orderModalOpen = () => {
+//   isOrderModal.value = true;
+//   document.body.style.overflow = "hidden";
+// };
+// const orderModalClose = () => {
+//   isOrderModal.value = false;
+//   document.body.style.overflow = "auto";
+// };
 </script>
 
 <style lang="scss" scoped></style>

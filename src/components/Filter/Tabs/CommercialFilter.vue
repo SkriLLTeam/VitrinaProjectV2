@@ -9,20 +9,19 @@
           labeltitle="Квадратура, кв-м"
         />
         <!-- не должно быть  -->
-        <FilterSelect labeltitle="Метро" />
-      </div>
-      <div class="filter__form-newbuilding-bottom">
-        <FromTo
-          ref="priceRef"
-          filterFromKey="price_from"
-          filterToKey="price_to"
-          labeltitle="Стоимость, у.е"
-        />
         <FilterSelect
           ref="selectDistrict"
           labeltitle="Район"
           filterKey="district"
           :list="districts"
+        />
+      </div>
+      <div class="filter__form-commersial-bottom">
+        <FromTo
+          ref="priceRef"
+          filterFromKey="price_from"
+          filterToKey="price_to"
+          labeltitle="Стоимость, у.е"
         />
 
         <button class="btn filter__form-btn" @click="applyFilters">
@@ -34,7 +33,7 @@
       </div>
     </div>
     <div class="filter__form-mob">
-      <div class="filter__form-house-top">
+      <div class="filter__form-commersial-top">
         <FromTo
           ref="quadratureRefMob"
           filterFromKey="quadrature_from"
@@ -42,20 +41,20 @@
           labeltitle="Квадратура, кв-м"
         />
         <!-- не должно быть  -->
-
-        <FilterSelect labeltitle="Метро" />
         <FromTo
           ref="priceRefMob"
           filterFromKey="price_from"
           filterToKey="price_to"
           labeltitle="Стоимость, у.е"
         />
-        <FilterSelect
-          ref="selectDistrictMob"
-          labeltitle="Район"
-          filterKey="district"
-          :list="districts"
-        />
+        <div class="filter__form-commersial-mob">
+          <FilterSelect
+            ref="selectDistrictMob"
+            labeltitle="Район"
+            filterKey="district"
+            :list="districts"
+          />
+        </div>
         <button class="btn filter__form-btn" @click="applyFilters">
           Показать результаты
         </button>
@@ -100,7 +99,6 @@ const applyFilters = () => {
   filterStore.updateFilter("operation_type", props.selectedOperation);
   filterStore.triggerRefetch();
   filterStore.hideTitle();
-  filterStore.currentPage = 1
-
+  filterStore.currentPage = 1;
 };
 </script>
