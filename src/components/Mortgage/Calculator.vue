@@ -134,7 +134,6 @@ const overpayment = ref(null);
 const sumTotal = ref(null);
 // Функция для расчета ипотеки
 const calculateMortgage = () => {
-  // Конвертируем значения в числа
   const propertyValueNum = +propertyValue.value.replace(/\s/g, "");
   const initialPaymentNum = +initialPayment.value.replace(/\s/g, "");
   const loanTermYearsNum = +loanTermYears.value.replace(/\s/g, "");
@@ -145,26 +144,28 @@ const calculateMortgage = () => {
   const numberOfPayments = loanTermYearsNum * 12; // Общее количество месяцев
 
   // Если процентная ставка не равна 0, используем формулу аннуитета
-  // аннуитет - это ежемесечная выплата по кридиту
   if (monthlyInterestRate > 0) {
-    monthlyPayment.value = Math.floor(
+    monthlyPayment.value =
       (loanAmount *
         (monthlyInterestRate *
           Math.pow(1 + monthlyInterestRate, numberOfPayments))) /
-        (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1)
-    );
+      (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
   } else {
-    // Если ставка равна 0, то простой расчет без процентов
-    monthlyPayment.value = Math.floor(loanAmount / numberOfPayments);
+    // Если ставка равна 0, простой расчет без процентов
+    monthlyPayment.value = loanAmount / numberOfPayments;
   }
 
-  // Общая сумма выплат
-  totalPayment.value = Math.floor(monthlyPayment.value * numberOfPayments);
+  // Общая сумма выплат без округления
+  totalPayment.value = monthlyPayment.value * numberOfPayments;
 
-  // Переплата по кредиту
-  overpayment.value = Math.floor(totalPayment.value - loanAmount);
+  // Переплата по кредиту без округления
+  overpayment.value = totalPayment.value - loanAmount;
 
   sumTotal.value = total;
+
+  monthlyPayment.value = Math.floor(monthlyPayment.value);
+  totalPayment.value = Math.floor(totalPayment.value);
+  overpayment.value = Math.floor(overpayment.value);
 };
 
 const maskOptions = ref({
