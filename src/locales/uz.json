@@ -1,131 +1,133 @@
 {
   "button": {
-    "request": "submit a request",
-    "show_result": "Show result",
-    "clear": "Clear",
-    "show_number": "Show number",
-    "request_call": "Request a call",
-    "get_advice": "Get advice",
-    "calculate_the_bet": "Calculate the rate",
-    "await_call": "Awaiting a call",
-    "send": "Send"
+    "request": "so'rov qoldiring",
+    "show_result": "natijani ko'rsatish",
+    "clear": "tozalash",
+    "show_number": "raqamni ko'rsatish",
+    "request_call": "qo'ng'iroq buyurtma qilish",
+    "get_advice": "konsultatsiya olish",
+    "calculate_the_bet": "Pul stavkasini hisoblash",
+    "await_call": "Qo'ng'iroq kutyapman",
+    "send": "Jo'natish"
   },
   "menu": {
-    "home": "Home",
-    "mortgage": "mortgage",
-    "career": "career",
-    "about": "about us",
-    "social": "Our social networks:"
+    "home": "Bosh sahifa",
+    "mortgage": "Ipoteka",
+    "career": "Karyera",
+    "about": "Biz haqimizda",
+    "social": "Bizning ijtimoiy tarmoqlarimiz:"
   },
   "form": {
-    "choose": "Choose",
-    "name_placeholder": "Enter full name",
-    "phone_placeholder": "Leave your phone number",
-    "type_statement": "Property Type",
-    "price_statement": "Property Price",
-    "in_year": "Term in Years",
-    "down_payment": "Down Payment",
-    "percent": "Interest Rate",
-    "monthly_payment": "Monthly Payment",
-    "loan_amount": "Loan Amount",
-    "overpayment": "Credit Overpayment",
-    "total_amount": "Total Amount",
-    "fill": "Fill out the form",
-    "modal_name_placeholder": "Enter your name",
-    "modal_name": "Name",
-    "modal_textarea": "Note",
-    "modal_textarea_placeholder": "Write your request",
-    "modal_contact": "Contact",
-    "from": "from",
-    "to": "to"
+    "choose": "tanlash",
+    "name_placeholder": "Ism va Familiyangizni kiriting",
+    "phone_placeholder": "Telefon raqamingizni qoldiring",
+    "type_statement": "Ko'chmas mulk turi",
+    "price_statement": "Ko'chmas mulk narxi",
+    "in_year": "Yillardagi mudat",
+    "down_payment": "Boshlang'ich to'lov",
+    "percent": "foiz stavkasi",
+    "monthly_payment": "Oylik to'lov",
+    "loan_amount": "kredit summasi",
+    "overpayment": "kredit bo'yicha ortiqcha to'lov",
+    "total_amount": "umumiy narxi ",
+    "fill": "formani to'ldiring",
+    "modal_name_placeholder": "Ismingizni kiriting",
+    "modal_name": "Ism",
+    "modal_textarea": "Eslatma",
+    "modal_textarea_placeholder": "So'rovingizni kiriting",
+    "modal_contact": "Kontaktlar",
+    "from": "dan",
+    "to": "gacha"
   },
   "banners": {
-    "home_banner": "Test title for the home page",
-    "mortgage_banner": "Test title for the mortgage page",
-    "career_banner": "Test title for the career page",
-    "about_banner": "Test title for the about us page"
+    "home_banner": "Тестовый заголовок для главной страницы",
+    "mortgage_banner": "Тестовый заголовок для странциы ипотеки",
+    "career_banner": "Тестовый заголовок для странциы карьеры",
+    "about_banner": "Тестовый заголовок для странциы о нас"
   },
   "description": {
-    "mortgage_descr": "Test description for the banner on the mortgage page",
-    "career_descr": "Test description for the banner on the career page",
-    "about_descr": "Test description for the banner on the about us page",
-    "currency": "UZS"
+    "mortgage_descr": "Тестовое описание для баннера на странцие ипотеки",
+    "career_descr": "Тестовое описание для баннера на странцие карьеры",
+    "about_descr": "Тестовое описание для баннера на странцие о нас",
+    "currency": "so'm"
   },
   "contents": {
-    "title_home": "The most relevant real estate options",
-    "title_mortgage": "Mortgage in Tashkent",
-    "title_calculator": "mortgage calculator",
-    "title_career": "Сonditions:",
-    "sub_title_mortgage": "Find out the rate and monthly mortgage payment",
-    "who_are_we_looking_for": "Who are we looking for:",
+    "title_home": "eng dolzarb ko'chmas mulk variantlari",
+    "title_mortgage": "Toshkentda Ipoteka",
+    "title_career": "Shartlar:",
+    "title_calculator": "Ipoteka kalkulyatori",
+    "descr_apartamentId": "Tavsif",
+    "sub_title_mortgage": "Ipoteka stavkasi va oylik to'lovni bilib oling",
+    "who_are_we_looking_for": "Biz kimni izlayabmiz:",
     "descr_card_career": [
-      "Active individuals who want to influence their own income and are capable of managing their working time independently",
-      "Communicative and client-oriented",
-      "Fluent in oral and written speech, confidently using a smartphone and PC"
+      "Faol, o'z daromadlariga ta'sir o'tkazishga tayyor va ish vaqtini mustaqil ravishda taqsimlashga qodir",
+      "Komunikativ va mijozlarga yo'naltirilgan",
+      "Mukammal og'zaki va yozma nutqqa ega bo'lgan ,shuningdek smartfon va kompyuterdan bemalol foydalanadigan insonlar"
     ],
-    "consultation_title_mortgage": "Consultation request",
-    "consultation_descr_mortgage": "Leave a request for a consultation or call us at:",
-
-    "what_do_we_offer": "What we offer",
+    "consultation_title_mortgage": "Konsultatsiya uchun so'rovlar",
+    "consultation_descr_mortgage": "Konsultatsiya uchun bizga so'rov qoldiring yoki bizga qo'ng'iroq qiling:",
+    "what_do_we_offer": "Biz nima taklif qilamiz",
+    "career_offer": " <span>«Витрина Недвижимости»</span>ga qo'shiling va biz bilan rivojlaning!",
     "list_offer": [
-      "High-quality express training at the company's expense during the first month of work",
-      "A cozy office in the city center with everything you need, a friendly team",
-      "Guaranteed bonuses for high performance, piece-rate timely salary",
-      "Unlimited communication (corporate number)",
-      "Advertising and support"
+      "Ishning birinchi oyi davomida kompaniya hisobidan yuqori sifatli ekspress ta'lim",
+      "Shahar markazidagi shinam ofis,barcha kerakli narsalar,samimiy xodimlar",
+      "Yuqori samaradorlik va o'z vaqtida ish haqi uchun kafolatlangan bonuslar",
+      "Cheksiz aloqa (korporativ raqam)",
+      "Reklama va qollab quvatlash"
     ],
+
     "conditions_career": [
-      "Working hours from 10:00 to 18:00, flexible schedule",
-      "Unlimited earnings",
-      "One floating day off per week (only on weekdays)",
-      "Training from one week to one month"
+      "Ish vaqti 10:00 dan 19:00 gacha, moslachuvchan ish vaqti",
+      "cheksiz daromadlariga",
+      "Haftada bir dam olish kuni",
+      "Trening bir haftadan bir oygacha"
     ],
-    "why_us_title": "Why us?",
+    "why_us_title": "Nega aynan biz?",
     "why_us_list": [
-      "10 years in the real estate market",
-      "More than 1000 real estate agents in 7 cities, 3 countries",
-      "We sell real estate worth more than $650,000,000 per year",
-      "We sell over 8000 apartments a year"
+      "Ko'chmas mulk bozorida 10 yillik tajriba",
+      "7 ta shahar,3 ta davlatda 1000 dan ortiq ko'chmas mulk agentlari",
+      "Biz ko'chmas mulkni yiliga 650 000 000$ ortiq sotamiz",
+      "Biz yiliga 8000 dan ortiq xonadonlar sotamiz"
     ],
-    "what_do_we_offer_why_us": "We offer:",
+    "what_do_we_offer_why_us": "Bizning takliflarimiz:",
     "what_do_we_offer_why_us_list": [
-      "Buying and selling real estate in Tashkent",
-      "Commercial real estate",
-      "Exclusive objects database 'TOP100 best apartments of Tashkent'",
-      "Professional photo and video review",
-      "Paid promotion of exclusive objects at the company's expense",
-      "Elite apartments",
-      "Plots and private houses"
+      "Toshkentda ko'chmas mulk sotib olish va sotish",
+      "Tijorat binolari ",
+      "Toshkentdagi TOP 100 ekskluziv obyektlar bazasi",
+      "Professional foto va video xizmati",
+      "Ekskluzivobyektlarni kompaniya hisobidan pulli reklama qilish ",
+      "Muhtasham xonadonlar",
+      "Uchastka va hovli uylar"
     ],
     "offer_why_us_list": [
-      "Free consultation",
-      "1% commission",
-      "Save time and energy",
-      "All developers in one place",
-      "Only verified developers"
+      "Tekin konsultatsiya",
+      "0% to'lov",
+      "Sizning vaqtingizni va energiyangizni tejaymiz",
+      "Barcha quruvchilar bir joyda",
+      "Faqatgina tekshirilgan quruvchilar"
     ]
   },
   "tabs": {
-    "buy": "Buy",
-    "rent": "Rent",
-    "flats": "Flats",
-    "new_building": "New building",
-    "houses": "Houses",
-    "commercial": "Commercial",
-    "rooms": "Number of rooms",
-    "price": "Price, у.е",
-    "quadrature": "Quadrature, кв-м",
-    "floor": "Floor",
-    "repair": "Repair",
-    "district": "District",
-    "studio": "Studio"
+    "buy": "Sotib olish",
+    "rent": "Ijara",
+    "flats": "Xonadonlar",
+    "new_building": "Yangi uylar",
+    "houses": "Hovli Uylar",
+    "commercial": "Noturar",
+    "rooms": "Xonalar soni",
+    "price": "Narxi, у.е",
+    "quadrature": "Maydon, kv-m",
+    "floor": "Qavat",
+    "repair": "Remont",
+    "district": "Tuman",
+    "studio": "Studiya"
   },
   "title": {
-    "home": "Home",
-    "mortgage": "Mortgage",
-    "career": "Career",
-    "about": "About Us",
-    "apartament": "Apartment Card",
+    "home": "Bosh sahifa",
+    "mortgage": "Ipoteka",
+    "career": "Karyera",
+    "about": "Biz haqimizda",
+    "apartament": "Xonadon kartasi",
     "default": "Vitrina Project"
   }
 }
