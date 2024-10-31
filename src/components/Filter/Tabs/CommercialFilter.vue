@@ -6,12 +6,12 @@
           ref="quadratureRef"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
-          labeltitle="Квадратура, кв-м"
+        :labeltitle="$t('tabs.quadrature')"
         />
         <!-- не должно быть  -->
         <FilterSelect
           ref="selectDistrict"
-          labeltitle="Район"
+           :labeltitle="$t('tabs.district')"
           filterKey="district"
           :list="districts"
         />
@@ -21,7 +21,7 @@
           ref="priceRef"
           filterFromKey="price_from"
           filterToKey="price_to"
-          labeltitle="Стоимость, у.е"
+        :labeltitle="$t('tabs.price')"
         />
 
         <button class="btn filter__form-btn" @click="applyFilters">
@@ -38,19 +38,19 @@
           ref="quadratureRefMob"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
-          labeltitle="Квадратура, кв-м"
+          :labeltitle="$t('tabs.quadrature')"
         />
         <!-- не должно быть  -->
         <FromTo
           ref="priceRefMob"
           filterFromKey="price_from"
           filterToKey="price_to"
-          labeltitle="Стоимость, у.е"
+             :labeltitle="$t('tabs.price')"
         />
         <div class="filter__form-commersial-mob">
           <FilterSelect
             ref="selectDistrictMob"
-            labeltitle="Район"
+           :labeltitle="$t('tabs.district')"
             filterKey="district"
             :list="districts"
           />

@@ -6,7 +6,7 @@
           ref="quadratureRef"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
-          labeltitle="Квадратура, кв-м"
+          :labeltitle="$t('tabs.quadrature')"
         />
         <FromTo
           ref="houseQuadrature"
@@ -20,11 +20,11 @@
           ref="priceRef"
           filterFromKey="price_from"
           filterToKey="price_to"
-          labeltitle="Стоимость, у.е"
+        :labeltitle="$t('tabs.price')"
         />
         <FilterSelect
           ref="selectDistrict"
-          labeltitle="Район"
+          :labeltitle="$t('tabs.district')"
           filterKey="district"
           :list="districts"
         />
@@ -42,7 +42,7 @@
           ref="quadratureRefMob"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
-          labeltitle="Квадратура, кв-м"
+        :labeltitle="$t('tabs.quadrature')"
         />
         <FromTo
           ref="houseQuadratureMob"
@@ -54,11 +54,11 @@
           ref="priceRefMob"
           filterFromKey="price_from"
           filterToKey="price_to"
-          labeltitle="Стоимость, у.е"
+          :labeltitle="$t('tabs.price')"
         />
         <FilterSelect
           ref="selectDistrictMob"
-          labeltitle="Район"
+          :labeltitle="$t('tabs.district')"
           filterKey="district"
           :list="districts"
         />

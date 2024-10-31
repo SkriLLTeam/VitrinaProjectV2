@@ -3,7 +3,7 @@
     <div class="filter__form-desktop">
       <div class="filter__form-flats-top">
         <Checkboxes
-          labeltitle="Кол-во комнат"
+          :labeltitle="$t('tabs.rooms')"
           :checkboxes="checkboxes"
           @toggleCheckbox="toggleCheckbox"
         />
@@ -12,13 +12,13 @@
           ref="priceRef"
           filterFromKey="price_from"
           filterToKey="price_to"
-          labeltitle="Стоимость, у.е"
+         :labeltitle="$t('tabs.price')"
         />
         <FromTo
           ref="quadratureRef"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
-          labeltitle="Квадратура, кв-м"
+         :labeltitle="$t('tabs.quadrature')"
         />
       </div>
       <div class="filter__form-newbuilding-bottom">
@@ -26,12 +26,12 @@
           ref="floorRef"
           filterFromKey="floor_from"
           filterToKey="floor_to"
-          labeltitle="Этаж"
+         :labeltitle="$t('tabs.floor')"
         />
 
         <FilterSelect
           ref="selectDistrict"
-          labeltitle="Район"
+          :labeltitle="$t('tabs.district')"
           filterKey="district"
           :list="districts"
         />
@@ -46,7 +46,7 @@
     <div class="filter__form-mob">
       <div class="filter__form-flats-top">
         <Checkboxes
-          labeltitle="Кол-во комнат"
+       :labeltitle="$t('tabs.rooms')"
           :checkboxes="checkboxes"
           @toggleCheckbox="toggleCheckbox"
         />
@@ -54,23 +54,23 @@
           ref="priceRefMob"
           filterFromKey="price_from"
           filterToKey="price_to"
-          labeltitle="Стоимость, у.е"
+          :labeltitle="$t('tabs.price')"
         />
         <FromTo
           ref="quadratureRefMob"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
-          labeltitle="Квадратура, кв-м"
+             :labeltitle="$t('tabs.quadrature')"
         />
         <FromTo
           ref="floorRefMob"
           filterFromKey="floor_from"
           filterToKey="floor_to"
-          labeltitle="Этаж"
+         :labeltitle="$t('tabs.floor')"
         />
         <FilterSelect
           ref="selectDistrictMob"
-          labeltitle="Район"
+       :labeltitle="$t('tabs.repair')"
           filterKey="district"
           :list="districts"
         />
