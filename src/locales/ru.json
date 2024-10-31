@@ -1,43 +1,43 @@
 {
   "button": {
-    "request": "оставить заявку",
-    "show_result": "показать результат",
-    "clear": "очистить",
-    "show_number": "показать номер",
-    "request_call": "заказать звонок",
-    "get_advice": "получить консультацию",
-    "calculate_the_bet": "просчитать ставку",
-    "await_call": "жду звонка",
+    "request": "Оставить заявку",
+    "show_result": "Показать результат",
+    "clear": "Очистить",
+    "show_number": "Показать номер",
+    "request_call": "Заказать звонок",
+    "get_advice": "Получить консультацию",
+    "calculate_the_bet": "Просчитать ставку",
+    "await_call": "Жду звонка",
     "send": "Отправить"
   },
   "menu": {
-    "home": "  Главная",
+    "home": "Главная",
     "mortgage": "Ипотека",
     "career": "Карьера",
     "about": "О нас",
     "social": "Наши социальные сети:"
   },
   "form": {
-    "choose": "выбрать",
+    "choose": "Выбрать",
     "name_placeholder": "Введите имя ФИО",
     "phone_placeholder": "Оставьте свой номер телефона",
     "type_statement": "Тип недвижимости",
     "price_statement": "Стоимость недвижимости",
     "in_year": "Срок в годах",
-    "down_payment": "первоночальный взнос",
-    "percent": "процентная ставка",
-    "monthly_payment": "ежемесячынй платеж",
-    "loan_amount": "сумма кредита",
-    "overpayment": "переплата по кредиту",
-    "total_amount": "общая стоимость ",
+    "down_payment": "Первоночальный взнос",
+    "percent": "Процентная ставка",
+    "monthly_payment": "Ежемесячынй платеж",
+    "loan_amount": "Сумма кредита",
+    "overpayment": "Переплата по кредиту",
+    "total_amount": "Общая стоимость",
     "fill": "Заполните форму",
     "modal_name_placeholder": "Укажите имя",
     "modal_name": "Имя",
     "modal_textarea": "Примечание",
     "modal_textarea_placeholder": "Напишите ваше обращение",
     "modal_contact": "Контакты",
-    "from": "от",
-    "to": "до"
+    "from": "От",
+    "to": "До"
   },
   "banners": {
     "home_banner": "Топ 100 квартир под ваши желания из нашей эксклюзивной базы",
@@ -52,7 +52,7 @@
     "currency": "сум"
   },
   "contents": {
-    "title_home": "самые актуальные варианты недвижимости",
+    "title_home": "Самые актуальные варианты недвижимости",
     "title_mortgage": "Ипотека в Ташкенте",
     "title_career": "Условия:",
     "title_calculator": "Ипотечный калькулятор",
@@ -119,7 +119,8 @@
     "floor": "Этаж",
     "repair": "Ремонт",
     "district": "Район",
-    "studio": "Студия"
+    "studio": "Студия",
+    "house_quadrature": "Площадь участка, сот"
   },
   "title": {
     "home": "Главная",

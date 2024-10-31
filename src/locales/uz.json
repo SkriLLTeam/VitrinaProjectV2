@@ -1,7 +1,7 @@
 {
   "button": {
     "request": "So'rov qoldiring",
-    "show_result": "natijani ko'rsatish",
+    "show_result": "Natijani ko'rsatish",
     "clear": "Tozalash",
     "show_number": "Raqamni ko'rsatish",
     "request_call": "Qo'ng'iroq buyurtma qilish",
@@ -119,7 +119,8 @@
     "floor": "Qavat",
     "repair": "Remont",
     "district": "Tuman",
-    "studio": "Studiya"
+    "studio": "Studiya",
+    "house_quadrature":"Yer maydoni"
   },
   "title": {
     "home": "Bosh sahifa",
