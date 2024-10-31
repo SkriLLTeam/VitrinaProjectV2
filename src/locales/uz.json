@@ -1,11 +1,11 @@
 {
   "button": {
-    "request": "so'rov qoldiring",
+    "request": "So'rov qoldiring",
     "show_result": "natijani ko'rsatish",
-    "clear": "tozalash",
-    "show_number": "raqamni ko'rsatish",
-    "request_call": "qo'ng'iroq buyurtma qilish",
-    "get_advice": "konsultatsiya olish",
+    "clear": "Tozalash",
+    "show_number": "Raqamni ko'rsatish",
+    "request_call": "Qo'ng'iroq buyurtma qilish",
+    "get_advice": "Konsultatsiya olish",
     "calculate_the_bet": "Pul stavkasini hisoblash",
     "await_call": "Qo'ng'iroq kutyapman",
     "send": "Jo'natish"
@@ -18,26 +18,26 @@
     "social": "Bizning ijtimoiy tarmoqlarimiz:"
   },
   "form": {
-    "choose": "tanlash",
+    "choose": "Tanlash",
     "name_placeholder": "Ism va Familiyangizni kiriting",
     "phone_placeholder": "Telefon raqamingizni qoldiring",
     "type_statement": "Ko'chmas mulk turi",
     "price_statement": "Ko'chmas mulk narxi",
     "in_year": "Yillardagi mudat",
     "down_payment": "Boshlang'ich to'lov",
-    "percent": "foiz stavkasi",
+    "percent": "Foiz stavkasi",
     "monthly_payment": "Oylik to'lov",
-    "loan_amount": "kredit summasi",
-    "overpayment": "kredit bo'yicha ortiqcha to'lov",
-    "total_amount": "umumiy narxi ",
-    "fill": "formani to'ldiring",
+    "loan_amount": "Kredit summasi",
+    "overpayment": "Kredit bo'yicha ortiqcha to'lov",
+    "total_amount": "Umumiy narxi ",
+    "fill": "Formani to'ldiring",
     "modal_name_placeholder": "Ismingizni kiriting",
     "modal_name": "Ism",
     "modal_textarea": "Eslatma",
     "modal_textarea_placeholder": "So'rovingizni kiriting",
     "modal_contact": "Kontaktlar",
-    "from": "dan",
-    "to": "gacha"
+    "from": "Dan",
+    "to": "Gacha"
   },
   "banners": {
     "home_banner": "Bizning eksklyuziv bazamizdan ozingizni xonadoningizni tanlang",
@@ -52,7 +52,7 @@
     "currency": "so'm"
   },
   "contents": {
-    "title_home": "eng dolzarb ko'chmas mulk variantlari",
+    "title_home": "Eng dolzarb ko'chmas mulk variantlari",
     "title_mortgage": "Toshkentda Ipoteka",
     "title_career": "Shartlar:",
     "title_calculator": "Ipoteka kalkulyatori",
@@ -77,7 +77,7 @@
     ],
     "conditions_career": [
       "Ish vaqti 10:00 dan 19:00 gacha, moslachuvchan ish vaqti",
-      "cheksiz daromadlariga",
+      "Cheksiz daromadlariga",
       "Haftada bir dam olish kuni",
       "Trening bir haftadan bir oygacha"
     ],
