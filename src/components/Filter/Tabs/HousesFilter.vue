@@ -12,7 +12,7 @@
           ref="houseQuadrature"
           filterFromKey="house_quadrature_from"
           filterToKey="house_quadrature_to"
-          labeltitle="Площадь участка, сот."
+          :labeltitle="$t('tabs.house_quadrature')"
         />
       </div>
       <div class="filter__form-newbuilding-bottom">
@@ -20,7 +20,7 @@
           ref="priceRef"
           filterFromKey="price_from"
           filterToKey="price_to"
-        :labeltitle="$t('tabs.price')"
+          :labeltitle="$t('tabs.price')"
         />
         <FilterSelect
           ref="selectDistrict"
@@ -42,13 +42,13 @@
           ref="quadratureRefMob"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
-        :labeltitle="$t('tabs.quadrature')"
+          :labeltitle="$t('tabs.quadrature')"
         />
         <FromTo
           ref="houseQuadratureMob"
           filterFromKey="house_quadrature_from"
           filterToKey="house_quadrature_to"
-          labeltitle="Площадь участка, сот."
+          :labeltitle="$t('tabs.house_quadrature')"
         />
         <FromTo
           ref="priceRefMob"
@@ -111,7 +111,6 @@ const applyFilters = () => {
   filterStore.updateFilter("operation_type", props.selectedOperation);
   filterStore.triggerRefetch();
   filterStore.hideTitle();
-  filterStore.currentPage = 1
-
+  filterStore.currentPage = 1;
 };
 </script>
