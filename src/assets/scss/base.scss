@@ -27,6 +27,7 @@
 
 body {
   min-width: 320px;
+  background: #fff;
 }
 
 button {
@@ -39,6 +40,10 @@ button {
 input {
   border: none;
   outline: none;
+}
+
+a {
+  cursor: pointer;
 }
 
 .btn {
