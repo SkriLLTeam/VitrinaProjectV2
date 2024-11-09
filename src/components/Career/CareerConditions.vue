@@ -21,14 +21,17 @@
 <script setup>
 import { ref, computed } from "vue";
 import { useI18n } from "vue-i18n";
-
+import clock from "../../assets/images/clock.svg";
+import money from "../../assets/images/money.svg";
+import calendar from "../../assets/images/calendar.svg";
+import education from "../../assets/images/education.svg";
 const { messages, locale } = useI18n();
 
 const conditionsImages = ref([
-  { img: "src/assets/images/clock.svg" },
-  { img: "src/assets/images/money.svg" },
-  { img: "src/assets/images/calendar.svg" },
-  { img: "src/assets/images/education.svg" },
+  { img: clock },
+  { img: money },
+  { img: calendar },
+  { img: education },
 ]);
 
 const localizedDescriptions = computed(() => {

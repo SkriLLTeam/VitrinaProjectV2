@@ -5,16 +5,20 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+
     @include media(992) {
       height: 30vh;
     }
+
     &-wrapper {
       display: flex;
       align-items: center;
+
       @include media(768) {
         justify-content: center;
       }
     }
+
     &-content {
       display: flex;
       flex-direction: column;
@@ -22,25 +26,30 @@
       align-items: flex-start;
       max-width: 659px;
       width: 100%;
+
       @include media(768) {
         align-items: center;
         gap: 30px;
       }
+
       &-text {
         display: flex;
         flex-direction: column;
         gap: 40px;
+
         @include media(768) {
           text-align: center;
           align-items: center;
           gap: 10px;
         }
+
         & h1 {
           color: #fff;
           font-size: clamp(1.5rem, 1.125rem + 1.88vw, 3.375rem);
           font-weight: 600;
           line-height: 125%;
         }
+
         & p {
           max-width: 547px;
           width: 100%;
@@ -50,6 +59,7 @@
           line-height: 125%;
         }
       }
+
       &-btn {
         color: #08a1c1;
         font-size: clamp(0.75rem, 0.675rem + 0.38vw, 1.125rem);
@@ -63,23 +73,28 @@
       }
     }
   }
+
   &__calculator {
     display: flex;
     flex-direction: column;
     gap: 50px;
     padding-top: 100px;
     margin-bottom: 150px;
+
     @include media(992) {
       padding-top: 50px;
       margin-bottom: 40px;
       gap: 40px;
     }
+
     &-title {
       display: flex;
       flex-direction: column;
+
       @include media(768) {
         text-align: center;
       }
+
       & span {
         color: #343434;
         font-size: clamp(1.5rem, 1.125rem + 1.88vw, 3.375rem);
@@ -87,6 +102,7 @@
         line-height: 125%;
       }
     }
+
     &-wrapper {
       border-radius: 16px;
       background: #fdfdfd;
@@ -95,9 +111,11 @@
       display: flex;
       flex-direction: column;
       gap: 40px;
+
       @include media(490) {
         padding: 20px 16px 40px 16px;
       }
+
       &-title {
         color: #343434;
         font-size: clamp(1.25rem, 1.175rem + 0.38vw, 1.625rem);
@@ -110,29 +128,35 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       @include media(1260) {
         flex-direction: column;
         gap: 40px;
       }
+
       &-form {
         display: flex;
         flex-direction: column;
         gap: 40px;
         max-width: 657px;
         width: 100%;
+
         @include media(490) {
           gap: 20px;
         }
+
         &-content {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           grid-template-rows: repeat(2, 1fr);
           column-gap: 23px;
           row-gap: 40px;
+
           @include media(490) {
             column-gap: 10px;
             row-gap: 15px;
           }
+
           &-block {
             display: flex;
             flex-direction: column;
@@ -140,6 +164,7 @@
 
             @include media(490) {
               gap: 10px;
+
               &:nth-child(1) {
                 grid-column: span 2;
               }
@@ -149,11 +174,13 @@
               &:nth-child(4) {
                 grid-column: 2;
                 grid-row: 2;
+
                 & label {
                   max-width: 140px;
                 }
               }
             }
+
             & label {
               color: #343434;
               font-size: clamp(0.75rem, 0.725rem + 0.13vw, 0.875rem);
@@ -165,12 +192,14 @@
             & input,
             select {
               padding: 16px 8px 16px 16px;
+
               @include media(490) {
                 padding: 8px 8px 8px 16px;
               }
             }
           }
         }
+
         &-btn {
           color: #fff;
           font-size: clamp(0.75rem, 0.675rem + 0.38vw, 1.125rem);
@@ -184,6 +213,7 @@
           margin: 0 auto;
         }
       }
+
       &-calculations {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 225px));
@@ -195,19 +225,23 @@
           row-gap: 20px;
           place-items: center;
         }
+
         &-block {
           display: flex;
           flex-direction: column;
           gap: 5px;
+
           &:nth-child(1) &-title {
             color: #1baf5e;
           }
+
           &-title {
             color: #343434;
             font-size: clamp(0.75rem, 0.575rem + 0.88vw, 1.625rem);
             font-weight: 600;
             line-height: 130%;
           }
+
           &-subtitle {
             color: #707070;
             font-size: clamp(0.75rem, 0.725rem + 0.13vw, 0.875rem);
