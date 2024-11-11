@@ -11,11 +11,7 @@
               {{ $t("menu.home") }}
             </router-link>
           </li>
-          <li
-            class="header__nav-list_item"
-            v-for="(item, index) in links"
-            :key="index"
-          >
+          <li class="header__nav-list_item" v-for="(item, index) in links" :key="index">
             <router-link :to="item.path" class="header__nav-list_item-link">
               {{ $t(item.title) }}
             </router-link>
@@ -29,10 +25,7 @@
         </button>
 
         <div class="header__nav-right-wrapper-drop">
-          <button
-            class="header__nav-right-wrapper-drop-btn"
-            @click="toggleDropdown"
-          >
+          <button class="header__nav-right-wrapper-drop-btn" @click="toggleDropdown">
             {{ currentLanguage.toUpperCase() }}
 
             <svg
@@ -46,10 +39,7 @@
             </svg>
           </button>
 
-          <div
-            v-if="isDropdownOpen"
-            class="header__nav-right-wrapper-drop-menu"
-          >
+          <div v-if="isDropdownOpen" class="header__nav-right-wrapper-drop-menu">
             <span @click="changeLanguage('ru')">Русский язык</span>
             <span @click="changeLanguage('uz')">O’zbek tili</span>
           </div>
@@ -65,10 +55,7 @@
 
         <div class="header__mob-wrapper">
           <div class="header__mob-wrapper-drop">
-            <button
-              class="header__mob-wrapper-drop-btn"
-              @click="toggleDropdown"
-            >
+            <button class="header__mob-wrapper-drop-btn" @click="toggleDropdown">
               {{ currentLanguage.toUpperCase() }}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,11 +75,7 @@
           </div>
 
           <button class="header__mob-burger__btn" @click="burgerOpen">
-            <img
-              src="@assets/images/icons/bar.svg"
-              alt=""
-              v-if="!isBurgerOpen"
-            />
+            <img src="@assets/images/icons/bar.svg" alt="" v-if="!isBurgerOpen" />
             <img src="@assets/images/icons/close.svg" alt="" v-else />
           </button>
         </div>
@@ -128,6 +111,9 @@
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 import Modal from "../UI/Modal.vue";
+import router from "@/router"; 
+import i18n from "@/plugins/i18n";
+
 const links = ref([
   {
     title: "menu.mortgage",
@@ -174,7 +160,13 @@ const toggleDropdown = () => {
 const changeLanguage = (lang) => {
   locale.value = lang;
   currentLanguage.value = locale.value;
+  i18n.global.locale = lang;
   isDropdownOpen.value = false;
+
+  // Обновление заголовка вкладки
+  const currentRoute = router.currentRoute.value;
+  const titleKey = currentRoute.meta.title;
+  document.title = titleKey ? i18n.global.t(titleKey) : "Vitrina";
 };
 </script>
 

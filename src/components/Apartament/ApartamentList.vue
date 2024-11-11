@@ -18,17 +18,19 @@
       <div v-else class="apartament__list-wrapper-nothing">
         <p>Ничего не найдено</p>
       </div>
-      <Paginate
-        :page-count="totalPages"
-        :force-page="computedPage"
-        :click-handler="changePage"
-        :container-class="'apartament__list-wrapper-pagination'"
-        :prev-text="prevIcon"
-        :next-text="nextIcon"
-        :page-class="'apartament__list-wrapper-pagination-item'"
-        :prev-class="'apartament__list-wrapper-pagination-prev'"
-        :next-class="'apartament__list-wrapper-pagination-next'"
-      />
+      <div v-if="apartamentList && apartamentList.length">
+        <Paginate
+          :page-count="totalPages"
+          :force-page="computedPage"
+          :click-handler="changePage"
+          :container-class="'apartament__list-wrapper-pagination'"
+          :prev-text="prevIcon"
+          :next-text="nextIcon"
+          :page-class="'apartament__list-wrapper-pagination-item'"
+          :prev-class="'apartament__list-wrapper-pagination-prev'"
+          :next-class="'apartament__list-wrapper-pagination-next'"
+        />
+      </div>
     </div>
   </section>
 </template>

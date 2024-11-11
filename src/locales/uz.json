@@ -120,7 +120,7 @@
     "repair": "Remont",
     "district": "Tuman",
     "studio": "Studiya",
-    "house_quadrature":"Yer maydoni"
+    "house_quadrature": "Yer maydoni"
   },
   "title": {
     "home": "Bosh sahifa",
@@ -129,5 +129,13 @@
     "about": "Biz haqimizda",
     "apartament": "Xonadon kartasi",
     "default": "Vitrina Project"
+  },
+  "titles": {
+    "home": "Bosh sahifa",
+    "mortgage": "Ipoteka",
+    "career": "Karyera",
+    "about": "Biz haqimizda",
+    "apartament": "Reklamalar",
+    "error": "Xato"
   }
 }

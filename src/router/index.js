@@ -10,7 +10,7 @@ const router = createRouter({
       name: "home",
       component: Home,
       meta: {
-        title: "Главная",
+        title: "titles.home",
       },
     },
     {
@@ -18,7 +18,7 @@ const router = createRouter({
       name: "Ипотека",
       component: () => import("@/views/Mortgage.vue"),
       meta: {
-        title: "Ипотека",
+        title: "titles.mortgage",
       },
     },
     {
@@ -26,7 +26,7 @@ const router = createRouter({
       name: "Карьера",
       component: () => import("@/views/Career.vue"),
       meta: {
-        title: "Карьера",
+        title: "titles.career",
       },
     },
     {
@@ -34,7 +34,7 @@ const router = createRouter({
       name: "О нас",
       component: () => import("@/views/AboutUs.vue"),
       meta: {
-        title: "О нас",
+        title: "titles.about",
       },
     },
     {
@@ -42,13 +42,16 @@ const router = createRouter({
       name: "Карточка квартиры",
       component: () => import("@/views/ApartamentItem.vue"),
       meta: {
-        title: "Объявления",
+        title: "titles.apartament",
       },
     },
     {
       path: "/:pathMatch(.*)*",
       name: "Ошибка",
       component: () => import("@/views/NotFoundPage.vue"),
+      meta: {
+        title: "titles.error",
+      },
     },
   ],
 
@@ -57,7 +60,12 @@ const router = createRouter({
   },
 });
 
+// router.afterEach((to) => {
+//   document.title = to.meta.title || "Vitrina";
+// });
+
 router.afterEach((to) => {
-  document.title = to.meta.title || "Vitrina";
+  const titleKey = to.meta.title;
+  document.title = titleKey ? i18n.global.t(titleKey) : "Vitrina";
 });
 export default router;
