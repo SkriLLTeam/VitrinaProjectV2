@@ -8,7 +8,7 @@
         :key="index"
       >
         <div class="about__why-cards-card-img">
-          <img :src="card.img" alt="" />
+          <img v-lazy="card.img" alt="" />
         </div>
         <span class="about__why-cards-card-descr">
           {{ card.descr }}
@@ -22,18 +22,22 @@
 import { ref, computed } from "vue";
 import { useI18n } from "vue-i18n";
 const { messages, locale } = useI18n();
+import key from "@/assets/images/icons/key.svg";
+import users from "@/assets/images/icons/users.svg";
+import dollar from "@/assets/images/icons/dollar.svg";
+import build from "@/assets/images/icons/build.svg";
 const cardsImg = ref([
   {
-    img: "src/assets/images/icons/key.svg",
+    img: key,
   },
   {
-    img: "src/assets/images/icons/users.svg",
+    img: users,
   },
   {
-    img: "src/assets/images/icons/dollar.svg",
+    img: dollar,
   },
   {
-    img: "src/assets/images/icons/build.svg",
+    img: build,
   },
 ]);
 const localizedDescriptions = computed(() => {

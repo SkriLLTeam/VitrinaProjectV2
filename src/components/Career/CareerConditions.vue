@@ -8,7 +8,7 @@
         :key="index"
       >
         <div class="career__conditions-item-img">
-          <img :src="item.img" alt="" />
+          <img v-lazy="item.img" alt="" />
         </div>
         <span class="career__conditions-item-descr">
           {{ item.descr }}

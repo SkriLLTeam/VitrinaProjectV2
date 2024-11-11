@@ -4,9 +4,15 @@
   padding: 4px 16px;
   border-radius: 4px;
   background: #f1f1f1;
+  font-size: 14px;
+  font-weight: 300;
 
   &::placeholder {
     color: #343434;
+  }
+
+  @include media(900) {
+    padding: 14px 16px;
   }
 }
 
@@ -22,11 +28,16 @@
   background-position-x: 98%;
   background-position-y: center;
   color: #000;
+
   & option {
     font-size: 18px;
     padding: 10px !important;
     border-radius: none;
     color: #000;
+  }
+
+  @include media(900) {
+    padding: 14px 16px;
   }
 }
 
@@ -34,16 +45,20 @@
   background: #fdfdfd;
   box-shadow: 0px 0px 8px 0px rgba(7, 44, 51, 0.15);
   padding: 75px 0;
+
   @include media(992) {
     margin-bottom: 100px;
   }
+
   @include media(768) {
     padding: 20px 16px 40px 16px;
   }
+
   &__wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     @include media(768) {
       flex-direction: column;
       gap: 20px;
@@ -56,15 +71,18 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+
     @include media(768) {
       align-items: center;
       gap: 10px;
     }
+
     &-title {
       color: #343434;
       font-size: clamp(1.5rem, 1.125rem + 1.88vw, 3.375rem);
       font-weight: 600;
       line-height: 125%;
+
       @include media(768) {
         text-align: center;
       }
@@ -74,9 +92,11 @@
       color: #707070;
       font-weight: 400;
       line-height: 150%;
+
       @include media(768) {
         text-align: center;
       }
+
       & a {
         color: #08a1c1;
       }
@@ -88,10 +108,12 @@
     flex-direction: column;
     gap: 15px;
     align-items: flex-end;
+
     @include media(768) {
       width: 100%;
       gap: 40px;
     }
+
     &-wrapper {
       display: flex;
       align-items: center;
@@ -100,18 +122,22 @@
       @include media(1110) {
         flex-direction: column;
       }
+
       @include media(768) {
         width: 100%;
       }
     }
+
     &-block {
       display: flex;
       flex-direction: column;
       gap: 15px;
       width: 321px;
+
       @include media(768) {
         width: 100%;
       }
+
       & label {
         color: #343434;
         font-size: clamp(0.75rem, 0.725rem + 0.13vw, 0.875rem);
@@ -119,13 +145,16 @@
         line-height: 120%;
         letter-spacing: 0.28px;
       }
+
       & input {
         padding: 16px 8px 16px 16px;
+
         @include media(768) {
           padding: 8px 8px 8px 16px;
         }
       }
     }
+
     &-btn {
       color: #fff;
       font-size: clamp(0.75rem, 0.675rem + 0.38vw, 1.125rem);
@@ -145,6 +174,7 @@
   box-shadow: 0px 4px 16px 0px rgba(30, 30, 30, 0.15);
   width: 100%;
   background: #fff;
+
   &__wrapper {
     display: block;
     width: 100%;
@@ -154,6 +184,7 @@
   &__img {
     width: 100%;
     height: 273px;
+
     & img {
       width: 100%;
       height: 100%;
@@ -164,6 +195,7 @@
 
   &__content {
     padding: 30px;
+
     &-text {
       display: flex;
       flex-direction: column;
@@ -185,6 +217,7 @@
           display: flex;
           align-items: center;
           gap: 17px;
+
           & span {
             color: #343434;
             font-size: clamp(0.75rem, 0.725rem + 0.13vw, 0.875rem);
@@ -210,9 +243,11 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0px 4px 16px 0px rgba(30, 30, 30, 0.15);
+
   &__wrapper {
     width: 100%;
     height: 100%;
+
     &-top {
       width: 100%;
       height: 372px;
@@ -220,6 +255,7 @@
       &-img {
         width: 100%;
         height: 100%;
+
         & img {
           width: 100%;
           height: 100%;
@@ -231,9 +267,11 @@
 
     &-bottom {
       padding: 30px 40px;
+
       @include media(992) {
         padding: 15px 30px;
       }
+
       &-descr {
         color: #343434;
         font-size: clamp(0.75rem, 0.65rem + 0.5vw, 1.25rem);
@@ -255,19 +293,22 @@
   min-height: 100vh;
   background: #1c1c1c;
   z-index: 10000;
+
   &__wrapper {
     display: flex;
     align-items: center;
     gap: 10px;
-    -webkit-box-reflect: below 0
-      linear-gradient(transparent, rgba(255, 255, 255, 0.2));
+    -webkit-box-reflect: below 0 linear-gradient(transparent, rgba(255, 255, 255, 0.2));
+
     & span {
       display: inline-block;
       font-family: "RubikMonoOne";
       color: #fff;
       font-size: 5vw;
       animation: loader 2s infinite calc(0.1s * var(--i));
+
       @keyframes loader {
+
         0%,
         40%,
         100% {
@@ -313,13 +354,16 @@
       gap: 20px;
       text-align: center;
     }
+
     &-top {
       display: flex;
       flex-direction: column;
       gap: 50px;
+
       @include media(992) {
         gap: 40px;
       }
+
       &-title {
         color: #343434;
         font-size: clamp(1.5rem, 1.125rem + 1.88vw, 3.375rem);
@@ -341,21 +385,25 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
+
       @include media(992) {
         gap: 20px;
         align-items: center;
         justify-content: center;
       }
+
       &-block {
         max-width: 433px;
         width: 100%;
         display: flex;
         align-items: center;
         gap: 5px;
+
         @include media(992) {
           align-items: flex-start;
           max-width: max-content;
         }
+
         & span,
         p {
           color: #343434;
@@ -380,6 +428,7 @@
     position: absolute;
     bottom: -5px;
     right: 50px;
+
     & img {
       width: 100%;
       height: 100%;
