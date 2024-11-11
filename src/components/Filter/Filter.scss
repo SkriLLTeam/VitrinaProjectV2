@@ -262,7 +262,9 @@
 
     &-btn {
       align-self: end;
-
+      @include media(900) {
+        padding: 14px 16px;
+      }
       @include media(1330) {
         font-size: 12px
       }
@@ -292,6 +294,10 @@
         &.active {
           background: #08A1C1;
           color: #fff;
+        }
+
+        @include media(900) {
+          padding: 14px 16px;
         }
       }
     }

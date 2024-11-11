@@ -12,13 +12,13 @@
           ref="priceRef"
           filterFromKey="price_from"
           filterToKey="price_to"
-         :labeltitle="$t('tabs.price')"
+          :labeltitle="$t('tabs.price')"
         />
         <FromTo
           ref="quadratureRef"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
-         :labeltitle="$t('tabs.quadrature')"
+          :labeltitle="$t('tabs.quadrature')"
         />
       </div>
       <div class="filter__form-newbuilding-bottom">
@@ -26,7 +26,7 @@
           ref="floorRef"
           filterFromKey="floor_from"
           filterToKey="floor_to"
-         :labeltitle="$t('tabs.floor')"
+          :labeltitle="$t('tabs.floor')"
         />
 
         <FilterSelect
@@ -46,7 +46,7 @@
     <div class="filter__form-mob">
       <div class="filter__form-flats-top">
         <Checkboxes
-       :labeltitle="$t('tabs.rooms')"
+          :labeltitle="$t('tabs.rooms')"
           :checkboxes="checkboxes"
           @toggleCheckbox="toggleCheckbox"
         />
@@ -60,17 +60,17 @@
           ref="quadratureRefMob"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
-             :labeltitle="$t('tabs.quadrature')"
+          :labeltitle="$t('tabs.quadrature')"
         />
         <FromTo
           ref="floorRefMob"
           filterFromKey="floor_from"
           filterToKey="floor_to"
-         :labeltitle="$t('tabs.floor')"
+          :labeltitle="$t('tabs.floor')"
         />
         <FilterSelect
           ref="selectDistrictMob"
-       :labeltitle="$t('tabs.repair')"
+          :labeltitle="$t('tabs.district')"
           filterKey="district"
           :list="districts"
         />

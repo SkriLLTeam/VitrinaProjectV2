@@ -3,7 +3,7 @@
     <div class="careerUI__wrapper">
       <div class="careerUI__wrapper-top">
         <div class="careerUI__wrapper-top-img">
-          <img :src="image" alt="" />
+          <img v-lazy="image" alt="" />
         </div>
       </div>
       <div class="careerUI__wrapper-bottom">
