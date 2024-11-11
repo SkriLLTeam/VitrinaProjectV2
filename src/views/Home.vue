@@ -31,11 +31,7 @@ const limit = 15;
 const filterStore = useFiltersStore();
 const computedPage = computed(() => filterStore.currentPage);
 
-const {
-  data: advertisementsData,
-  refetch,
-  isLoading,
-} = useQuery({
+const { data: advertisementsData, refetch, isLoading } = useQuery({
   queryKey: [computedPage],
   queryFn: async () => {
     const params = new URLSearchParams();
@@ -49,7 +45,7 @@ const {
     }
 
     const response = await axios.get(`${advertisements}?${params.toString()}`);
-    console.log(`Отправка запроса: ${advertisements}?${params.toString()}`);
+    // console.log(`Отправка запроса: ${advertisements}?${params.toString()}`);
 
     return response.data;
   },

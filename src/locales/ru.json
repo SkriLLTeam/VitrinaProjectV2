@@ -129,5 +129,13 @@
     "about": "О нас",
     "apartament": "Карточка квартиры",
     "default": "Vitrina Project"
+  },
+  "titles": {
+    "home": "Главная",
+    "mortgage": "Ипотека",
+    "career": "Карьера",
+    "about": "О нас",
+    "apartament": "Объявления",
+    "error": "Ошибка"
   }
 }
