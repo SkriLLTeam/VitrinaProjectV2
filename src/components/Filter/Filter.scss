@@ -262,12 +262,16 @@
 
     &-btn {
       align-self: end;
-      @include media(900) {
-        padding: 14px 16px;
-      }
+
       @include media(1330) {
         font-size: 12px
       }
+
+      @include media(900) {
+        padding: 14px 16px;
+        font-size: 16px;
+      }
+
     }
 
     &-checkboxes {
