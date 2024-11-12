@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { watch, computed } from "vue";
+import { computed, watch } from "vue";
 import { advertisements } from "@/utils/util";
 import { useRoute } from "vue-router";
 import { useQuery } from "@tanstack/vue-query";
@@ -30,18 +30,12 @@ const route = useRoute();
 const apartamentId = computed(() => route.params.id);
 const { locale } = useI18n();
 
-const { data, isLoading, refetch } = useQuery({
-  queryKey: [apartamentId],
+const { data, isLoading } = useQuery({
+  queryKey: [apartamentId, locale],
   queryFn: async () => {
-    const response = await axios.get(`${advertisements}/${apartamentId.value}`);
+    const response = await axios.get(`${advertisements}${apartamentId.value}`);
     return response.data;
   },
-  keepPreviousData: true,
-  refetchOnWindowFocus: false,
-});
-
-watch(locale, () => {
-  refetch();
 });
 </script>
 

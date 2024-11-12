@@ -23,6 +23,7 @@ import { ref, computed, watch } from "vue";
 import { useQuery } from "@tanstack/vue-query";
 import { advertisements, districts } from "@/utils/util";
 import { useFiltersStore } from "@/stores/FiltersStore";
+import { useI18n } from "vue-i18n";
 import axios from "axios";
 import ApartamentList from "@/components/Apartament/ApartamentList.vue";
 import Filter from "@/components/Filter/Filter.vue";
@@ -30,9 +31,14 @@ import Banner from "@/components/UI/Banner.vue";
 const limit = 15;
 const filterStore = useFiltersStore();
 const computedPage = computed(() => filterStore.currentPage);
+const { locale } = useI18n();
 
-const { data: advertisementsData, refetch, isLoading } = useQuery({
-  queryKey: [computedPage],
+const {
+  data: advertisementsData,
+  refetch,
+  isLoading,
+} = useQuery({
+  queryKey: [computedPage, locale],
   queryFn: async () => {
     const params = new URLSearchParams();
     params.append("limit", limit);
@@ -43,23 +49,19 @@ const { data: advertisementsData, refetch, isLoading } = useQuery({
         params.append(key, filters[key]);
       }
     }
-
     const response = await axios.get(`${advertisements}?${params.toString()}`);
     // console.log(`Отправка запроса: ${advertisements}?${params.toString()}`);
-
     return response.data;
   },
-  keepPreviousData: true,
   refetchOnWindowFocus: false,
 });
 
 const { data: disctrictsData } = useQuery({
-  queryKey: ["districts"],
+  queryKey: ["districts", locale],
   queryFn: async () => {
     const response = await axios.get(`${districts}`);
     return response.data;
   },
-  refetchOnWindowFocus: false,
 });
 
 const totalPages = computed(() => {
