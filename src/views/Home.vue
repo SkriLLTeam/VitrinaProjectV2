@@ -61,6 +61,7 @@ const { data: disctrictsData } = useQuery({
   },
   refetchOnWindowFocus: false,
 });
+
 const totalPages = computed(() => {
   if (advertisementsData?.value?.count) {
     return Math.ceil(advertisementsData.value.count / limit);

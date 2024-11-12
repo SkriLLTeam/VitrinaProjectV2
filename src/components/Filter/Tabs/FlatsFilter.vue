@@ -97,7 +97,8 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useI18n } from "vue-i18n";
 import { useFiltersStore } from "@/stores/FiltersStore";
 import Checkboxes from "../Checkboxes/Checkboxes.vue";
 import FromTo from "../FromTo/FromTo.vue";
@@ -114,6 +115,7 @@ const selectDistrict = ref(null);
 const selectRepairMob = ref(null);
 const selectDistrictMob = ref(null);
 const filterStore = useFiltersStore();
+const { t } = useI18n();
 
 const props = defineProps({
   rent: Boolean,
@@ -125,12 +127,12 @@ const props = defineProps({
   category: Number,
 });
 
-const repairList = ref([
-  { name: "С ремонтом", id: "with" },
-  { name: "Без ремонта", id: "without" },
-  { name: "Дизайнерский ремонт", id: "designed" },
-  { name: "Черновая", id: "rough" },
-  { name: "Предчистовая", id: "pre_finished" },
+const repairList = computed(() => [
+  { name: t("repair.with"), id: "with" },
+  { name: t("repair.without"), id: "without" },
+  { name: t("repair.designed"), id: "designed" },
+  { name: t("repair.rough"), id: "rough" },
+  { name: t("repair.pre_finished"), id: "pre_finished" },
 ]);
 
 const resetAll = () => {
@@ -153,6 +155,6 @@ const applyFilters = () => {
   filterStore.updateFilter("category", props.category);
   filterStore.triggerRefetch();
   filterStore.hideTitle();
-  filterStore.currentPage = 1
+  filterStore.currentPage = 1;
 };
 </script>

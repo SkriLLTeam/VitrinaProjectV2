@@ -1,4 +1,4 @@
-<template>
+npm <template>
   <article class="cardUI" v-if="apartament">
     <router-link :to="`/apartament/${apartament?.id}`" class="cardUI__wrapper">
       <div class="cardUI__img">

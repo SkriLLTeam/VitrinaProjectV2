@@ -137,5 +137,12 @@
     "about": "Biz haqimizda",
     "apartament": "Reklamalar",
     "error": "Xato"
+  },
+  "repair": {
+    "with": "Ta’mirlangan",
+    "without": "Ta’mirsiz",
+    "designed": "Dizaynerlik ta’mir",
+    "rough": "Черновая",
+    "pre_finished": "Tugallanmagan ta’mir"
   }
 }
