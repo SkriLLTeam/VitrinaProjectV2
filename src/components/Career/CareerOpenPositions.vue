@@ -17,16 +17,19 @@
 <script setup>
 import { ref } from "vue";
 import CareerCard from "../UI/CareerCard.vue";
+import image1 from "@/assets/images/apartments-test.jpeg";
+import image2 from "@/assets/images/apartments-test.jpeg";
+import image3 from "@/assets/images/apartments-test.jpeg";
 
 const careerCardInfo = ref([
   {
-    image: "src/assets/images/apartments-test.jpeg",
+    image: image1,
   },
   {
-    image: "src/assets/images/apartments-test.jpeg",
+    image: image2,
   },
   {
-    image: "src/assets/images/apartments-test.jpeg",
+    image: image3,
   },
 ]);
 </script>
