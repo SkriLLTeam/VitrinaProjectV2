@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import {  computed } from "vue";
 import { useQuery } from "@tanstack/vue-query";
 import { advertisements, districts } from "@/utils/util";
 import { useFiltersStore } from "@/stores/FiltersStore";
@@ -35,7 +35,7 @@ const { locale } = useI18n();
 
 const {
   data: advertisementsData,
-  refetch: refetchAdvertisements,
+  refetch,
   isLoading,
 } = useQuery({
   queryKey: [computedPage, locale],
@@ -56,8 +56,7 @@ const {
   refetchOnWindowFocus: false,
 });
 
-filterStore.addRefetch(refetchAdvertisements);
-const { data: disctrictsData, refetch: refetchDistricts } = useQuery({
+const { data: disctrictsData } = useQuery({
   queryKey: ["districts", locale],
   queryFn: async () => {
     const response = await axios.get(`${districts}`);
@@ -65,7 +64,6 @@ const { data: disctrictsData, refetch: refetchDistricts } = useQuery({
   },
 });
 
-filterStore.addRefetch(refetchDistricts);
 const totalPages = computed(() => {
   if (advertisementsData?.value?.count) {
     return Math.ceil(advertisementsData.value.count / limit);
@@ -77,6 +75,7 @@ const handlePageChange = (newPage) => {
   filterStore.setCurrentPage(newPage);
 };
 
+filterStore.setRefetch(refetch);
 </script>
 
 <style lang="scss" scoped>

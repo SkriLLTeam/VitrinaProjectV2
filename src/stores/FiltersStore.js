@@ -19,8 +19,8 @@ export const useFiltersStore = defineStore("FiltersStore", {
       house_quadrature_to: null,
     },
     isTitleVisible: true,
+    refetchFn: null,
     currentPage: 1,
-    refetchFns: [],
   }),
   actions: {
     updateFilter(key, value) {
@@ -50,13 +50,14 @@ export const useFiltersStore = defineStore("FiltersStore", {
     hideTitle() {
       this.isTitleVisible = false;
     },
-    addRefetch(refetch) {
-      if (!this.refetchFns.includes(refetch)) {
-        this.refetchFns.push(refetch);
-      }
+    setRefetch(refetch) {
+      this.refetchFn = refetch;
     },
+
     triggerRefetch() {
-      this.refetchFns.forEach((refetch) => refetch());
+      if (this.refetchFn) {
+        this.refetchFn();
+      }
     },
     setCurrentPage(page) {
       this.currentPage = page;

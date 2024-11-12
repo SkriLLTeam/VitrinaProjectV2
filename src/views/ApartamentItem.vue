@@ -35,7 +35,7 @@ const { locale } = useI18n();
 const {
   data,
   isLoading,
-  refetch: refetchApartamentId,
+  refetch,
 } = useQuery({
   queryKey: [apartamentId, locale],
   queryFn: async () => {
@@ -43,7 +43,6 @@ const {
     return response.data;
   },
 });
-filterStore.addRefetch(refetchApartamentId);
 </script>
 
 <style lang="scss" scoped>

@@ -127,12 +127,11 @@
 <script setup>
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
-import { useFiltersStore } from "@/stores/FiltersStore";
+import { useQueryClient } from "@tanstack/vue-query";
 import Modal from "../UI/Modal.vue";
 import router from "@/router";
 import i18n from "@/plugins/i18n";
-const filtersStore = useFiltersStore();
-
+const queryClient = useQueryClient();
 const links = ref([
   {
     title: "menu.mortgage",
@@ -180,8 +179,7 @@ const changeLanguage = (lang) => {
   locale.value = lang;
   currentLanguage.value = locale.value;
   i18n.global.locale = lang;
-  filtersStore.triggerRefetch();
-
+  queryClient.refetchQueries();
   isDropdownOpen.value = false;
 
   // Обновление заголовка вкладки
