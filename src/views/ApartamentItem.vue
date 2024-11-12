@@ -15,28 +15,35 @@
 </template>
 
 <script setup>
-import { computed, watch } from "vue";
+import { computed } from "vue";
 import { advertisements } from "@/utils/util";
 import { useRoute } from "vue-router";
 import { useQuery } from "@tanstack/vue-query";
 import { useI18n } from "vue-i18n";
+import { useFiltersStore } from "@/stores/FiltersStore";
 import ApartamentCaption from "@/components/Apartament/ApartamentCaption.vue";
 import ApartamentSlider from "@/components/Apartament/ApartamentSlider.vue";
 import ApartamentUserInfo from "@/components/Apartament/ApartamentUserInfo.vue";
 import SimilarAds from "@/components/Apartament/SimilarAds.vue";
 import axios from "axios";
+const filterStore = useFiltersStore();
 
 const route = useRoute();
 const apartamentId = computed(() => route.params.id);
 const { locale } = useI18n();
 
-const { data, isLoading } = useQuery({
+const {
+  data,
+  isLoading,
+  refetch: refetchApartamentId,
+} = useQuery({
   queryKey: [apartamentId, locale],
   queryFn: async () => {
     const response = await axios.get(`${advertisements}${apartamentId.value}`);
     return response.data;
   },
 });
+filterStore.addRefetch(refetchApartamentId);
 </script>
 
 <style lang="scss" scoped>

@@ -127,9 +127,11 @@
 <script setup>
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
+import { useFiltersStore } from "@/stores/FiltersStore";
 import Modal from "../UI/Modal.vue";
 import router from "@/router";
 import i18n from "@/plugins/i18n";
+const filtersStore = useFiltersStore();
 
 const links = ref([
   {
@@ -178,13 +180,14 @@ const changeLanguage = (lang) => {
   locale.value = lang;
   currentLanguage.value = locale.value;
   i18n.global.locale = lang;
+  filtersStore.triggerRefetch();
+
   isDropdownOpen.value = false;
 
   // Обновление заголовка вкладки
   const currentRoute = router.currentRoute.value;
   const titleKey = currentRoute.meta.title;
   document.title = titleKey ? i18n.global.t(titleKey) : "Vitrina";
- 
 };
 </script>
 
