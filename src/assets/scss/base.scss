@@ -7,7 +7,7 @@
   text-decoration: none;
   font-weight: 400;
   // user-select: none;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .container {
@@ -47,37 +47,43 @@ a {
 }
 
 .btn {
-  background: #08A1C1;
+  background: #08a1c1;
   padding: 8px 16px;
   border-radius: 8px;
   color: #fff;
   font-size: 18px;
   font-weight: 500;
-  border: 1px solid #08A1C1;
+  border: 1px solid #08a1c1;
   transition: 0.3s linear;
 }
 
 .btn:hover {
   background: transparent;
-  color: #08A1C1;
-
+  color: #08a1c1;
 }
 
 .revbtn {
   background: transparent;
-  color: #08A1C1;
+  color: #08a1c1;
   padding: 8px 16px;
   border-radius: 8px;
   font-size: 18px;
   font-weight: 500;
-  border: 1px solid #08A1C1;
+  border: 1px solid #08a1c1;
   transition: 0.3s linear;
 }
 
-.revbtn:hover {
-  background: #08A1C1;
-  color: #fff;
-
+@media (hover:hover){
+  .revbtn:hover{
+          background: #08A1C1;
+          color: #fff;
+    }
+}
+@media (hover:none){
+  .revbtn:active{
+          background: #08A1C1;
+          color: #fff;
+    }
 }
 
 html {
