@@ -102,13 +102,18 @@
       "elite_apartments": "Элитные квартиры",
       "land_private_houses": "Участки и частные дома"
     },
-    "offer_why_us_list": [
-      "Бесплатная консультация",
-      "1% комиссии",
-      "Экономия времени и энергии",
-      "Все застройщики в одном месте",
-      "Только проверенные застройщики"
-    ]
+    "offer_why_us_list": {
+      "free_consultation": "Бесплатная консультация",
+      "one_percent_commission": "0% комиссии",
+      "time_energy_saving": "Экономия времени и энергии",
+      "all_developers_in_one_place": "Все застройщики в одном месте",
+      "verified_developers_only": "Только проверенные застройщики"
+    },
+    "looking": {
+      "looking_for": "Ищите",
+      "new_building": "новостройку?",
+      "come_to_us": "Тогда вам точно к нам:"
+    }
   },
   "tabs": {
     "buy": "Покупка",

@@ -105,13 +105,19 @@
       "elite_apartments": "Muhtasham xonadonlar",
       "land_private_houses": "Uchastka va hovli uylar"
     },
-    "offer_why_us_list": [
-      "Tekin konsultatsiya",
-      "0% to'lov",
-      "Sizning vaqtingizni va energiyangizni tejaymiz",
-      "Barcha quruvchilar bir joyda",
-      "Faqatgina tekshirilgan quruvchilar"
-    ]
+
+    "offer_why_us_list": {
+      "free_consultation": "Tekin konsultatsiya",
+      "one_percent_commission": "0% to'lov",
+      "time_energy_saving": "Sizning vaqtingizni va energiyangizni tejaymiz",
+      "all_developers_in_one_place": "Barcha quruvchilar bir joyda",
+      "verified_developers_only": "Faqatgina tekshirilgan quruvchilar"
+    },
+    "looking": {
+      "looking_for": "Yangi",
+      "new_building": "binoni qidiryapsizmi?",
+      "come_to_us": "Unda albatta bizga murojaat qiling:"
+    }
   },
   "tabs": {
     "buy": "Sotib olish",
