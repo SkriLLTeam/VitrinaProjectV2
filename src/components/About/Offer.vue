@@ -8,7 +8,7 @@
       <div class="about__offer-offers">
         <div
           class="about__offer-offers-block"
-          v-for="(offer, index) in listOffer"
+          v-for="(offer, index) in offerList"
           :key="index"
         >
           <div class="about__offer-offers-block-img">
@@ -24,7 +24,7 @@
           </div>
 
           <span class="about__offer-offers-block-caption">
-            {{ offer }}
+            {{ $t(offer.title) }}
           </span>
         </div>
       </div>
@@ -33,14 +33,31 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useI18n } from "vue-i18n";
-const { messages, locale } = useI18n();
-const listOffer = computed(() => {
-  const currentLocale = locale.value;
-  const offer = messages.value[currentLocale]?.contents?.list_offer;
-  return offer;
-});
+import { ref } from "vue";
+
+const offerList = ref([
+  {
+    title: "contents.what_do_we_offer_why_us_list.buy_sell_property",
+  },
+  {
+    title: "contents.what_do_we_offer_why_us_list.commercial_property",
+  },
+  {
+    title: "contents.what_do_we_offer_why_us_list.exclusive_top100",
+  },
+  {
+    title: "contents.what_do_we_offer_why_us_list.photo_video_review",
+  },
+  {
+    title: "contents.what_do_we_offer_why_us_list.paid_promotion",
+  },
+  {
+    title: "contents.what_do_we_offer_why_us_list.elite_apartments",
+  },
+  {
+    title: "contents.what_do_we_offer_why_us_list.land_private_houses",
+  },
+]);
 </script>
 
 <style lang="scss" scoped></style>

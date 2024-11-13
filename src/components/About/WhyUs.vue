@@ -4,14 +4,14 @@
     <div class="about__why-cards">
       <div
         class="about__why-cards-card"
-        v-for="(card, index) in combinedCardsInfo"
+        v-for="(card, index) in whyUsList"
         :key="index"
       >
         <div class="about__why-cards-card-img">
           <img v-lazy="card.img" alt="" />
         </div>
         <span class="about__why-cards-card-descr">
-          {{ card.descr }}
+          {{ $t(card.title) }}
         </span>
       </div>
     </div>
@@ -19,38 +19,17 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { useI18n } from "vue-i18n";
-const { messages, locale } = useI18n();
+import { ref } from "vue";
 import key from "@/assets/images/icons/key.svg";
 import users from "@/assets/images/icons/users.svg";
 import dollar from "@/assets/images/icons/dollar.svg";
 import build from "@/assets/images/icons/build.svg";
-const cardsImg = ref([
-  {
-    img: key,
-  },
-  {
-    img: users,
-  },
-  {
-    img: dollar,
-  },
-  {
-    img: build,
-  },
+const whyUsList = ref([
+  { title: "contents.why_us_list.experience", img: key },
+  { title: "contents.why_us_list.agents", img: users },
+  { title: "contents.why_us_list.sales_volume", img: dollar },
+  { title: "contents.why_us_list.apartments_sold", img: build },
 ]);
-const localizedDescriptions = computed(() => {
-  const currentLocale = locale.value;
-  return messages.value[currentLocale]?.contents?.why_us_list || [];
-});
-
-const combinedCardsInfo = computed(() => {
-  return localizedDescriptions.value.map((descr, index) => ({
-    descr,
-    img: cardsImg.value[index]?.img || "",
-  }));
-});
 </script>
 
 <style lang="scss" scoped></style>

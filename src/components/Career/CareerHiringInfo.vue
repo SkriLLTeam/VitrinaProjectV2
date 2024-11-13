@@ -8,7 +8,7 @@
       <div class="career__hiring-info">
         <div
           class="career__hiring-info-block"
-          v-for="(item, index) in listOffer"
+          v-for="(item, index) in hiringInfoList"
           :key="index"
         >
           <div class="career__hiring-info-block-img">
@@ -22,7 +22,7 @@
           </div>
 
           <span class="career__hiring-info-block-descr">
-            {{ item }}
+            {{ $t(item.title) }}
           </span>
         </div>
       </div>
@@ -31,17 +31,15 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useI18n } from "vue-i18n";
+import { ref } from "vue";
 
-const { messages, locale } = useI18n();
-
-// Используем messages напрямую, чтобы получить массив из json
-const listOffer = computed(() => {
-  const currentLocale = locale.value;
-  const offer = messages.value[currentLocale]?.contents?.list_offer;
-  return offer;
-});
+const hiringInfoList = ref([
+  { title: "contents.list_offer.training" },
+  { title: "contents.list_offer.office" },
+  { title: "contents.list_offer.bonus" },
+  { title: "contents.list_offer.communication" },
+  { title: "contents.list_offer.support" },
+]);
 </script>
 
 <style lang="scss" scoped></style>

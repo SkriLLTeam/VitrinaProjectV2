@@ -4,14 +4,14 @@
     <div class="career__conditions-wrapper">
       <div
         class="career__conditions-item"
-        v-for="(item, index) in combinedConditionsList"
+        v-for="(item, index) in conditionsList"
         :key="index"
       >
         <div class="career__conditions-item-img">
           <img v-lazy="item.img" alt="" />
         </div>
         <span class="career__conditions-item-descr">
-          {{ item.descr }}
+          {{ $t(item.title) }}
         </span>
       </div>
     </div>
@@ -19,32 +19,18 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { useI18n } from "vue-i18n";
-import clock from "../../assets/images/clock.svg";
-import money from "../../assets/images/money.svg";
-import calendar from "../../assets/images/calendar.svg";
-import education from "../../assets/images/education.svg";
-const { messages, locale } = useI18n();
+import { ref } from "vue";
+import clock from "@/assets/images/clock.svg";
+import money from "@/assets/images/money.svg";
+import calendar from "@/assets/images/calendar.svg";
+import education from "@/assets/images/education.svg";
 
-const conditionsImages = ref([
-  { img: clock },
-  { img: money },
-  { img: calendar },
-  { img: education },
+const conditionsList = ref([
+  { title: "contents.conditions_career.working_hours", img: clock },
+  { title: "contents.conditions_career.unlimited_income", img: money },
+  { title: "contents.conditions_career.floating_day_off", img: calendar },
+  { title: "contents.conditions_career.training_duration", img: education },
 ]);
-
-const localizedDescriptions = computed(() => {
-  const currentLocale = locale.value;
-  return messages.value[currentLocale]?.contents?.conditions_career || [];
-});
-
-const combinedConditionsList = computed(() => {
-  return localizedDescriptions.value.map((descr, index) => ({
-    descr,
-    img: conditionsImages.value[index]?.img || "",
-  }));
-});
 </script>
 
 <style lang="scss" scoped></style>

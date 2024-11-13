@@ -67,37 +67,44 @@
     "consultation_title_mortgage": "Konsultatsiya uchun so'rovlar",
     "consultation_descr_mortgage": "Konsultatsiya uchun bizga so'rov qoldiring yoki bizga qo'ng'iroq qiling:",
     "what_do_we_offer": "Biz nima taklif qilamiz",
-    "career_offer": " <span>«Витрина Недвижимости»</span>ga qo'shiling va biz bilan rivojlaning!",
-    "list_offer": [
-      "Ishning birinchi oyi davomida kompaniya hisobidan yuqori sifatli ekspress ta'lim",
-      "Shahar markazidagi shinam ofis,barcha kerakli narsalar,samimiy xodimlar",
-      "Yuqori samaradorlik va o'z vaqtida ish haqi uchun kafolatlangan bonuslar",
-      "Cheksiz aloqa (korporativ raqam)",
-      "Reklama va qollab quvatlash"
-    ],
-    "conditions_career": [
-      "Ish vaqti 10:00 dan 19:00 gacha, moslachuvchan ish vaqti",
-      "Cheksiz daromadlariga",
-      "Haftada bir dam olish kuni",
-      "Trening bir haftadan bir oygacha"
-    ],
+    "career_offer": {
+      "join_message_part1": "Qo'shiling",
+      "join_message_part2": "va biz bilan rivojlaning!",
+      "brand_name": "«Vitrina Nedvijimosti»"
+    },
+    "list_offer": {
+      "training": "Ishning birinchi oyi davomida kompaniya hisobidan yuqori sifatli ekspress ta'lim",
+      "office": "Shahar markazidagi shinam ofis,barcha kerakli narsalar,samimiy xodimlar",
+      "bonus": "Yuqori samaradorlik va o'z vaqtida ish haqi uchun kafolatlangan bonuslar",
+      "communication": "Cheksiz aloqa (korporativ raqam)",
+      "support": "Reklama va qollab quvatlash"
+    },
+
+    "conditions_career": {
+      "working_hours": "Ish vaqti 10:00 dan 19:00 gacha, moslachuvchan ish vaqti",
+      "unlimited_income": "Cheksiz daromadlariga",
+      "floating_day_off": "Haftada bir dam olish kuni",
+      "training_duration": "Trening bir haftadan bir oygacha"
+    },
     "why_us_title": "Nega aynan biz?",
-    "why_us_list": [
-      "Ko'chmas mulk bozorida 10 yillik tajriba",
-      "7 ta shahar,3 ta davlatda 1000 dan ortiq ko'chmas mulk agentlari",
-      "Biz ko'chmas mulkni yiliga 650 000 000$ ortiq sotamiz",
-      "Biz yiliga 8000 dan ortiq xonadonlar sotamiz"
-    ],
+
+    "why_us_list": {
+      "experience": "Ko'chmas mulk bozorida 10 yillik tajriba",
+      "agents": "7 ta shahar,3 ta davlatda 1000 dan ortiq ko'chmas mulk agentlari",
+      "sales_volume": "Biz ko'chmas mulkni yiliga 650 000 000$ ortiq sotamiz",
+      "apartments_sold": "Biz yiliga 8000 dan ortiq xonadonlar sotamiz"
+    },
     "what_do_we_offer_why_us": "Bizning takliflarimiz:",
-    "what_do_we_offer_why_us_list": [
-      "Toshkentda ko'chmas mulk sotib olish va sotish",
-      "Tijorat binolari ",
-      "Toshkentdagi TOP 100 ekskluziv obyektlar bazasi",
-      "Professional foto va video xizmati",
-      "Ekskluzivobyektlarni kompaniya hisobidan pulli reklama qilish ",
-      "Muhtasham xonadonlar",
-      "Uchastka va hovli uylar"
-    ],
+
+    "what_do_we_offer_why_us_list": {
+      "buy_sell_property": "Toshkentda ko'chmas mulk sotib olish va sotish",
+      "commercial_property": "Tijorat binolari",
+      "exclusive_top100": "Toshkentdagi TOP 100 ekskluziv obyektlar bazasi",
+      "photo_video_review": "Professional foto va video xizmati",
+      "paid_promotion": "Ekskluzivobyektlarni kompaniya hisobidan pulli reklama qilish",
+      "elite_apartments": "Muhtasham xonadonlar",
+      "land_private_houses": "Uchastka va hovli uylar"
+    },
     "offer_why_us_list": [
       "Tekin konsultatsiya",
       "0% to'lov",

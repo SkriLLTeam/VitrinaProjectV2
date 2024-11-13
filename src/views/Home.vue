@@ -76,6 +76,9 @@ const handlePageChange = (newPage) => {
 };
 
 filterStore.setRefetch(refetch);
+
+
+
 </script>
 
 <style lang="scss" scoped>
