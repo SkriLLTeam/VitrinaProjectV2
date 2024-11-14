@@ -56,7 +56,7 @@
           />
         </div>
         <button class="btn filter__form-btn" @click="applyFilters">
-          Показать результаты
+          {{ $t("button.show_result") }}
         </button>
         <button class="revbtn filter__form-btn" @click="resetAll">
           {{ $t("button.clear") }}

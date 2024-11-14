@@ -1,4 +1,4 @@
-npm <template>
+<template>
   <article class="cardUI" v-if="apartament">
     <router-link :to="`/apartament/${apartament?.id}`" class="cardUI__wrapper">
       <div class="cardUI__img">
@@ -32,7 +32,6 @@ npm <template>
 </template>
 
 <script setup>
-
 const props = defineProps({
   apartament: {
     type: Object,
