@@ -38,10 +38,7 @@
             </a>
           </div>
 
-          <button
-            @click="orderModalOpen"
-            class="apartament__user-content-info-btns-call"
-          >
+          <button @click="orderModalOpen" class="apartament__user-content-info-btns-call">
             Заказать звонок
           </button>
         </div>
@@ -49,9 +46,7 @@
 
       <div class="apartament__user-content-address">
         <div class="apartament__user-content-address-block">
-          <span class="apartament__user-content-address-block-title">
-            Адрес:</span
-          >
+          <span class="apartament__user-content-address-block-title"> Адрес:</span>
           <span class="apartament__user-content-address-block-descr">
             {{ userInfo?.address }}
           </span>
@@ -73,9 +68,7 @@
           </span>
         </div>
         <div class="apartament__user-content-address-block">
-          <span class="apartament__user-content-address-block-title">
-            Этаж:</span
-          >
+          <span class="apartament__user-content-address-block-title"> Этаж:</span>
           <span class="apartament__user-content-address-block-descr">
             {{ userInfo?.floor_from }}/{{ userInfo?.floor_to }}
           </span>
@@ -89,11 +82,15 @@
           </span>
         </div>
         <div class="apartament__user-content-address-block">
-          <span class="apartament__user-content-address-block-title">
-            Состояние:</span
-          >
+          <span class="apartament__user-content-address-block-title"> Состояние:</span>
           <span class="apartament__user-content-address-block-descr">
-            {{ userInfo?.repair_type }}
+            {{
+              locale.toLowerCase() == "ru"
+                ? userInfo?.repair_type
+                : locale.toLowerCase() == "uz"
+                ? userInfo?.repair_type_uz
+                : userInfo?.repair_type
+            }}
           </span>
         </div>
       </div>
@@ -104,6 +101,8 @@
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
+import i18n from "@/plugins/i18n";
 import { ref } from "vue";
 import Modal from "../UI/Modal.vue";
 
@@ -115,7 +114,7 @@ const props = defineProps({
 
 const isOrderModal = ref(false);
 const showNumber = ref(false);
-
+const { locale } = useI18n();
 const show = () => {
   showNumber.value = !showNumber.value;
 };

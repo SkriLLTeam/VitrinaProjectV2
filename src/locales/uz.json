@@ -79,7 +79,6 @@
       "communication": "Cheksiz aloqa (korporativ raqam)",
       "support": "Reklama va qollab quvatlash"
     },
-
     "conditions_career": {
       "working_hours": "Ish vaqti 10:00 dan 19:00 gacha, moslachuvchan ish vaqti",
       "unlimited_income": "Cheksiz daromadlariga",
@@ -87,7 +86,6 @@
       "training_duration": "Trening bir haftadan bir oygacha"
     },
     "why_us_title": "Nega aynan biz?",
-
     "why_us_list": {
       "experience": "Ko'chmas mulk bozorida 10 yillik tajriba",
       "agents": "7 ta shahar,3 ta davlatda 1000 dan ortiq ko'chmas mulk agentlari",
@@ -95,7 +93,6 @@
       "apartments_sold": "Biz yiliga 8000 dan ortiq xonadonlar sotamiz"
     },
     "what_do_we_offer_why_us": "Bizning takliflarimiz:",
-
     "what_do_we_offer_why_us_list": {
       "buy_sell_property": "Toshkentda ko'chmas mulk sotib olish va sotish",
       "commercial_property": "Tijorat binolari",
@@ -105,7 +102,6 @@
       "elite_apartments": "Muhtasham xonadonlar",
       "land_private_houses": "Uchastka va hovli uylar"
     },
-
     "offer_why_us_list": {
       "free_consultation": "Tekin konsultatsiya",
       "one_percent_commission": "0% to'lov",
@@ -157,5 +153,6 @@
     "designed": "Dizaynerlik ta’mir",
     "rough": "Qora Suvoq",
     "pre_finished": "Tugallanmagan ta’mir"
-  }
+  },
+  "order": "So’rov qoldirish"
 }
