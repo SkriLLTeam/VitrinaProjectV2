@@ -99,7 +99,7 @@
               </router-link>
             </li>
           </ul>
-          <button class="btn" @click="orderModalOpen">{{ $t("`order`") }}</button>
+          <button class="btn" @click="orderModalOpen">{{ $t("order") }}</button>
         </div>
       </div>
     </nav>
