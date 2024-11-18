@@ -3,7 +3,7 @@
     <nav class="container header__nav">
       <div class="header__nav-right">
         <router-link to="/" class="header__nav-logo">
-          <img src="@assets/images/logo.svg" alt="" />
+          <img src="@assets/images/logo_color.svg" alt="" class="header__nav-logo-img" />
         </router-link>
         <ul class="header__nav-list">
           <li class="header__nav-list_item">
@@ -50,7 +50,7 @@
     <nav class="container header__mob">
       <div class="header__nav-right">
         <router-link to="/" class="header__nav-logo">
-          <img src="@assets/images/logo.svg" alt="" />
+          <img src="@assets/images/logo_color.svg" alt="" class="header__nav-logo-img" />
         </router-link>
 
         <div class="header__mob-wrapper">
