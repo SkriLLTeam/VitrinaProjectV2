@@ -38,7 +38,10 @@
             </a>
           </div>
 
-          <button @click="orderModalOpen" class="apartament__user-content-info-btns-call">
+          <button
+            @click="orderModalOpen"
+            class="apartament__user-content-info-btns-call"
+          >
             Заказать звонок
           </button>
         </div>
@@ -46,7 +49,9 @@
 
       <div class="apartament__user-content-address">
         <div class="apartament__user-content-address-block">
-          <span class="apartament__user-content-address-block-title"> Адрес:</span>
+          <span class="apartament__user-content-address-block-title">
+            Адрес:</span
+          >
           <span class="apartament__user-content-address-block-descr">
             {{ userInfo?.address }}
           </span>
@@ -68,7 +73,9 @@
           </span>
         </div>
         <div class="apartament__user-content-address-block">
-          <span class="apartament__user-content-address-block-title"> Этаж:</span>
+          <span class="apartament__user-content-address-block-title">
+            Этаж:</span
+          >
           <span class="apartament__user-content-address-block-descr">
             {{ userInfo?.floor_from }}/{{ userInfo?.floor_to }}
           </span>
@@ -82,7 +89,9 @@
           </span>
         </div>
         <div class="apartament__user-content-address-block">
-          <span class="apartament__user-content-address-block-title"> Состояние:</span>
+          <span class="apartament__user-content-address-block-title">
+            Состояние:</span
+          >
           <span class="apartament__user-content-address-block-descr">
             {{
               locale.toLowerCase() == "ru"
@@ -119,14 +128,14 @@ const show = () => {
   showNumber.value = !showNumber.value;
 };
 
-// const orderModalOpen = () => {
-//   isOrderModal.value = true;
-//   document.body.style.overflow = "hidden";
-// };
-// const orderModalClose = () => {
-//   isOrderModal.value = false;
-//   document.body.style.overflow = "auto";
-// };
+const orderModalOpen = () => {
+  isOrderModal.value = true;
+  document.body.style.overflow = "hidden";
+};
+const orderModalClose = () => {
+  isOrderModal.value = false;
+  document.body.style.overflow = "auto";
+};
 </script>
 
 <style lang="scss" scoped></style>
