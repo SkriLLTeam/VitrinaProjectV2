@@ -58,7 +58,10 @@
 
       @include media(992) {
         height: 450px;
-        height: auto;
+      }
+
+      @include media(490) {
+        height: 260px;
       }
 
       &-slide {

@@ -40,6 +40,7 @@ import { useFiltersStore } from "@/stores/FiltersStore";
 import CardUi from "../UI/CardUi.vue";
 import Paginate from "vuejs-paginate-next";
 const filterStore = useFiltersStore();
+
 const props = defineProps({
   apartamentList: {
     type: Array,
