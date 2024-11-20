@@ -7,7 +7,7 @@
       <div class="cardUI__content">
         <div class="cardUI__content-text">
           <h3 class="cardUI__content-text-title">
-            {{ apartament?.price?.toLocaleString() }}
+            {{ apartament?.price?.toLocaleString() }} y.e 
           </h3>
 
           <div class="cardUI__content-text-caption">
