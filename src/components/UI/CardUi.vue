@@ -7,22 +7,17 @@
       <div class="cardUI__content">
         <div class="cardUI__content-text">
           <h3 class="cardUI__content-text-title">
-            {{ apartament?.price?.toLocaleString() }} y.e 
+            {{ apartament?.price?.toLocaleString() }} y.e
           </h3>
 
           <div class="cardUI__content-text-caption">
             <div class="cardUI__content-text-caption-info">
               <span>{{ apartament.rooms_qty_from }}-комн.</span>
               <span>{{ apartament.quadrature_from }} м2</span>
-              <span
-                >{{ apartament.floor_from }}/{{
-                  apartament.floor_to
-                }}
-                этаж</span
-              >
+              <span>{{ apartament.floor_from }}/{{ apartament.floor_to }} этаж</span>
             </div>
             <span class="cardUI__content-text-caption-address">
-              Адрес адрес адрес. 99А
+              {{ apartament?.address }}
             </span>
           </div>
         </div>
