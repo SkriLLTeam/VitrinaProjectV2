@@ -6,7 +6,7 @@
           {{ userInfo?.name }}
         </h3>
         <span class="apartament__user-content-caption-price"
-          >{{ userInfo?.price.toLocaleString() }} UZS</span
+          >{{ userInfo?.price.toLocaleString() }} USD</span
         >
       </div>
 
