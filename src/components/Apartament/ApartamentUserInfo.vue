@@ -6,7 +6,7 @@
           {{ userInfo?.name }}
         </h3>
         <span class="apartament__user-content-caption-price"
-          >{{ userInfo?.price.toLocaleString() }} USD</span
+          >{{ userInfo?.price?.toLocaleString() }} USD</span
         >
       </div>
 
@@ -16,7 +16,14 @@
             <img v-lazy="userInfo?.user?.photo" alt="" />
           </div>
           <span class="apartament__user-content-info-avatar-name">
-            {{ userInfo?.user?.fullname }}
+            <a
+              class="apartament__user-content-info-avatar-name"
+              target="_blank"
+              style
+              :href="'https://t.me/' + userInfo?.user?.tg_username"
+            >
+              {{ userInfo?.user?.fullname }}
+            </a>
           </span>
         </div>
 
@@ -38,10 +45,7 @@
             </a>
           </div>
 
-          <button
-            @click="orderModalOpen"
-            class="apartament__user-content-info-btns-call"
-          >
+          <button @click="orderModalOpen" class="apartament__user-content-info-btns-call">
             Заказать звонок
           </button>
         </div>
@@ -49,9 +53,7 @@
 
       <div class="apartament__user-content-address">
         <div class="apartament__user-content-address-block">
-          <span class="apartament__user-content-address-block-title">
-            Адрес:</span
-          >
+          <span class="apartament__user-content-address-block-title"> Адрес:</span>
           <span class="apartament__user-content-address-block-descr">
             {{ userInfo?.address }}
           </span>
@@ -73,9 +75,7 @@
           </span>
         </div>
         <div class="apartament__user-content-address-block">
-          <span class="apartament__user-content-address-block-title">
-            Этаж:</span
-          >
+          <span class="apartament__user-content-address-block-title"> Этаж:</span>
           <span class="apartament__user-content-address-block-descr">
             {{ userInfo?.floor_from }}/{{ userInfo?.floor_to }}
           </span>
@@ -89,9 +89,7 @@
           </span>
         </div>
         <div class="apartament__user-content-address-block">
-          <span class="apartament__user-content-address-block-title">
-            Состояние:</span
-          >
+          <span class="apartament__user-content-address-block-title"> Состояние:</span>
           <span class="apartament__user-content-address-block-descr">
             {{
               locale.toLowerCase() == "ru"
@@ -127,8 +125,6 @@ const { locale } = useI18n();
 const show = () => {
   showNumber.value = !showNumber.value;
 };
-
-
 </script>
 
 <style lang="scss" scoped></style>
