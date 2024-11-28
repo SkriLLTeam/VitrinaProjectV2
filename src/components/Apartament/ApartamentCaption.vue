@@ -1,6 +1,6 @@
 <template>
   <section class="apartament__caption">
-    <h2 class="apartament__caption-title">Описание</h2>
+    <h2 class="apartament__caption-title">{{ $t("title.descr") }}</h2>
     <div class="apartament__caption-content">
       <p>
         {{ userCaption?.description }}

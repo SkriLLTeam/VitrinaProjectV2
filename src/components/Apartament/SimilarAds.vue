@@ -1,6 +1,6 @@
 <template>
   <section class="apartament__similar" v-if="similarAds && similarAds.length">
-    <h2 class="apartament__similar-title">Похожие объявления</h2>
+    <h2 class="apartament__similar-title">{{ $t("title.similar") }}</h2>
 
     <div class="apartament__similar-wrapper">
       <CardUi :apartament="ad" v-for="ad in similarAds" :key="ad.id" />
