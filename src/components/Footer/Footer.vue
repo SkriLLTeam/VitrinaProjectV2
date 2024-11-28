@@ -34,7 +34,7 @@
           </a>
           <a
             target="_blank"
-            href="https://www.instagram.com/accounts/login/?next=%2Fvitrina.uz%2F&source=omni_redirect"
+            href="https://www.instagram.com/vitrina.uz/"
           >
             <img src="@/assets/images/icons/instagram.svg" alt="" />
           </a>
@@ -46,7 +46,7 @@
           </a>
         </div>
       </div>
-    </div>
+    </div> 
   </footer>
 </template>
 
