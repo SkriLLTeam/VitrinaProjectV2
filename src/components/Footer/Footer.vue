@@ -29,13 +29,19 @@
       <div class="footer__social">
         <span class="footer__social-title"> {{ $t("menu.social") }}</span>
         <div class="footer__social-link">
-          <a href="#!">
+          <a href="https://t.me/vitrinanedvizhimosti" target="_blank">
             <img src="@/assets/images/icons/telegram.svg" alt="" />
           </a>
-          <a href="#!">
+          <a
+            target="_blank"
+            href="https://www.instagram.com/accounts/login/?next=%2Fvitrina.uz%2F&source=omni_redirect"
+          >
             <img src="@/assets/images/icons/instagram.svg" alt="" />
           </a>
-          <a href="#!">
+          <a
+            target="_blank"
+            href="https://www.facebook.com/share/1DFtPB9faY/?mibextid=LQQJ4d"
+          >
             <img src="@/assets/images/icons/facebook.svg" alt="" />
           </a>
         </div>
