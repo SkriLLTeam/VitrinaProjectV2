@@ -113,6 +113,14 @@
       "looking_for": "Ищите",
       "new_building": "новостройку?",
       "come_to_us": "Тогда вам точно к нам:"
+    },
+    "address": {
+      "title": "Адрес:",
+      "rooms_qty": "Количество комнат:",
+      "total_area": "Общая площадь:",
+      "floor": "Этаж:",
+      "creation_year": "Год постройки:",
+      "condition": "Состояние:"
     }
   },
   "tabs": {

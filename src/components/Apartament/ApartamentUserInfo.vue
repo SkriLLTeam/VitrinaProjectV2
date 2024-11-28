@@ -45,7 +45,10 @@
             </a>
           </div>
 
-          <button @click="orderModalOpen" class="apartament__user-content-info-btns-call">
+          <button
+            @click="orderModalOpen"
+            class="apartament__user-content-info-btns-call"
+          >
             Заказать звонок
           </button>
         </div>
@@ -53,14 +56,16 @@
 
       <div class="apartament__user-content-address">
         <div class="apartament__user-content-address-block">
-          <span class="apartament__user-content-address-block-title"> Адрес:</span>
+          <span class="apartament__user-content-address-block-title">
+            {{ $t("contents.address.title") }}</span
+          >
           <span class="apartament__user-content-address-block-descr">
             {{ userInfo?.address }}
           </span>
         </div>
         <div class="apartament__user-content-address-block">
           <span class="apartament__user-content-address-block-title">
-            Количество комнат:</span
+            {{ $t("contents.address.rooms_qty") }}</span
           >
           <span class="apartament__user-content-address-block-descr">
             {{ userInfo?.rooms_qty_from }}
@@ -68,28 +73,32 @@
         </div>
         <div class="apartament__user-content-address-block">
           <span class="apartament__user-content-address-block-title">
-            Общая площадь:</span
+            {{ $t("contents.address.total_area") }}</span
           >
           <span class="apartament__user-content-address-block-descr">
             {{ userInfo?.quadrature_from }}
           </span>
         </div>
         <div class="apartament__user-content-address-block">
-          <span class="apartament__user-content-address-block-title"> Этаж:</span>
+          <span class="apartament__user-content-address-block-title">
+            {{ $t("contents.address.floor") }}</span
+          >
           <span class="apartament__user-content-address-block-descr">
             {{ userInfo?.floor_from }}/{{ userInfo?.floor_to }}
           </span>
         </div>
         <div class="apartament__user-content-address-block">
           <span class="apartament__user-content-address-block-title">
-            Год постройки:</span
+            {{ $t("contents.address.creation_year") }}</span
           >
           <span class="apartament__user-content-address-block-descr">
             {{ userInfo?.creation_year }}
           </span>
         </div>
         <div class="apartament__user-content-address-block">
-          <span class="apartament__user-content-address-block-title"> Состояние:</span>
+          <span class="apartament__user-content-address-block-title">
+            {{ $t("contents.address.condition") }}</span
+          >
           <span class="apartament__user-content-address-block-descr">
             {{
               locale.toLowerCase() == "ru"
@@ -124,6 +133,12 @@ const showNumber = ref(false);
 const { locale } = useI18n();
 const show = () => {
   showNumber.value = !showNumber.value;
+};
+const orderModalOpen = () => {
+  isOrderModal.value = true;
+};
+const orderModalClose = () => {
+  isOrderModal.value = false;
 };
 </script>
 

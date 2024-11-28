@@ -50,7 +50,11 @@
           ></textarea>
         </div>
         <div class="order__modal-block-btns">
-          <button class="revbtn order__modal-block-btn" type="button" @click="resetForm">
+          <button
+            class="revbtn order__modal-block-btn"
+            type="button"
+            @click="resetForm"
+          >
             {{ $t("button.clear") }}
           </button>
           <button class="btn order__modal-block-btn" type="submit">
@@ -120,10 +124,10 @@ const mutation = useMutation({
     });
   },
   onSuccess: (response) => {
-    // console.log("Запрос отправлен успешно");
+    console.log(response, "Запрос отправлен успешно");
   },
   onError: (response) => {
-    // console.log("Ошибка отправки данных");
+    console.log(response, "Ошибка отправки данных");
   },
 });
 const submitForm = () => {

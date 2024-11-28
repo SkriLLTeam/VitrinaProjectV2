@@ -113,6 +113,14 @@
       "looking_for": "Yangi",
       "new_building": "binoni qidiryapsizmi?",
       "come_to_us": "Unda albatta bizga murojaat qiling:"
+    },
+    "address": {
+      "title": "Манзил:",
+      "rooms_qty": "Хоналар сони:",
+      "total_area": "Умумий майдон:",
+      "floor": "Қават:",
+      "creation_year": "Қурилиш йили:",
+      "condition": "Ҳолати:"
     }
   },
   "tabs": {
