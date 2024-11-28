@@ -7,7 +7,7 @@
         </h4>
         <p class="feedback__content-text">
           {{ $t("contents.consultation_descr_mortgage") }}
-          <a href="tel:+998999999999">: +998 (99) 999–99–99 </a>
+          <a href="tel:+998555003020">: +998 (55) 500–30–20 </a>
         </p>
       </div>
       <form @submit.prevent="submitForm" class="feedback__form">
