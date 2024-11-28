@@ -147,7 +147,10 @@
     "apartament": "Xonadon kartasi",
     "default": "Vitrina Project",
     "similar": "O‘xshash e’lonlar",
-    "descr": "Tavsif"
+    "descr": "Tavsif",
+    "show_number":"Raqamni ko'rsatish",
+    "order_number":"Qo'ng'iroqni buyurtma qiling"
+
   },
   "titles": {
     "home": "Bosh sahifa",
