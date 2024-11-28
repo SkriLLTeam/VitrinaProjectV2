@@ -34,7 +34,7 @@
               class="apartament__user-content-info-btns-number"
               @click="show"
             >
-              Показать номер
+              {{ $t("title.show_number") }}
             </button>
             <a
               v-else-if="showNumber && userInfo?.user?.phone_number"
@@ -45,11 +45,8 @@
             </a>
           </div>
 
-          <button
-            @click="orderModalOpen"
-            class="apartament__user-content-info-btns-call"
-          >
-            Заказать звонок
+          <button @click="orderModalOpen" class="apartament__user-content-info-btns-call">
+            {{ $t("title.order_number") }}
           </button>
         </div>
       </div>

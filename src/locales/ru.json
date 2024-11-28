@@ -147,7 +147,9 @@
     "apartament": "Карточка квартиры",
     "default": "Vitrina Project",
     "similar": "Похожие объявления",
-    "descr": "Описание"
+    "descr": "Описание",
+    "show_number": "Показать номер",
+    "order_number":"Заказать звонок"
   },
   "titles": {
     "home": "Главная",
