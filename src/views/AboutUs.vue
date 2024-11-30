@@ -11,12 +11,15 @@
       </div>
     </Banner>
     <WhyUs />
-    <Offer />
+      <Offer />
+    <AboutCompany />
+
     <Advantages />
   </div>
 </template>
 
 <script setup>
+import AboutCompany from "@/components/About/AboutCompany.vue";
 import Advantages from "@/components/About/Advantages.vue";
 import Offer from "@/components/About/Offer.vue";
 import WhyUs from "@/components/About/WhyUs.vue";
