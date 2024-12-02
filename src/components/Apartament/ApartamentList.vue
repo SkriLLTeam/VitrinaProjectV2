@@ -22,6 +22,7 @@
         <Paginate
           :page-count="totalPages"
           :force-page="currentPage"
+          :initial-page="currentPage"
           :click-handler="changePage"
           :container-class="'apartament__list-wrapper-pagination'"
           :prev-text="prevIcon"
@@ -62,6 +63,7 @@ const changePage = (page) => {
   emit("changePage", page);
 };
 
+// const currentPage = computed(() => filterStore?.currentPage);
 // Иконки для кнопок
 const prevIcon = `
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
