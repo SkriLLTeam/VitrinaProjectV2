@@ -18,10 +18,10 @@
       <div v-else class="apartament__list-wrapper-nothing">
         <p>Ничего не найдено</p>
       </div>
-      <div v-if="apartamentList && apartamentList.length">
+      <div v-show="apartamentList && apartamentList.length">
         <Paginate
           :page-count="totalPages"
-          :force-page="computedPage"
+          :force-page="currentPage"
           :click-handler="changePage"
           :container-class="'apartament__list-wrapper-pagination'"
           :prev-text="prevIcon"
@@ -51,7 +51,7 @@ const props = defineProps({
   isFilterActive: {
     type: Boolean,
   },
-  computedPage: {
+  currentPage: {
     type: Number,
   },
 });

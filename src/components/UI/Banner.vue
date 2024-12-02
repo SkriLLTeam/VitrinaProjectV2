@@ -21,7 +21,3 @@ const props = defineProps({
 
 <style lang="scss" scoped></style>
 
-<!-- <div class="banner__wrapper-content">
-    <h1 class="banner__wrapper-content-title"></h1>
-    <p class="banner__wrapper-content-subtitle"></p>
-  </div> -->

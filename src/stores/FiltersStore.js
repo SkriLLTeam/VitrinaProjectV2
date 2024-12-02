@@ -62,5 +62,9 @@ export const useFiltersStore = defineStore("FiltersStore", {
     setCurrentPage(page) {
       this.currentPage = page;
     },
+    initializeCurrentPage(queryPage) {
+      const page = parseInt(queryPage);
+      this.currentPage = isNaN(page) || page < 1 ? 1 : page;
+    },
   },
 });

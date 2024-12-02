@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import {  computed } from "vue";
+import { computed } from "vue";
 import { useQuery } from "@tanstack/vue-query";
 import { advertisements, districts } from "@/utils/util";
 import { useFiltersStore } from "@/stores/FiltersStore";
@@ -28,6 +28,7 @@ import axios from "axios";
 import ApartamentList from "@/components/Apartament/ApartamentList.vue";
 import Filter from "@/components/Filter/Filter.vue";
 import Banner from "@/components/UI/Banner.vue";
+
 const limit = 15;
 const filterStore = useFiltersStore();
 const computedPage = computed(() => filterStore.currentPage);
@@ -76,7 +77,6 @@ const handlePageChange = (newPage) => {
 };
 
 filterStore.setRefetch(refetch);
-
 
 
 </script>
