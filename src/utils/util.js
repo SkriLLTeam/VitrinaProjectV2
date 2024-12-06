@@ -6,9 +6,9 @@ export const advertisements = "https://vitrina-admin.uz/api/v1/advertisements/";
 export const categories = "https://vitrina-admin.uz/api/v1/categories/";
 // Районы
 export const districts = "https://vitrina-admin.uz/api/v1/districts/";
-
+// Модалка 
 export const modalPost = "https://vitrina-admin.uz/api/v1/request/add/";
-
+// Обратная связь 
 export const consultationPost =
   "https://vitrina-admin.uz/api/v1/consultation/create/";
 

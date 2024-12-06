@@ -26,17 +26,12 @@ import ApartamentSlider from "@/components/Apartament/ApartamentSlider.vue";
 import ApartamentUserInfo from "@/components/Apartament/ApartamentUserInfo.vue";
 import SimilarAds from "@/components/Apartament/SimilarAds.vue";
 import axios from "axios";
-const filterStore = useFiltersStore();
 
 const route = useRoute();
 const apartamentId = computed(() => route.params.id);
 const { locale } = useI18n();
 
-const {
-  data,
-  isLoading,
-  refetch,
-} = useQuery({
+const { data, isLoading } = useQuery({
   queryKey: [apartamentId, locale],
   queryFn: async () => {
     const response = await axios.get(`${advertisements}${apartamentId.value}`);

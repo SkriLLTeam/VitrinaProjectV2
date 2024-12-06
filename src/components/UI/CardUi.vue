@@ -14,10 +14,21 @@
             <div class="cardUI__content-text-caption-info">
               <span>{{ apartament.rooms_qty_from }}-комн.</span>
               <span>{{ apartament.quadrature_from }} м2</span>
-              <span>{{ apartament.floor_from }}/{{ apartament.floor_to }} этаж</span>
+              <span
+                >{{ apartament.floor_from }}/{{
+                  apartament.floor_to
+                }}
+                этаж</span
+              >
             </div>
             <span class="cardUI__content-text-caption-address">
-              {{ apartament?.address }}
+              {{
+                locale.toLowerCase() == "ru"
+                  ? apartament?.address
+                  : locale.toLowerCase() == "uz"
+                  ? apartament?.address_uz
+                  : apartament?.address
+              }}
             </span>
           </div>
         </div>
@@ -27,6 +38,10 @@
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
+
+const { locale } = useI18n();
+
 const props = defineProps({
   apartament: {
     type: Object,

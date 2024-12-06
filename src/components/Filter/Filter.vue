@@ -4,14 +4,14 @@
       <div class="filter__swap">
         <button
           class="filter__swap_btn"
-          @click="selectOperation('buy')"
+          @click="selectOperation('BUY')"
           :class="{ active: sold }"
         >
           {{ $t("tabs.buy") }}
         </button>
         <button
           class="filter__swap_btn"
-          @click="selectOperation('rent')"
+          @click="selectOperation('RENT')"
           :class="{ active: rent }"
         >
           {{ $t("tabs.rent") }}
@@ -50,7 +50,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from "vue";
+import { ref, computed } from "vue";
 import { useFiltersStore } from "@/stores/FiltersStore";
 import Tab1 from "./Tabs/FlatsFilter.vue";
 import Tab2 from "./Tabs/NewBuildingsFilter.vue";
@@ -108,7 +108,7 @@ const filteredTabs = computed(() => {
 });
 
 const selectOperation = (type) => {
-  if (type === "buy") {
+  if (type === "BUY") {
     sold.value = true;
     rent.value = false;
   } else {

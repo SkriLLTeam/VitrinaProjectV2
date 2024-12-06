@@ -3,7 +3,11 @@
     <nav class="container header__nav">
       <div class="header__nav-right">
         <router-link to="/" class="header__nav-logo">
-          <img src="@assets/images/logo_color.svg" alt="" class="header__nav-logo-img" />
+          <img
+            src="@assets/images/logo_color.svg"
+            alt=""
+            class="header__nav-logo-img"
+          />
         </router-link>
         <ul class="header__nav-list">
           <li class="header__nav-list_item">
@@ -11,7 +15,11 @@
               {{ $t("menu.home") }}
             </router-link>
           </li>
-          <li class="header__nav-list_item" v-for="(item, index) in links" :key="index">
+          <li
+            class="header__nav-list_item"
+            v-for="(item, index) in links"
+            :key="index"
+          >
             <router-link :to="item.path" class="header__nav-list_item-link">
               {{ $t(item.title) }}
             </router-link>
@@ -25,8 +33,11 @@
         </button>
 
         <div class="header__nav-right-wrapper-drop">
-          <button class="header__nav-right-wrapper-drop-btn" @click="toggleDropdown">
-            {{ currentLanguage.toUpperCase() }}
+          <button
+            class="header__nav-right-wrapper-drop-btn"
+            @click="toggleDropdown"
+          >
+            {{ locale.toUpperCase() }}
 
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +50,10 @@
             </svg>
           </button>
 
-          <div v-if="isDropdownOpen" class="header__nav-right-wrapper-drop-menu">
+          <div
+            v-if="isDropdownOpen"
+            class="header__nav-right-wrapper-drop-menu"
+          >
             <span @click="changeLanguage('ru')">Русский язык</span>
             <span @click="changeLanguage('uz')">O’zbek tili</span>
           </div>
@@ -50,13 +64,20 @@
     <nav class="container header__mob">
       <div class="header__nav-right">
         <router-link to="/" class="header__nav-logo">
-          <img src="@assets/images/logo_color.svg" alt="" class="header__nav-logo-img" />
+          <img
+            src="@assets/images/logo_color.svg"
+            alt=""
+            class="header__nav-logo-img"
+          />
         </router-link>
 
         <div class="header__mob-wrapper">
           <div class="header__mob-wrapper-drop">
-            <button class="header__mob-wrapper-drop-btn" @click="toggleDropdown">
-              {{ currentLanguage.toUpperCase() }}
+            <button
+              class="header__mob-wrapper-drop-btn"
+              @click="toggleDropdown"
+            >
+              {{ locale.toUpperCase() }}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="10"
@@ -75,7 +96,11 @@
           </div>
 
           <button class="header__mob-burger__btn" @click="burgerOpen">
-            <img src="@assets/images/icons/bar.svg" alt="" v-if="!isBurgerOpen" />
+            <img
+              src="@assets/images/icons/bar.svg"
+              alt=""
+              v-if="!isBurgerOpen"
+            />
             <img src="@assets/images/icons/close.svg" alt="" v-else />
           </button>
         </div>
@@ -110,11 +135,9 @@
 <script setup>
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
-import { useQueryClient } from "@tanstack/vue-query";
 import Modal from "../UI/Modal.vue";
 import router from "@/router";
 import i18n from "@/plugins/i18n";
-const queryClient = useQueryClient();
 const links = ref([
   {
     title: "menu.mortgage",
@@ -152,17 +175,17 @@ const orderModalClose = () => {
 };
 
 const { locale } = useI18n();
-const currentLanguage = ref(locale.value);
 const isDropdownOpen = ref(false);
 
 const toggleDropdown = () => {
   isDropdownOpen.value = !isDropdownOpen.value;
 };
 const changeLanguage = (lang) => {
+  if (locale.value === lang) {
+    return;
+  }
+
   locale.value = lang;
-  currentLanguage.value = locale.value;
-  i18n.global.locale = lang;
-  queryClient.refetchQueries();
   isDropdownOpen.value = false;
 
   // Обновление заголовка вкладки

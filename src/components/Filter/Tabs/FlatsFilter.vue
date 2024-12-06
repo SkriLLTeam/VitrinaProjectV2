@@ -128,11 +128,11 @@ const props = defineProps({
 });
 
 const repairList = computed(() => [
-  { name: t("repair.with"), id: "with" },
-  { name: t("repair.without"), id: "without" },
-  { name: t("repair.designed"), id: "designed" },
-  { name: t("repair.rough"), id: "rough" },
-  { name: t("repair.pre_finished"), id: "pre_finished" },
+  { name: t("repair.with"), id: "WITH" },
+  { name: t("repair.without"), id: "WITHOUT" },
+  { name: t("repair.designed"), id: "DESIGNED" },
+  { name: t("repair.rough"), id: "ROUGH" },
+  { name: t("repair.pre_finished"), id: "PRE_FINISHED" },
 ]);
 
 const resetAll = () => {

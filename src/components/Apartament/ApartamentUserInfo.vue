@@ -3,7 +3,13 @@
     <div class="apartament__user-content">
       <div class="apartament__user-content-caption">
         <h3 class="apartament__user-content-caption-title">
-          {{ userInfo?.name }}
+          {{
+            locale.toLowerCase() == "ru"
+              ? userInfo?.name
+              : locale.toLowerCase() == "uz"
+              ? userInfo?.name_uz
+              : userInfo?.name
+          }}
         </h3>
         <span class="apartament__user-content-caption-price"
           >{{ userInfo?.price?.toLocaleString() }} USD</span
@@ -45,7 +51,10 @@
             </a>
           </div>
 
-          <button @click="orderModalOpen" class="apartament__user-content-info-btns-call">
+          <button
+            @click="orderModalOpen"
+            class="apartament__user-content-info-btns-call"
+          >
             {{ $t("title.order_number") }}
           </button>
         </div>
@@ -57,7 +66,13 @@
             {{ $t("contents.address.title") }}</span
           >
           <span class="apartament__user-content-address-block-descr">
-            {{ userInfo?.address }}
+            {{
+              locale.toLowerCase() == "ru"
+                ? userInfo?.address
+                : locale.toLowerCase() == "uz"
+                ? userInfo?.address_uz
+                : userInfo?.address
+            }}
           </span>
         </div>
         <div class="apartament__user-content-address-block">
@@ -115,7 +130,6 @@
 
 <script setup>
 import { useI18n } from "vue-i18n";
-import i18n from "@/plugins/i18n";
 import { ref } from "vue";
 import Modal from "../UI/Modal.vue";
 
@@ -128,6 +142,7 @@ const props = defineProps({
 const isOrderModal = ref(false);
 const showNumber = ref(false);
 const { locale } = useI18n();
+
 const show = () => {
   showNumber.value = !showNumber.value;
 };

@@ -2,12 +2,22 @@
   <select class="selectUI" :value="modelValue" @change="updateValue">
     <option value="default" disabled>{{ $t("form.choose") }}</option>
     <option v-for="option in options" :key="option.id" :value="option.id">
-      {{ option.name }}
+      {{
+        locale.toLowerCase() == "ru"
+          ? option.name
+          : locale.toLowerCase() == "uz"
+          ? option.name_uz
+          : option.name
+      }}
     </option>
   </select>
 </template>
 
 <script setup>
+import { useI18n } from "vue-i18n";
+
+const { locale } = useI18n();
+
 // Принимаемые свойства компонента
 const props = defineProps({
   options: {
