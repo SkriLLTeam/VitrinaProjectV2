@@ -25,9 +25,11 @@ export const useFiltersStore = defineStore("FiltersStore", {
   actions: {
     updateFilter(key, value) {
       if (key in this.filters) {
-        this.filters[key] = value;
+        this.filters[key] =
+          key === "operation_type" && value ? value.toUpperCase() : value;
       }
     },
+
     resetFilters() {
       this.filters = {
         operation_type: null,

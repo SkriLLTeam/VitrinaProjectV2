@@ -4,14 +4,14 @@
       <div class="filter__swap">
         <button
           class="filter__swap_btn"
-          @click="selectOperation('BUY')"
+          @click="selectOperation('buy')"
           :class="{ active: sold }"
         >
           {{ $t("tabs.buy") }}
         </button>
         <button
           class="filter__swap_btn"
-          @click="selectOperation('RENT')"
+          @click="selectOperation('rent')"
           :class="{ active: rent }"
         >
           {{ $t("tabs.rent") }}
@@ -108,7 +108,7 @@ const filteredTabs = computed(() => {
 });
 
 const selectOperation = (type) => {
-  if (type === "BUY") {
+  if (type === "buy") {
     sold.value = true;
     rent.value = false;
   } else {
