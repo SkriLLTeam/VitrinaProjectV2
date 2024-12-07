@@ -30,11 +30,11 @@
           />
         </div>
         <div class="order__modal-form-block">
-          <label class="order__modal-form_label"> Тип операции: </label>
+          <label class="order__modal-form_label"> {{ $t("form.type_operation") }} </label>
           <SelectUI v-model="postObj.operation_type" :options="typeOperation" />
         </div>
         <div class="order__modal-form-block">
-          <label class="order__modal-form_label"> Тип объекта </label>
+          <label class="order__modal-form_label"> {{ $t("form.type_object") }} </label>
           <SelectUI v-model="selectedId" :options="modalCategories" />
         </div>
 
@@ -50,11 +50,7 @@
           ></textarea>
         </div>
         <div class="order__modal-block-btns">
-          <button
-            class="revbtn order__modal-block-btn"
-            type="button"
-            @click="resetForm"
-          >
+          <button class="revbtn order__modal-block-btn" type="button" @click="resetForm">
             {{ $t("button.clear") }}
           </button>
           <button class="btn order__modal-block-btn" type="submit">
@@ -82,10 +78,12 @@ const typeOperation = computed(() => [
   {
     name: t("tabs.buy"),
     id: "buy",
+    name_uz: t("tabs.buy"),
   },
   {
     name: t("tabs.rent"),
     id: "rent",
+    name_uz: t("tabs.rent"),
   },
 ]);
 

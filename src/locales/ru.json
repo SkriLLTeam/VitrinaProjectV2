@@ -37,7 +37,9 @@
     "modal_textarea_placeholder": "Напишите ваше обращение",
     "modal_contact": "Контакты",
     "from": "От",
-    "to": "До"
+    "to": "До",
+    "type_operation":"Тип операции",
+    "type_object":"Тип объекта"
   },
   "banners": {
     "home_banner": "Топ 100 квартир под ваши желания из нашей эксклюзивной базы",
