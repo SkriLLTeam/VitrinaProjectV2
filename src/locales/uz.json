@@ -37,7 +37,9 @@
     "modal_textarea_placeholder": "So'rovingizni kiriting",
     "modal_contact": "Kontaktlar",
     "from": "Dan",
-    "to": "Gacha"
+    "to": "Gacha",
+    "type_operation":"Operatsiya turi",
+    "type_object":"Ob'ekt turi"
   },
   "banners": {
     "home_banner": "Bizning eksklyuziv bazamizdan ozingizni xonadoningizni tanlang",
@@ -148,9 +150,8 @@
     "default": "Vitrina Project",
     "similar": "O‘xshash e’lonlar",
     "descr": "Tavsif",
-    "show_number":"Raqamni ko'rsatish",
-    "order_number":"Qo'ng'iroqni buyurtma qiling"
-
+    "show_number": "Raqamni ko'rsatish",
+    "order_number": "Qo'ng'iroqni buyurtma qiling"
   },
   "titles": {
     "home": "Bosh sahifa",
