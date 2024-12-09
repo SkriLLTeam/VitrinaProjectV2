@@ -77,12 +77,12 @@ const selectedId = ref("default");
 const typeOperation = computed(() => [
   {
     name: t("tabs.buy"),
-    id: "buy",
+    id: "Покупка",
     name_uz: t("tabs.buy"),
   },
   {
     name: t("tabs.rent"),
-    id: "rent",
+    id: "Аренда",
     name_uz: t("tabs.rent"),
   },
 ]);
@@ -110,7 +110,8 @@ watch(selectedId, (newValue) => {
       (category) => category.id == newValue
     );
     if (selectedCategory) {
-      postObj.value.object_type = selectedCategory.slug;
+
+      postObj.value.object_type = selectedCategory.name;
     }
   }
 });
