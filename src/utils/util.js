@@ -14,6 +14,7 @@ export const consultationPost =
 
 export const postHeaders = {
   "Content-Type": "application/json",
-  "X-CSRFTOKEN":
-    "GRYrhuSTOcqILwaHOrhgHcVG40Cx4Y6DGXgpDn0kgxRnKQFK6SCTwebbdY9HsW8Q",
+  // "Content-Type": "application/x-www-form-urlencoded",
+  // "Content-Type": "multipart/form-data",
 };
+
