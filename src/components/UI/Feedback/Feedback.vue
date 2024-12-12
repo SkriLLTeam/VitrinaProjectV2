@@ -58,10 +58,10 @@ const mutation = useMutation({
     });
   },
   onSuccess: (response) => {
-    console.log("Запрос отправлен успешно", response);
+    console.log("Запрос отправлен успешно");
   },
   onError: (response) => {
-    console.log("Ошибка отправки данных", response);
+    console.log("Ошибка отправки данных");
   },
 });
 
