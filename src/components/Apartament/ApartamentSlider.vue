@@ -14,7 +14,9 @@
           class="apartament__slider-top-slide"
         >
           <div class="apartament__slider-top-slide-img">
+
             <img v-lazy="photo?.photo" alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры" />
+
           </div>
         </swiper-slide>
       </swiper>
@@ -32,6 +34,7 @@
         >
           <div class="apartament__slider-bottom-slide-img">
             <img v-lazy="photo?.photo" alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры" />
+
           </div>
         </swiper-slide>
       </swiper>

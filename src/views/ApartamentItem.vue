@@ -4,7 +4,7 @@
       <Loader v-if="isLoading" />
       <div v-else class="apartament container">
         <div class="apartament__wrapper">
-          <ApartamentSlider :gallery="data?.gallery" />
+          <ApartamentSlider :gallery="data?.images" />
           <ApartamentUserInfo :userInfo="data" />
         </div>
         <ApartamentCaption :userCaption="data" />

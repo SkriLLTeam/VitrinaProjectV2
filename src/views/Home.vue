@@ -57,6 +57,8 @@ const {
   refetchOnWindowFocus: false,
 });
 
+console.log(advertisementsData);
+
 const { data: disctrictsData } = useQuery({
   queryKey: ["districts", locale],
   queryFn: async () => {
@@ -66,8 +68,8 @@ const { data: disctrictsData } = useQuery({
 });
 
 const totalPages = computed(() => {
-  if (advertisementsData?.value?.count) {
-    return Math.ceil(advertisementsData.value.count / limit);
+  if (advertisementsData?.value?.total) {
+    return Math.ceil(advertisementsData.value.total / limit);
   }
   return 1;
 });
