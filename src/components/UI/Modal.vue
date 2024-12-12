@@ -123,10 +123,10 @@ const mutation = useMutation({
     });
   },
   onSuccess: (response) => {
-    console.log(response, "Запрос отправлен успешно");
+    console.log("Запрос отправлен успешно");
   },
   onError: (response) => {
-    console.log(response, "Ошибка отправки данных");
+    console.log("Ошибка отправки данных");
   },
 });
 const submitForm = () => {
