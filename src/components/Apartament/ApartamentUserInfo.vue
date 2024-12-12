@@ -19,7 +19,7 @@
       <div class="apartament__user-content-info">
         <div class="apartament__user-content-info-avatar">
           <div class="apartament__user-content-info-avatar-img">
-            <img v-lazy="userInfo?.user?.photo" alt="" />
+            <img v-lazy="userInfo?.user?.photo" alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры" />
           </div>
           <span class="apartament__user-content-info-avatar-name">
             <a

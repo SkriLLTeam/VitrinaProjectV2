@@ -8,7 +8,7 @@
         :key="index"
       >
         <div class="career__conditions-item-img">
-          <img v-lazy="item.img" alt="" />
+          <img v-lazy="item.img" alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры" />
         </div>
         <span class="career__conditions-item-descr">
           {{ $t(item.title) }}

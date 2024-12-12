@@ -30,19 +30,19 @@
         <span class="footer__social-title"> {{ $t("menu.social") }}</span>
         <div class="footer__social-link">
           <a href="https://t.me/vitrinanedvizhimosti" target="_blank">
-            <img src="@/assets/images/icons/telegram.svg" alt="" />
+            <img src="@/assets/images/icons/telegram.svg" alt="Telegram" />
           </a>
           <a
             target="_blank"
             href="https://www.instagram.com/vitrina.uz/"
           >
-            <img src="@/assets/images/icons/instagram.svg" alt="" />
+            <img src="@/assets/images/icons/instagram.svg" alt="instagram" />
           </a>
           <a
             target="_blank"
             href="https://www.facebook.com/share/1DFtPB9faY/?mibextid=LQQJ4d"
           >
-            <img src="@/assets/images/icons/facebook.svg" alt="" />
+            <img src="@/assets/images/icons/facebook.svg" alt="facebook" />
           </a>
         </div>
       </div>

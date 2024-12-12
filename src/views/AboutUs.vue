@@ -2,9 +2,9 @@
   <div class="about">
     <Banner subClass="about__banner-wrapper" mainClass="about__banner">
       <div class="about__banner-content">
-        <h1 class="about__banner-content-title">
+        <h2 class="about__banner-content-title">
           {{ $t("banners.about_banner") }}
-        </h1>
+        </h2>
         <p class="about__banner-content-caption">
           {{ $t("description.about_descr") }}
         </p>
