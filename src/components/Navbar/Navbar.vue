@@ -5,7 +5,7 @@
         <router-link to="/" class="header__nav-logo">
           <img
             src="@assets/images/logo_color.svg"
-            alt=""
+            alt="logo"
             class="header__nav-logo-img"
           />
         </router-link>
@@ -66,7 +66,7 @@
         <router-link to="/" class="header__nav-logo">
           <img
             src="@assets/images/logo_color.svg"
-            alt=""
+            alt="logo"
             class="header__nav-logo-img"
           />
         </router-link>
@@ -98,10 +98,10 @@
           <button class="header__mob-burger__btn" @click="burgerOpen">
             <img
               src="@assets/images/icons/bar.svg"
-              alt=""
+              alt="menu"
               v-if="!isBurgerOpen"
             />
-            <img src="@assets/images/icons/close.svg" alt="" v-else />
+            <img src="@assets/images/icons/close.svg" alt="close" v-else />
           </button>
         </div>
       </div>

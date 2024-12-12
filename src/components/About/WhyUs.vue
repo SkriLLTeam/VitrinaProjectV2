@@ -8,7 +8,7 @@
         :key="index"
       >
         <div class="about__why-cards-card-img">
-          <img v-lazy="card.img" alt="" />
+          <img v-lazy="card.img" alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры" />
         </div>
         <span class="about__why-cards-card-descr">
           {{ $t(card.title) }}

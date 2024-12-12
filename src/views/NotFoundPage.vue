@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="error__img">
-        <img src="@/assets/images/404-img.png" alt="" />
+        <img src="@/assets/images/404-img.png" alt="404" />
       </div>
     </div>
   </div>

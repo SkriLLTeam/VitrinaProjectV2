@@ -3,7 +3,7 @@
     <div class="careerUI__wrapper">
       <div class="careerUI__wrapper-top">
         <div class="careerUI__wrapper-top-img">
-          <img v-lazy="image" alt="" />
+          <img v-lazy="image" alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры" />
         </div>
       </div>
       <div class="careerUI__wrapper-bottom">

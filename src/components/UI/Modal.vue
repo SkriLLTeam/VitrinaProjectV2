@@ -4,7 +4,7 @@
       <div class="order__modal-block-top">
         <h1 class="order__modal-block-top-title">{{ $t("form.fill") }}</h1>
         <span class="order__modal-block-top-close" @click="closeModal(false)">
-          <img src="@assets/images/icons/close.svg" alt="" />
+          <img src="@assets/images/icons/close.svg" alt="close" />
         </span>
       </div>
       <form @submit.prevent="submitForm" class="order__modal-form">

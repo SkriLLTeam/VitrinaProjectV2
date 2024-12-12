@@ -9,7 +9,8 @@ import router from "./router";
 import Vue3Lazyload from "vue3-lazyload";
 import Loader from "./components/UI/Loader.vue";
 import i18n from "./plugins/i18n";
-
+import { createHead } from '@vueuse/head'
+const head = createHead()
 const app = createApp(App);
 app.component("Loader", Loader);
 app.directive("mask", IMaskDirective);
@@ -18,6 +19,7 @@ app.use(router);
 app.use(VueQueryPlugin);
 app.use(i18n);
 // Подключаем перехватчик обязательно после языка
+app.use(head)
 app.use(Vue3Lazyload, {
   loading: error,
   error: error,
