@@ -129,6 +129,7 @@
       </div>
     </nav>
   </header>
+
   <Modal v-if="isOrderModal" @orderModalClose="orderModalClose" />
 </template>
 
@@ -157,7 +158,6 @@ const isBurgerOpen = ref(false);
 const orderModalOpen = () => {
   isOrderModal.value = true;
   isBurgerOpen.value = false;
-
   document.body.style.overflow = "hidden";
 };
 const burgerOpen = () => {

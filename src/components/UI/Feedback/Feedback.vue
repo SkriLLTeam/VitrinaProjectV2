@@ -68,6 +68,8 @@ const mutation = useMutation({
 const submitForm = () => {
   postObj.value.phone_number = postObj.value.phone_number.replace(/\D/g, "");
   mutation.mutate(postObj.value);
+  postObj.value.fullname = "";
+  postObj.value.phone_number = "";
 };
 
 // маска номера
