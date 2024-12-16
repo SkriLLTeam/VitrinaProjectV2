@@ -15,11 +15,7 @@
               {{ $t("menu.home") }}
             </router-link>
           </li>
-          <li
-            class="header__nav-list_item"
-            v-for="(item, index) in links"
-            :key="index"
-          >
+          <li class="header__nav-list_item" v-for="(item, index) in links" :key="index">
             <router-link :to="item.path" class="header__nav-list_item-link">
               {{ $t(item.title) }}
             </router-link>
@@ -33,10 +29,7 @@
         </button>
 
         <div class="header__nav-right-wrapper-drop">
-          <button
-            class="header__nav-right-wrapper-drop-btn"
-            @click="toggleDropdown"
-          >
+          <button class="header__nav-right-wrapper-drop-btn" @click="toggleDropdown">
             {{ locale.toUpperCase() }}
 
             <svg
@@ -50,10 +43,7 @@
             </svg>
           </button>
 
-          <div
-            v-if="isDropdownOpen"
-            class="header__nav-right-wrapper-drop-menu"
-          >
+          <div v-if="isDropdownOpen" class="header__nav-right-wrapper-drop-menu">
             <span @click="changeLanguage('ru')">Русский язык</span>
             <span @click="changeLanguage('uz')">O’zbek tili</span>
           </div>
@@ -73,10 +63,7 @@
 
         <div class="header__mob-wrapper">
           <div class="header__mob-wrapper-drop">
-            <button
-              class="header__mob-wrapper-drop-btn"
-              @click="toggleDropdown"
-            >
+            <button class="header__mob-wrapper-drop-btn" @click="toggleDropdown">
               {{ locale.toUpperCase() }}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -96,11 +83,7 @@
           </div>
 
           <button class="header__mob-burger__btn" @click="burgerOpen">
-            <img
-              src="@assets/images/icons/bar.svg"
-              alt="menu"
-              v-if="!isBurgerOpen"
-            />
+            <img src="@assets/images/icons/bar.svg" alt="menu" v-if="!isBurgerOpen" />
             <img src="@assets/images/icons/close.svg" alt="close" v-else />
           </button>
         </div>
@@ -129,8 +112,9 @@
       </div>
     </nav>
   </header>
-
-  <Modal v-if="isOrderModal" @orderModalClose="orderModalClose" />
+  <transition name="modal-fade">
+    <Modal v-if="isOrderModal" @orderModalClose="orderModalClose" />
+  </transition>
 </template>
 
 <script setup>
@@ -195,4 +179,14 @@ const changeLanguage = (lang) => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+</style>

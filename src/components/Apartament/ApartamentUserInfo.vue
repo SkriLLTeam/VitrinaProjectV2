@@ -19,7 +19,10 @@
       <div class="apartament__user-content-info">
         <div class="apartament__user-content-info-avatar">
           <div class="apartament__user-content-info-avatar-img">
-            <img v-lazy="userInfo?.user?.photo" alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры" />
+            <img
+              v-lazy="userInfo?.user?.photo"
+              alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры"
+            />
           </div>
           <span class="apartament__user-content-info-avatar-name">
             <a
@@ -51,10 +54,7 @@
             </a>
           </div>
 
-          <button
-            @click="orderModalOpen"
-            class="apartament__user-content-info-btns-call"
-          >
+          <button @click="orderModalOpen" class="apartament__user-content-info-btns-call">
             {{ $t("title.order_number") }}
           </button>
         </div>
@@ -125,7 +125,9 @@
     </div>
   </aside>
 
-  <Modal v-if="isOrderModal" @orderModalClose="orderModalClose" />
+  <transition name="modal-fade">
+    <Modal v-if="isOrderModal" @orderModalClose="orderModalClose" />
+  </transition>
 </template>
 
 <script setup>
@@ -154,4 +156,14 @@ const orderModalClose = () => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+</style>

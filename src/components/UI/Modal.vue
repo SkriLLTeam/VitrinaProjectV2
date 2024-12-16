@@ -1,77 +1,68 @@
 <template>
   <div class="order__modal" @click="closeModal">
-    <transition name="modal-fade">
-      <div class="order__modal-block" @click.stop>
-        <div class="order__modal-block-top">
-          <h1 class="order__modal-block-top-title">{{ $t("form.fill") }}</h1>
-          <span class="order__modal-block-top-close" @click="closeModal(false)">
-            <img src="@assets/images/icons/close.svg" alt="close" />
-          </span>
-        </div>
-        <form @submit.prevent="submitForm" class="order__modal-form">
-          <div class="order__modal-form-block">
-            <label class="order__modal-form_label">
-              {{ $t("form.modal_name") }}
-            </label>
-            <InputUI
-              v-model="postObj.first_name"
-              type="text"
-              :placeholder="$t('form.modal_name_placeholder')"
-            />
-          </div>
-          <div class="order__modal-form-block">
-            <label class="order__modal-form_label">
-              {{ $t("form.modal_contact") }}
-            </label>
-            <InputUI
-              v-model="postObj.phone_number"
-              type="tel"
-              v-mask="mask"
-              :placeholder="'+998 (__) ___-__-__ '"
-            />
-          </div>
-          <div class="order__modal-form-block">
-            <label class="order__modal-form_label">
-              {{ $t("form.type_operation") }}
-            </label>
-            <SelectUI
-              v-model="postObj.operation_type"
-              :options="typeOperation"
-            />
-          </div>
-          <div class="order__modal-form-block">
-            <label class="order__modal-form_label">
-              {{ $t("form.type_object") }}
-            </label>
-            <SelectUI v-model="selectedId" :options="modalCategories" />
-          </div>
-
-          <div class="order__modal-form-block">
-            <label class="order__modal-form_label">
-              {{ $t("form.modal_textarea") }}
-            </label>
-            <textarea
-              type="text"
-              class="order__modal-form_textarea"
-              :placeholder="$t('form.modal_textarea_placeholder')"
-              v-model="postObj.message"
-            ></textarea>
-          </div>
-          <div class="order__modal-block-btns">
-            <button
-              class="revbtn order__modal-block-btn"
-              type="button"
-              @click="resetForm"
-            >
-              {{ $t("button.clear") }}
-            </button>
-            <button class="btn order__modal-block-btn" type="submit">
-              {{ $t("button.send") }}
-            </button>
-          </div>
-        </form>
+    <div class="order__modal-block" @click.stop>
+      <div class="order__modal-block-top">
+        <h1 class="order__modal-block-top-title">{{ $t("form.fill") }}</h1>
+        <span class="order__modal-block-top-close" @click="closeModal(false)">
+          <img src="@assets/images/icons/close.svg" alt="close" />
+        </span>
       </div>
-    </transition>
+      <form @submit.prevent="submitForm" class="order__modal-form">
+        <div class="order__modal-form-block">
+          <label class="order__modal-form_label">
+            {{ $t("form.modal_name") }}
+          </label>
+          <InputUI
+            v-model="postObj.first_name"
+            type="text"
+            :placeholder="$t('form.modal_name_placeholder')"
+          />
+        </div>
+        <div class="order__modal-form-block">
+          <label class="order__modal-form_label">
+            {{ $t("form.modal_contact") }}
+          </label>
+          <InputUI
+            v-model="postObj.phone_number"
+            type="tel"
+            v-mask="mask"
+            :placeholder="'+998 (__) ___-__-__ '"
+          />
+        </div>
+        <div class="order__modal-form-block">
+          <label class="order__modal-form_label">
+            {{ $t("form.type_operation") }}
+          </label>
+          <SelectUI v-model="postObj.operation_type" :options="typeOperation" />
+        </div>
+        <div class="order__modal-form-block">
+          <label class="order__modal-form_label">
+            {{ $t("form.type_object") }}
+          </label>
+          <SelectUI v-model="selectedId" :options="modalCategories" />
+        </div>
+
+        <div class="order__modal-form-block">
+          <label class="order__modal-form_label">
+            {{ $t("form.modal_textarea") }}
+          </label>
+          <textarea
+            type="text"
+            class="order__modal-form_textarea"
+            :placeholder="$t('form.modal_textarea_placeholder')"
+            v-model="postObj.message"
+          ></textarea>
+        </div>
+        <div class="order__modal-block-btns">
+          <button class="revbtn order__modal-block-btn" type="button" @click="resetForm">
+            {{ $t("button.clear") }}
+          </button>
+          <button class="btn order__modal-block-btn" type="submit">
+            {{ $t("button.send") }}
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -167,16 +158,3 @@ const closeModal = (val) => {
   emit("orderModalClose", val);
 };
 </script>
-
-<style lang="scss" scoped>
-.modal-fade-enter-active,
-.modal-fade-leave-active {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.modal-fade-enter-from,
-.modal-fade-leave-to {
-  transform: scale(0.9);
-  opacity: 0;
-}
-</style>
