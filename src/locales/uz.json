@@ -6,7 +6,7 @@
     "show_number": "Raqamni ko'rsatish",
     "request_call": "Qo'ng'iroq buyurtma qilish",
     "get_advice": "Konsultatsiya olish",
-    "calculate_the_bet": "Pul stavkasini hisoblash",
+    "calculate_the_bet": "Narxni hisoblash",
     "await_call": "Qo'ng'iroq kutyapman",
     "send": "Jo'natish"
   },
@@ -23,7 +23,7 @@
     "phone_placeholder": "Telefon raqamingizni qoldiring",
     "type_statement": "Ko'chmas mulk turi",
     "price_statement": "Ko'chmas mulk narxi",
-    "in_year": "Yillardagi mudat",
+    "in_year": "Muddat yil hisobida",
     "down_payment": "Boshlang'ich to'lov",
     "percent": "Foiz stavkasi",
     "monthly_payment": "Oylik to'lov",
@@ -38,83 +38,83 @@
     "modal_contact": "Kontaktlar",
     "from": "Dan",
     "to": "Gacha",
-    "type_operation":"Operatsiya turi",
-    "type_object":"Ob'ekt turi"
+    "type_operation": "Operatsiya turi",
+    "type_object": "Ob'ekt turi"
   },
   "banners": {
-    "home_banner": "Bizning eksklyuziv bazamizdan ozingizni xonadoningizni tanlang",
-    "mortgage_banner": "Xonadoningiz uchun ipoteka narxini hisoblang",
-    "career_banner": "Xalqaro kompaniyaning bir qismiga aylaning",
+    "home_banner": "Eksklyuziv bazamizdan sizning istaklaringizga mos Top 100 xonadon",
+    "mortgage_banner": "Uyingiz uchun ipoteka qiymatini hisoblab chiqing",
+    "career_banner": "Xalqaro kompaniyaning bir bo'lagiga aylaning",
     "about_banner": "\"Витрина Недвижимости\" Qozog'istondagi eng yirik ko'chmas mulk agentligidir!"
   },
   "description": {
-    "mortgage_descr": "Quyidagi tugmani bosing va aniq to’lov hisobini oling",
-    "career_descr": "\"Витрина Недвижимости\"ning ahil jamoasiga qo'shiling",
+    "mortgage_descr": "Pastdagi tugmani bosing va aniq qiymat hisobini oling",
+    "career_descr": "\"Витрина Недвижимости\"ning ahil jamoasiga qo‘shiling",
     "about_descr": "Ko'chmas mulk bozorida 10 yillik tajriba - 7 ta shahar, 3 ta davlatda 1000 dan ortiq ko'chmas mulk agentlari.",
     "currency": "so'm"
   },
   "contents": {
-    "title_home": "Eng dolzarb ko'chmas mulk variantlari",
+    "title_home": "Ko‘chmas mulkning eng aktual variantlari",
     "title_mortgage": "Toshkentda Ipoteka",
     "title_career": "Shartlar:",
     "title_calculator": "Ipoteka kalkulyatori",
     "descr_apartamentId": "Tavsif",
-    "sub_title_mortgage": "Ipoteka stavkasi va oylik to'lovni bilib oling",
-    "who_are_we_looking_for": "Biz kimni izlayabmiz:",
+    "sub_title_mortgage": "Ipoteka foiz stavkasi va oylik to‘lov miqdorini bilib oling",
+    "who_are_we_looking_for": "Biz kimlarni izlayapmiz:",
     "descr_card_career": [
-      "Faol, o'z daromadlariga ta'sir o'tkazishga tayyor va ish vaqtini mustaqil ravishda taqsimlashga qodir",
-      "Komunikativ va mijozlarga yo'naltirilgan",
-      "Mukammal og'zaki va yozma nutqqa ega bo'lgan ,shuningdek smartfon va kompyuterdan bemalol foydalanadigan insonlar"
+      "Faol, o‘z daromadiga shaxsan ta’sir ko‘rsatishni istaydigan va ish vaqtini mustaqil taqsimlay oladigan",
+      "-Muloqotga qobiliyatli va mijozlar manfaatini ustuvor qo‘yadigan",
+      "Savodli og‘zaki va yozma nutqni mukammal egallab, shuningdek, smartfon va shaxsiy kompyuterdan ishonch bilan foydalanadigan shaxslar."
     ],
-    "consultation_title_mortgage": "Konsultatsiya uchun so'rovlar",
-    "consultation_descr_mortgage": "Konsultatsiya uchun bizga so'rov qoldiring yoki bizga qo'ng'iroq qiling:",
-    "what_do_we_offer": "Biz nima taklif qilamiz",
+    "consultation_title_mortgage": "Maslahat olish uchun ariza",
+    "consultation_descr_mortgage": "Maslahat olish uchun ariza qoldiring yoki bizga qo‘ng‘iroq qiling:",
+    "what_do_we_offer": "Biz nimani taklif etamiz",
     "career_offer": {
-      "join_message_part1": "Qo'shiling",
+      "join_message_part1": "Jamoasiga qo‘shiling",
       "join_message_part2": "va biz bilan rivojlaning!",
-      "brand_name": "«Vitrina Nedvijimosti»"
+      "brand_name": "«Витрина Недвижимости»"
     },
     "list_offer": {
-      "training": "Ishning birinchi oyi davomida kompaniya hisobidan yuqori sifatli ekspress ta'lim",
-      "office": "Shahar markazidagi shinam ofis,barcha kerakli narsalar,samimiy xodimlar",
-      "bonus": "Yuqori samaradorlik va o'z vaqtida ish haqi uchun kafolatlangan bonuslar",
+      "training": "Kompaniya hisobidan ishning birinchi oyi davomida sifatli tezkor ta’lim",
+      "office": "Shahar markazida barcha kerakli jihozlarga ega qulay ofis, inoq jamoa",
+      "bonus": "Yuqori ish ko‘rsatkichlari uchun kafolatlangan mukofotlar, o‘z vaqtida to‘lanadigan ishbay ish haqi",
       "communication": "Cheksiz aloqa (korporativ raqam)",
-      "support": "Reklama va qollab quvatlash"
+      "support": "Reklama va qo'llab-quvvatlash"
     },
     "conditions_career": {
       "working_hours": "Ish vaqti 10:00 dan 19:00 gacha, moslachuvchan ish vaqti",
-      "unlimited_income": "Cheksiz daromadlariga",
-      "floating_day_off": "Haftada bir dam olish kuni",
-      "training_duration": "Trening bir haftadan bir oygacha"
+      "unlimited_income": "Cheklanmagan ish haqi",
+      "floating_day_off": "Haftada bir marta o‘zgaruvchi dam olish kuni (faqat ish kunlarida)",
+      "training_duration": "Bir haftadan bir oygacha treninglar"
     },
     "why_us_title": "Nega aynan biz?",
     "why_us_list": {
       "experience": "Ko'chmas mulk bozorida 10 yillik tajriba",
       "agents": "7 ta shahar,3 ta davlatda 1000 dan ortiq ko'chmas mulk agentlari",
-      "sales_volume": "Biz ko'chmas mulkni yiliga 650 000 000$ ortiq sotamiz",
-      "apartments_sold": "Biz yiliga 8000 dan ortiq xonadonlar sotamiz"
+      "sales_volume": "Yiliga 650 000 000 AQSH dollaridan ortiq ko‘chmas mulk sotamiz",
+      "apartments_sold": "Toshkentning eng sara 100 ta kvartirasidan iborat to‘plam - faqat eng ishonchli va bozorda xaridorgir ko‘chmas mulk obyektlarini o‘z ichiga oladi."
     },
-    "what_do_we_offer_why_us": "Bizning takliflarimiz:",
+    "what_do_we_offer_why_us": "- Biz quyidagilarni taklif etamiz:",
     "what_do_we_offer_why_us_list": {
-      "buy_sell_property": "Toshkentda ko'chmas mulk sotib olish va sotish",
-      "commercial_property": "Tijorat binolari",
-      "exclusive_top100": "Toshkentdagi TOP 100 ekskluziv obyektlar bazasi",
-      "photo_video_review": "Professional foto va video xizmati",
-      "paid_promotion": "Ekskluzivobyektlarni kompaniya hisobidan pulli reklama qilish",
-      "elite_apartments": "Muhtasham xonadonlar",
-      "land_private_houses": "Uchastka va hovli uylar"
+      "buy_sell_property": "Toshkent shahrida ko‘chmas mulk oldi-sottisi",
+      "commercial_property": "Tijorat ko‘chmas mulki",
+      "exclusive_top100": "\"Toshkentning TOP-100 eng sara kvartiralar\"i eksklyuziv obyektlar bazasi",
+      "photo_video_review": "Professional surat va video obzorlar",
+      "paid_promotion": "Kompaniya hisobidan eksklyuziv obyektlarni pullik targ‘ib qilish",
+      "elite_apartments": "Hashamatli kvartiralar",
+      "land_private_houses": "Yer uchastkalari va xususiy uylar"
     },
     "offer_why_us_list": {
-      "free_consultation": "Tekin konsultatsiya",
-      "one_percent_commission": "0% to'lov",
-      "time_energy_saving": "Sizning vaqtingizni va energiyangizni tejaymiz",
-      "all_developers_in_one_place": "Barcha quruvchilar bir joyda",
-      "verified_developers_only": "Faqatgina tekshirilgan quruvchilar"
+      "free_consultation": "Bepul konsultatsiya",
+      "one_percent_commission": "0% komissiya",
+      "time_energy_saving": "Vaqt va energiyani tejash",
+      "all_developers_in_one_place": "Barcha quruvchi kompaniyalar bir joyda",
+      "verified_developers_only": "Faqat ishonchli qurilish kompaniyalari"
     },
     "looking": {
-      "looking_for": "Yangi",
-      "new_building": "binoni qidiryapsizmi?",
-      "come_to_us": "Unda albatta bizga murojaat qiling:"
+      "looking_for": "Yangi qurilgan",
+      "new_building": "uy izlayapsizmi?",
+      "come_to_us": "U holda aynan bizga murojaat qiling: "
     },
     "address": {
       "title": "Манзил:",
@@ -168,5 +168,15 @@
     "rough": "Qora Suvoq",
     "pre_finished": "Tugallanmagan ta’mir"
   },
-  "order": "So’rov qoldirish"
+  "order": "Ariza qoldirish",
+  "company": {
+    "name": "Витрина Недвижимости",
+    "title": " — Toshkent ko‘chmas mulk bozoridagi ishonchli hamkoringiz.",
+    "text1": "Biz shunchaki minglab obyektlarni joylashtirish bilan cheklanmaymiz, chunki buni hamma  qila oladi. O‘n yildan ortiq tajribaga ega mutaxassislarimiz mablag‘laringiz xavfsizligini ta’minlash uchun to‘liq huquqiy tekshiruv o‘tkazadi, likvidlikni tahlil qiladi va hujjatlarni sinchkovlik bilan tekshiradi.",
+    "text2": "Bizning maxsus \"Toshkentdagi eng yaxshi 100 ta kvartira\" to‘plamimizga faqat eng ishonchli va likvid obyektlar kiritilgan",
+    "text3": "Biz bilan ipoteka olish imkoniyati 35% ga yuqori. Ulkan tajribamiz va MDH mamlakatlaridagi 8000 dan ortiq agentdan iborat tarmoqimiz bizga xalqaro miqyosda eng yirik agentlik bo‘lish imkonini beradi.",
+    "text4": "Qulay platformamiz sizga birgina klik orqali byudjetingiz va ehtiyojlaringizga mos kvartira tanlash, mutaxassis maslahati olish va bitimni huquqiy jihatdan qo‘llab-quvvatlash imkonini beradi.",
+    "text5": "Cheksiz qidiruv va shubhali platformalarda mablag‘laringizni xavf ostiga qo‘yishni bas qiling. Rieltorlar gildiyasi a’zolari bo‘lgan va O‘zbekiston rieltorlar uyushmasiga kiruvchi mutaxassislarga ishoning. Biz, shuningdek, Davlat aktivlarini boshqarish agentligi tomonidan sertifikatlangan agentlikmiz.",
+    "title2": " — mutaxassislar tomonidan tasdiqlangan sifat, bugunoq sizga taqdim etiladi."
+  }
 }
