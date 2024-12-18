@@ -20,7 +20,7 @@ import { advertisements } from "@/utils/util";
 import { useRoute } from "vue-router";
 import { useQuery } from "@tanstack/vue-query";
 import { useI18n } from "vue-i18n";
-import { useFiltersStore } from "@/stores/FiltersStore";
+// import { useFiltersStore } from "@/stores/FiltersStore";
 import ApartamentCaption from "@/components/Apartament/ApartamentCaption.vue";
 import ApartamentSlider from "@/components/Apartament/ApartamentSlider.vue";
 import ApartamentUserInfo from "@/components/Apartament/ApartamentUserInfo.vue";
