@@ -6,12 +6,12 @@
           ref="quadratureRef"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
-        :labeltitle="$t('tabs.quadrature')"
+          :labeltitle="$t('tabs.quadrature')"
         />
         <!-- не должно быть  -->
         <FilterSelect
           ref="selectDistrict"
-           :labeltitle="$t('tabs.district')"
+          :labeltitle="$t('tabs.district')"
           filterKey="district_id"
           :list="districts"
         />
@@ -21,7 +21,7 @@
           ref="priceRef"
           filterFromKey="price_from"
           filterToKey="price_to"
-        :labeltitle="$t('tabs.price')"
+          :labeltitle="$t('tabs.price')"
         />
 
         <button class="btn filter__form-btn" @click="applyFilters">
@@ -45,12 +45,12 @@
           ref="priceRefMob"
           filterFromKey="price_from"
           filterToKey="price_to"
-             :labeltitle="$t('tabs.price')"
+          :labeltitle="$t('tabs.price')"
         />
         <div class="filter__form-commersial-mob">
           <FilterSelect
             ref="selectDistrictMob"
-           :labeltitle="$t('tabs.district')"
+            :labeltitle="$t('tabs.district')"
             filterKey="district_id"
             :list="districts"
           />
@@ -83,6 +83,7 @@ const filterStore = useFiltersStore();
 const props = defineProps({
   districts: Array,
   selectedOperation: String,
+  category: Number,
 });
 
 const resetAll = () => {
@@ -97,6 +98,7 @@ const resetAll = () => {
 
 const applyFilters = () => {
   filterStore.updateFilter("operation_type", props.selectedOperation);
+  filterStore.updateFilter("category_id", props.category);
   filterStore.triggerRefetch();
   filterStore.hideTitle();
   filterStore.currentPage = 1;

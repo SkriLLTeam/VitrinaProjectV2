@@ -93,6 +93,7 @@ const props = defineProps({
   sold: Boolean,
   districts: Array,
   selectedOperation: String,
+  category: Number,
 });
 
 const resetAll = () => {
@@ -109,6 +110,7 @@ const resetAll = () => {
 
 const applyFilters = () => {
   filterStore.updateFilter("operation_type", props.selectedOperation);
+  filterStore.updateFilter("category_id", props.category);
   filterStore.triggerRefetch();
   filterStore.hideTitle();
   filterStore.currentPage = 1;
