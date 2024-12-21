@@ -12,7 +12,7 @@
         <FilterSelect
           ref="selectDistrict"
            :labeltitle="$t('tabs.district')"
-          filterKey="district"
+          filterKey="district_id"
           :list="districts"
         />
       </div>
@@ -51,7 +51,7 @@
           <FilterSelect
             ref="selectDistrictMob"
            :labeltitle="$t('tabs.district')"
-            filterKey="district"
+            filterKey="district_id"
             :list="districts"
           />
         </div>

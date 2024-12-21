@@ -4,7 +4,7 @@ export const useFiltersStore = defineStore("FiltersStore", {
   state: () => ({
     filters: {
       operation_type: null,
-      category: null,
+      category_id: null,
       rooms: null,
       is_studio: null,
       price_from: null,
@@ -14,7 +14,7 @@ export const useFiltersStore = defineStore("FiltersStore", {
       floor_from: null,
       floor_to: null,
       repair_type: null,
-      district: null,
+      district_id: null,
       house_quadrature_from: null,
       house_quadrature_to: null,
     },
@@ -33,7 +33,7 @@ export const useFiltersStore = defineStore("FiltersStore", {
     resetFilters() {
       this.filters = {
         operation_type: null,
-        category: null,
+        category_id: null,
         rooms: null,
         is_studio: null,
         price_from: null,
@@ -43,7 +43,7 @@ export const useFiltersStore = defineStore("FiltersStore", {
         floor_from: null,
         floor_to: null,
         repair_type: null,
-        district: null,
+        district_id: null,
       };
       this.currentPage = 1;
       this.isTitleVisible = true;

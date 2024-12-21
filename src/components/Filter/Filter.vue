@@ -123,7 +123,7 @@ const updateActiveTab = (index) => {
   activeTab.value = index;
   const selectedTabId = tabs[index].id;
   category.value = selectedTabId;
-  filterStore.updateFilter("category", selectedTabId);
+  filterStore.updateFilter("category_id", selectedTabId);
   filterStore.resetFilters();
 };
 

@@ -35,7 +35,7 @@
         />
         <FilterSelect
           ref="selectDistrict"
-          filterKey="district"
+          filterKey="district_id"
           :labeltitle="$t('tabs.district')"
           :list="districts"
         />
@@ -81,7 +81,7 @@
         />
         <FilterSelect
           ref="selectDistrictMob"
-          filterKey="district"
+          filterKey="district_id"
           :labeltitle="$t('tabs.district')"
           :list="districts"
         />
@@ -152,7 +152,7 @@ const resetAll = () => {
 
 const applyFilters = () => {
   filterStore.updateFilter("operation_type", props.selectedOperation);
-  filterStore.updateFilter("category", props.category);
+  filterStore.updateFilter("category_id", props.category);
   filterStore.triggerRefetch();
   filterStore.hideTitle();
   filterStore.currentPage = 1;

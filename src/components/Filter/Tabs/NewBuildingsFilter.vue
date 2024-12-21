@@ -32,7 +32,7 @@
         <FilterSelect
           ref="selectDistrict"
           :labeltitle="$t('tabs.district')"
-          filterKey="district"
+          filterKey="district_id"
           :list="districts"
         />
         <button class="btn filter__form-btn" @click="applyFilters">
@@ -71,7 +71,7 @@
         <FilterSelect
           ref="selectDistrictMob"
           :labeltitle="$t('tabs.district')"
-          filterKey="district"
+          filterKey="district_id"
           :list="districts"
         />
         <button class="btn filter__form-btn" @click="applyFilters">
