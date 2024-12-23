@@ -46,7 +46,11 @@ const {
     params.append("offset", (filterStore.currentPage - 1) * limit);
     const filters = filterStore.filters;
     for (const key in filters) {
-      if (filters[key] !== null && filters[key] !== undefined) {
+      if (
+        filters[key] !== null &&
+        filters[key] !== undefined &&
+        filters[key] !== "default"
+      ) {
         params.append(key, filters[key]);
       }
     }
@@ -56,8 +60,6 @@ const {
   },
   refetchOnWindowFocus: false,
 });
-
-console.log(advertisementsData);
 
 
 const { data: disctrictsData } = useQuery({
