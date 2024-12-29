@@ -11,6 +11,7 @@
               : userInfo?.name
           }}
         </h3>
+        <span class="apartament__user-content-caption-id">No {{ userInfo?.id }}</span>
         <span class="apartament__user-content-caption-price"
           >{{ userInfo?.price?.toLocaleString() }} USD</span
         >
@@ -20,7 +21,7 @@
         <div class="apartament__user-content-info-avatar">
           <div class="apartament__user-content-info-avatar-img">
             <img
-              v-lazy="userInfo?.user?.photo"
+              v-lazy="`${media}${userInfo?.user?.profile_image}`"
               alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры"
             />
           </div>
@@ -54,7 +55,10 @@
             </a>
           </div>
 
-          <button @click="orderModalOpen" class="apartament__user-content-info-btns-call">
+          <button
+            @click="orderModalOpen"
+            class="apartament__user-content-info-btns-call"
+          >
             {{ $t("title.order_number") }}
           </button>
         </div>
@@ -134,6 +138,7 @@
 import { useI18n } from "vue-i18n";
 import { ref } from "vue";
 import Modal from "../UI/Modal.vue";
+import { media } from "@/utils/util";
 
 const props = defineProps({
   userInfo: {

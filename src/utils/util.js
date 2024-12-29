@@ -17,3 +17,5 @@ export const postHeaders = {
   // "Content-Type": "application/x-www-form-urlencoded",
   // "Content-Type": "multipart/form-data",
 };
+//Медиа ссылка
+export const media = 'https://vitrina-admin.uz/'

@@ -61,6 +61,9 @@ const {
   refetchOnWindowFocus: false,
 });
 
+console.log(advertisementsData);
+
+
 
 const { data: disctrictsData } = useQuery({
   queryKey: ["districts", locale],

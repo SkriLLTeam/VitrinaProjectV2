@@ -38,6 +38,9 @@ const { data, isLoading } = useQuery({
     return response.data;
   },
 });
+
+console.log(data);
+
 </script>
 
 <style lang="scss" scoped>

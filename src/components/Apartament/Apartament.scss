@@ -184,6 +184,15 @@
           line-height: 120%;
           letter-spacing: 0.52px;
         }
+
+        &-id {
+          color: #343434;
+          font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+          font-weight: 400;
+          line-height: 125%;
+          letter-spacing: 0.52px;
+          margin-left: auto;
+        }
       }
 
       &-info {
@@ -513,4 +522,3 @@
     }
   }
 }
-

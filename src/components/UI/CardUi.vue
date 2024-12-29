@@ -2,7 +2,7 @@
   <article class="cardUI" v-if="apartament">
     <router-link :to="`/apartament/${apartament?.id}`" class="cardUI__wrapper">
       <div class="cardUI__img">
-        <img v-lazy="apartament?.preview" alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры" />
+        <img v-lazy="`${media}${apartament?.preview}`" alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры" />
       </div>
       <div class="cardUI__content">
         <div class="cardUI__content-text">
@@ -33,6 +33,7 @@
 </template>
 
 <script setup>
+import { media } from "@/utils/util";
 import { useI18n } from "vue-i18n";
 
 const { locale } = useI18n();
