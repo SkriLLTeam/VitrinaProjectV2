@@ -39,7 +39,7 @@ const { data, isLoading } = useQuery({
   },
 });
 
-console.log(data);
+// console.log(data);
 
 </script>
 

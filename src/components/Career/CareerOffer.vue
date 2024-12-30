@@ -22,7 +22,6 @@
 import { useI18n } from "vue-i18n";
 
 const { locale } = useI18n();
-console.log(locale.value);
 </script>
 
 <style lang="scss" scoped></style>
