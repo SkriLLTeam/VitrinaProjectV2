@@ -2,7 +2,10 @@
   <article class="cardUI" v-if="apartament">
     <router-link :to="`/apartament/${apartament?.id}`" class="cardUI__wrapper">
       <div class="cardUI__img">
-        <img v-lazy="`${media}${apartament?.preview}`" alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры" />
+        <img
+          v-lazy="`${media}${apartament?.preview}`"
+          alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры"
+        />
       </div>
       <div class="cardUI__content">
         <div class="cardUI__content-text">
@@ -12,9 +15,12 @@
 
           <div class="cardUI__content-text-caption">
             <div class="cardUI__content-text-caption-info">
-              <span>{{ apartament.rooms_qty_from }}-комн.</span>
+              <span>{{ apartament.rooms_qty_from }}-{{ $t("card.rooms") }}.</span>
               <span>{{ apartament.quadrature_from }} м2</span>
-              <span>{{ apartament.floor_from }}/{{ apartament.floor_to }} этаж</span>
+              <span
+                >{{ apartament.floor_from }}/{{ apartament.floor_to }}
+                {{ $t("card.floor") }}</span
+              >
             </div>
             <span class="cardUI__content-text-caption-address">
               {{
