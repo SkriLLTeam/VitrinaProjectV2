@@ -55,13 +55,13 @@ const {
       }
     }
     const response = await axios.get(`${advertisements}?${params.toString()}`);
-    console.log(`Отправка запроса: ${advertisements}?${params.toString()}`);
+    // console.log(`Отправка запроса: ${advertisements}?${params.toString()}`);
     return response.data;
   },
   refetchOnWindowFocus: false,
 });
 
-console.log(advertisementsData);
+// console.log(advertisementsData);
 
 
 
