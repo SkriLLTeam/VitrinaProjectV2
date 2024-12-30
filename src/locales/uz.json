@@ -178,5 +178,9 @@
     "text4": "Qulay platformamiz sizga birgina klik orqali byudjetingiz va ehtiyojlaringizga mos kvartira tanlash, mutaxassis maslahati olish va bitimni huquqiy jihatdan qo‘llab-quvvatlash imkonini beradi.",
     "text5": "Cheksiz qidiruv va shubhali platformalarda mablag‘laringizni xavf ostiga qo‘yishni bas qiling. Rieltorlar gildiyasi a’zolari bo‘lgan va O‘zbekiston rieltorlar uyushmasiga kiruvchi mutaxassislarga ishoning. Biz, shuningdek, Davlat aktivlarini boshqarish agentligi tomonidan sertifikatlangan agentlikmiz.",
     "title2": " — mutaxassislar tomonidan tasdiqlangan sifat, bugunoq sizga taqdim etiladi."
+  },
+  "card": {
+    "floor": "Qavat",
+    "rooms": "Xona"
   }
 }
