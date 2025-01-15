@@ -117,12 +117,12 @@
       "come_to_us": "U holda aynan bizga murojaat qiling: "
     },
     "address": {
-      "title": "Манзил:",
-      "rooms_qty": "Хоналар сони:",
-      "total_area": "Умумий майдон:",
-      "floor": "Қават:",
-      "creation_year": "Қурилиш йили:",
-      "condition": "Ҳолати:"
+      "title": "Manzil:",
+      "rooms_qty": "Honalar soni:",
+      "total_area": "Umumiy maydon:",
+      "floor": "Qavat:",
+      "creation_year": "Qurilish yili:",
+      "condition": "Xolati:"
     }
   },
   "tabs": {
