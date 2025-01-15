@@ -11,7 +11,7 @@
               : userInfo?.name
           }}
         </h3>
-        <span class="apartament__user-content-caption-id">No {{ userInfo?.id }}</span>
+        <span class="apartament__user-content-caption-id">No {{ userInfo?.unique_id }}</span>
         <span class="apartament__user-content-caption-price"
           >{{ userInfo?.price?.toLocaleString() }} USD</span
         >
@@ -55,10 +55,7 @@
             </a>
           </div>
 
-          <button
-            @click="orderModalOpen"
-            class="apartament__user-content-info-btns-call"
-          >
+          <button @click="orderModalOpen" class="apartament__user-content-info-btns-call">
             {{ $t("title.order_number") }}
           </button>
         </div>
@@ -84,7 +81,7 @@
             {{ $t("contents.address.rooms_qty") }}</span
           >
           <span class="apartament__user-content-address-block-descr">
-            {{ userInfo?.rooms_qty_from }}
+            {{ userInfo?.rooms_quantity || "Cтудия" }}
           </span>
         </div>
         <div class="apartament__user-content-address-block">
@@ -159,6 +156,8 @@ const orderModalOpen = () => {
 const orderModalClose = () => {
   isOrderModal.value = false;
 };
+
+console.log(props.userInfo);
 </script>
 
 <style lang="scss" scoped>
