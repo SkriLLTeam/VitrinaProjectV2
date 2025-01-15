@@ -73,19 +73,36 @@ a {
   transition: 0.3s linear;
 }
 
-@media (hover:hover){
-  .revbtn:hover{
-          background: #08A1C1;
-          color: #fff;
-    }
+@media (hover:hover) {
+  .revbtn:hover {
+    background: #08A1C1;
+    color: #fff;
+  }
 }
-@media (hover:none){
-  .revbtn:active{
-          background: #08A1C1;
-          color: #fff;
-    }
+
+@media (hover:none) {
+  .revbtn:active {
+    background: #08A1C1;
+    color: #fff;
+  }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+.scroll-to-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  background: #08a1c1;
+  color: #fff;
 }
