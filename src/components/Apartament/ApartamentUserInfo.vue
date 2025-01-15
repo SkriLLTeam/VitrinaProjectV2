@@ -11,7 +11,7 @@
               : userInfo?.name
           }}
         </h3>
-        <span class="apartament__user-content-caption-id">No {{ userInfo?.id }}</span>
+        <span class="apartament__user-content-caption-id">No {{ userInfo?.unique_id }}</span>
         <span class="apartament__user-content-caption-price"
           >{{ userInfo?.price?.toLocaleString() }} USD</span
         >
