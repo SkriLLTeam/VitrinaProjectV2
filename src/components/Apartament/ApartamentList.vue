@@ -10,6 +10,7 @@
         class="apartament__list-wrapper-inner"
       >
         <CardUi
+        data-aos="fade-up"
           v-for="apartament in apartamentList"
           :key="apartament.id"
           :apartament="apartament"
