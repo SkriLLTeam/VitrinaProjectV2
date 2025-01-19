@@ -77,18 +77,18 @@ const tabs = [
     id: 1,
   },
   {
+    name: "tabs.commercial",
+    component: Tab4,
+    id: 2,
+  },
+  {
     name: "tabs.new_building",
     component: Tab2,
-    id: 2,
+    id: 3,
   },
   {
     name: "tabs.houses",
     component: Tab3,
-    id: 3,
-  },
-  {
-    name: "tabs.commercial",
-    component: Tab4,
     id: 4,
   },
 ];
@@ -136,10 +136,7 @@ const toggleCheckbox = (index) => {
       .filter((checkbox) => checkbox.checked && checkbox.val !== -1)
       .map((checkbox) => checkbox.val);
 
-    filterStore.updateFilter(
-      "rooms",
-      selectedRooms.length ? selectedRooms : null
-    );
+    filterStore.updateFilter("rooms", selectedRooms.length ? selectedRooms : null);
   }
 };
 </script>
