@@ -15,8 +15,8 @@
 
           <div class="cardUI__content-text-caption">
             <div class="cardUI__content-text-caption-info">
-              <span>{{ apartament.rooms_qty_from }}-{{ $t("card.rooms") }}.</span>
-              <span>{{ apartament.quadrature_from }} м2</span>
+              <span>{{ apartament.rooms_quantity }}-{{ $t("card.rooms") }}.</span>
+              <span>{{ apartament.quadrature }}м²</span>
               <span
                 >{{ apartament.floor_from }}/{{ apartament.floor_to }}
                 {{ $t("card.floor") }}</span
