@@ -89,7 +89,7 @@
             {{ $t("contents.address.total_area") }}</span
           >
           <span class="apartament__user-content-address-block-descr">
-            {{ userInfo?.quadrature_from }}
+            {{ userInfo?.quadrature }} м²
           </span>
         </div>
         <div class="apartament__user-content-address-block">
@@ -100,7 +100,7 @@
             {{ userInfo?.floor_from }}/{{ userInfo?.floor_to }}
           </span>
         </div>
-        <div class="apartament__user-content-address-block">
+        <div class="apartament__user-content-address-block" v-if="userInfo?.creation_year">
           <span class="apartament__user-content-address-block-title">
             {{ $t("contents.address.creation_year") }}</span
           >
