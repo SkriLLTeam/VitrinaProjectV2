@@ -6,9 +6,13 @@
         class="about__why-cards-card"
         v-for="(card, index) in whyUsList"
         :key="index"
+        data-aos="zoom-in"
       >
         <div class="about__why-cards-card-img">
-          <img v-lazy="card.img" alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры" />
+          <img
+            v-lazy="card.img"
+            alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры"
+          />
         </div>
         <span class="about__why-cards-card-descr">
           {{ $t(card.title) }}

@@ -9,6 +9,10 @@ import router from "./router";
 import Vue3Lazyload from "vue3-lazyload";
 import Loader from "./components/UI/Loader.vue";
 import i18n from "./plugins/i18n";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
+
 const app = createApp(App);
 app.component("Loader", Loader);
 app.directive("mask", IMaskDirective);
@@ -28,3 +32,8 @@ app.use(Vue3Lazyload, {
   log: false,
 });
 app.mount("#app");
+
+Aos.init({
+  duration: 1000,
+  easing: "ease-out",
+});

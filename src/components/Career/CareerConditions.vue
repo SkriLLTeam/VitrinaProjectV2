@@ -4,11 +4,15 @@
     <div class="career__conditions-wrapper">
       <div
         class="career__conditions-item"
+        data-aos="zoom-in"
         v-for="(item, index) in conditionsList"
         :key="index"
       >
         <div class="career__conditions-item-img">
-          <img v-lazy="item.img" alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры" />
+          <img
+            v-lazy="item.img"
+            alt="недвижимость в ташкенте, квартиры в ташкенте, аренда квартиры"
+          />
         </div>
         <span class="career__conditions-item-descr">
           {{ $t(item.title) }}
