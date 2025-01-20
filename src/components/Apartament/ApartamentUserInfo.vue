@@ -32,7 +32,7 @@
               style
               :href="'https://t.me/' + userInfo?.user?.tg_username"
             >
-              {{ userInfo?.user?.fullname }}
+              {{ userInfo?.user?.fullname || userInfo?.user?.tg_username }}
             </a>
           </span>
         </div>
