@@ -6,6 +6,7 @@
         :spaceBetween="10"
         :thumbs="{ swiper: thumbsSwiper }"
         :modules="modules"
+        :centered-slides="true"
         class="apartament__slider-top"
       >
         <swiper-slide
