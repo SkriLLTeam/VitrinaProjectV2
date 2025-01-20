@@ -77,18 +77,18 @@ const tabs = [
     id: 1,
   },
   {
+    name: "tabs.commercial",
+    component: Tab4,
+    id: 2,
+  },
+  {
     name: "tabs.new_building",
     component: Tab2,
-    id: 2,
+    id: 3,
   },
   {
     name: "tabs.houses",
     component: Tab3,
-    id: 3,
-  },
-  {
-    name: "tabs.commercial",
-    component: Tab4,
     id: 4,
   },
 ];
@@ -117,6 +117,10 @@ const selectOperation = (type) => {
   }
   selectedOperation.value = type;
   activeTab.value = 0;
+
+  filterStore.updateFilter("operation_type",selectedOperation.value);
+  filterStore.triggerRefetch();
+
 };
 
 const updateActiveTab = (index) => {

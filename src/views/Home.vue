@@ -6,7 +6,11 @@
         <Banner subClass="banner__wrapper" mainClass="banner">
           <h1 class="banner__title">{{ $t("banners.home_banner") }}</h1>
         </Banner>
+
         <Filter :disctrictsData="disctrictsData" />
+        <button v-if="showButton" @click="scrollToTop" class="scroll-to-top">
+          <i class="far fa-arrow-to-top"></i>
+        </button>
         <ApartamentList
           :totalPages="totalPages"
           @changePage="handlePageChange"
@@ -19,7 +23,7 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, ref, onMounted } from "vue";
 import { useQuery } from "@tanstack/vue-query";
 import { advertisements, districts } from "@/utils/util";
 import { useFiltersStore } from "@/stores/FiltersStore";
@@ -34,11 +38,21 @@ const filterStore = useFiltersStore();
 const computedPage = computed(() => filterStore.currentPage);
 const { locale } = useI18n();
 
-const {
-  data: advertisementsData,
-  refetch,
-  isLoading,
-} = useQuery({
+const showButton = ref(false);
+
+const handleScroll = () => {
+  showButton.value = window.scrollY > 300;
+};
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+const { data: advertisementsData, refetch, isLoading } = useQuery({
   queryKey: [computedPage, locale],
   queryFn: async () => {
     const params = new URLSearchParams();
@@ -55,13 +69,14 @@ const {
       }
     }
     const response = await axios.get(`${advertisements}?${params.toString()}`);
-    // console.log(`Отправка запроса: ${advertisements}?${params.toString()}`);
+    console.log(`Отправка запроса: ${advertisements}?${params.toString()}`);
     return response.data;
   },
   refetchOnWindowFocus: false,
 });
 
-console.log(advertisementsData);
+
+// console.log(advertisementsData);
 
 const { data: disctrictsData } = useQuery({
   queryKey: ["districts", locale],

@@ -4,18 +4,23 @@
       <Loader v-if="isLoading" />
       <div v-else class="apartament container">
         <div class="apartament__wrapper">
-          <ApartamentSlider :gallery="data?.images" />
+          <ApartamentSlider @zoomOpen="zoomOpen" :gallery="data?.images" />
           <ApartamentUserInfo :userInfo="data" />
         </div>
         <ApartamentCaption :userCaption="data" />
         <SimilarAds :similarAds="data?.related_objects" />
       </div>
+      <ZoomSlider
+        @zoomClose="zoomClose"
+        :gallery="data?.images"
+        v-if="isVisible"
+      />
     </div>
   </transition>
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { ref, computed } from "vue";
 import { advertisements } from "@/utils/util";
 import { useRoute } from "vue-router";
 import { useQuery } from "@tanstack/vue-query";
@@ -26,10 +31,22 @@ import ApartamentSlider from "@/components/Apartament/ApartamentSlider.vue";
 import ApartamentUserInfo from "@/components/Apartament/ApartamentUserInfo.vue";
 import SimilarAds from "@/components/Apartament/SimilarAds.vue";
 import axios from "axios";
+import ZoomSlider from "@/components/Apartament/ZoomSlider.vue";
 
 const route = useRoute();
 const apartamentId = computed(() => route.params.id);
 const { locale } = useI18n();
+const isVisible = ref(false);
+
+const zoomOpen = () => {
+  isVisible.value = true;
+  document.body.style.overflow = "hidden";
+};
+
+const zoomClose = () => {
+  isVisible.value = false;
+  document.body.style.overflow = "auto";
+};
 
 const { data, isLoading } = useQuery({
   queryKey: [apartamentId, locale],
@@ -40,7 +57,6 @@ const { data, isLoading } = useQuery({
 });
 
 // console.log(data);
-
 </script>
 
 <style lang="scss" scoped>

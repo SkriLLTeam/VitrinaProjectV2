@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Главная страница -->
+  <url>
+    <loc>https://ivitrina-nedvizhimosti.com/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Ипотека -->
+  <url>
+    <loc>https://ivitrina-nedvizhimosti.com/mortgage</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Карьера -->
+  <url>
+    <loc>https://ivitrina-nedvizhimosti.com/career</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- О нас -->
+  <url>
+    <loc>https://ivitrina-nedvizhimosti.com/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- Страница ошибки -->
+  <url>
+    <loc>https://ivitrina-nedvizhimosti.com/404</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+  </url>
+</urlset>

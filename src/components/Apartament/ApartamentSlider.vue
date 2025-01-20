@@ -12,6 +12,7 @@
           v-for="photo in gallery"
           :key="photo.id"
           class="apartament__slider-top-slide"
+          @click="$emit('zoomOpen')"
         >
           <div class="apartament__slider-top-slide-img">
             <img

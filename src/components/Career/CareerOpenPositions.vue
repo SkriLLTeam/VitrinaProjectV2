@@ -5,6 +5,8 @@
     </h2>
     <div class="career__positions-wrapper">
       <CareerCard
+        data-aos="flip-left"
+        
         :descr="$t(`contents.descr_card_career.${index}`)"
         :image="item.image"
         v-for="(item, index) in careerCardInfo"
