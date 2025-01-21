@@ -157,7 +157,6 @@ const orderModalClose = () => {
   isOrderModal.value = false;
 };
 
-console.log(props.userInfo);
 </script>
 
 <style lang="scss" scoped>

@@ -56,7 +56,6 @@ const { data, isLoading } = useQuery({
   },
 });
 
-// console.log(data);
 </script>
 
 <style lang="scss" scoped>

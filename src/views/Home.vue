@@ -76,7 +76,6 @@ const { data: advertisementsData, refetch, isLoading } = useQuery({
 });
 
 
-// console.log(advertisementsData);
 
 const { data: disctrictsData } = useQuery({
   queryKey: ["districts", locale],
