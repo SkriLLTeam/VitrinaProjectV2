@@ -11,7 +11,9 @@
               : userInfo?.name
           }}
         </h3>
-        <span class="apartament__user-content-caption-id">No {{ userInfo?.unique_id }}</span>
+        <span class="apartament__user-content-caption-id"
+          >No {{ userInfo?.unique_id }}</span
+        >
         <span class="apartament__user-content-caption-price"
           >{{ userInfo?.price?.toLocaleString() }} USD</span
         >
@@ -32,7 +34,10 @@
               style
               :href="'https://t.me/' + userInfo?.user?.tg_username"
             >
-              {{ ` ${userInfo?.user?.first_name} ${userInfo?.user?.lastname}`  || userInfo?.user?.tg_username }}
+              {{
+                ` ${userInfo?.user?.first_name} ${userInfo?.user?.lastname}` ||
+                userInfo?.user?.tg_username
+              }}
             </a>
           </span>
         </div>
@@ -46,13 +51,13 @@
             >
               {{ $t("title.show_number") }}
             </button>
-            <a
+            <button
               v-else-if="showNumber && userInfo?.user?.phone_number"
               class="apartament__user-content-info-btns-number"
-              :href="`tel:${userInfo?.user?.phone_number}`"
+              @click="(e) => makeCall(e)"
             >
               {{ userInfo?.user?.phone_number }}
-            </a>
+            </button>
           </div>
 
           <button @click="orderModalOpen" class="apartament__user-content-info-btns-call">
@@ -100,7 +105,10 @@
             {{ userInfo?.floor_from }}/{{ userInfo?.floor_to }}
           </span>
         </div>
-        <div class="apartament__user-content-address-block" v-if="userInfo?.creation_year">
+        <div
+          class="apartament__user-content-address-block"
+          v-if="userInfo?.creation_year"
+        >
           <span class="apartament__user-content-address-block-title">
             {{ $t("contents.address.creation_year") }}</span
           >
@@ -157,6 +165,11 @@ const orderModalClose = () => {
   isOrderModal.value = false;
 };
 
+const makeCall = (e) => {
+
+  e.preventDefault();
+  window.location.href = `tel:${props?.userInfo?.user?.phone_number}`;
+};
 </script>
 
 <style lang="scss" scoped>
