@@ -27,12 +27,16 @@ export const useFiltersStore = defineStore("FiltersStore", {
       if (key in this.filters) {
         this.filters[key] =
           key === "operation_type" && value ? value.toUpperCase() : value;
+    
+        if (key === "operation_type" && value) {
+          this.filters.category_id = null;
+        }
       }
     },
 
     resetFilters() {
       this.filters = {
-        operation_type: null,
+        ...this.filters,
         category_id: null,
         rooms: null,
         is_studio: null,
@@ -44,6 +48,8 @@ export const useFiltersStore = defineStore("FiltersStore", {
         floor_to: null,
         repair_type: null,
         district_id: null,
+        house_quadrature_from: null,
+        house_quadrature_to: null,
       };
       this.currentPage = 1;
       this.isTitleVisible = true;

@@ -132,10 +132,18 @@ const repairList = computed(() => [
   { name: t("repair.without"), id: "WITHOUT", name_uz: t("repair.without") },
   { name: t("repair.designed"), id: "DESIGNED", name_uz: t("repair.designed") },
   { name: t("repair.rough"), id: "ROUGH", name_uz: t("repair.rough") },
-  { name: t("repair.pre_finished"), id: "PRE_FINISHED", name_uz: t("repair.pre_finished")},
+  {
+    name: t("repair.pre_finished"),
+    id: "PRE_FINISHED",
+    name_uz: t("repair.pre_finished"),
+  },
 ]);
 
 const resetAll = () => {
+  props.checkboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+
   if (priceRef.value) priceRef.value.resetValues();
   if (quadratureRef.value) quadratureRef.value.resetValues();
   if (floorRef.value) floorRef.value.resetValues();

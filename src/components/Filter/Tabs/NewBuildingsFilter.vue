@@ -112,6 +112,10 @@ const props = defineProps({
   category: Number,
 });
 const resetAll = () => {
+  props.checkboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+
   if (priceRef.value) priceRef.value.resetValues();
   if (quadratureRef.value) quadratureRef.value.resetValues();
   if (floorRef.value) floorRef.value.resetValues();

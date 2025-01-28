@@ -118,17 +118,20 @@ const selectOperation = (type) => {
   selectedOperation.value = type;
   activeTab.value = 0;
 
-  filterStore.updateFilter("operation_type",selectedOperation.value);
-  filterStore.triggerRefetch();
+  filterStore.resetFilters();
 
+  filterStore.updateFilter("operation_type", selectedOperation.value);
+  filterStore.updateFilter("category_id", null); 
+  filterStore.triggerRefetch();
 };
 
 const updateActiveTab = (index) => {
   activeTab.value = index;
   const selectedTabId = tabs[index].id;
   category.value = selectedTabId;
-  filterStore.updateFilter("category_id", selectedTabId);
   filterStore.resetFilters();
+  filterStore.updateFilter("category_id", selectedTabId);
+  filterStore.triggerRefetch();
 };
 
 const toggleCheckbox = (index) => {
