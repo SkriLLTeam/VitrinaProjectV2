@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, onMounted } from "vue";
 import { useFiltersStore } from "@/stores/FiltersStore";
 import InputUI from "@/components/UI/Forms/InputUI.vue";
 
@@ -34,11 +34,16 @@ const props = defineProps({
   filterToKey: String,
 });
 
+onMounted(() => {
+  fromValue.value = filterStore.getFilter(props.filterFromKey);
+  toValue.value = filterStore.getFilter(props.filterToKey);
+});
+
 watch([fromValue, toValue], ([newFrom, newTo]) => {
   const sanitizedFrom = newFrom ? newFrom.toString().replace(/\D/g, "") : null;
   const sanitizedTo = newTo ? newTo.toString().replace(/\D/g, "") : null;
 
-  // Обновляем стор с очищенными данными
+  // Сохраняем в сторе
   filterStore.updateFilter(props.filterFromKey, sanitizedFrom);
   filterStore.updateFilter(props.filterToKey, sanitizedTo);
 });
@@ -46,7 +51,10 @@ watch([fromValue, toValue], ([newFrom, newTo]) => {
 const resetValues = () => {
   fromValue.value = null;
   toValue.value = null;
+  filterStore.updateFilter(props.filterFromKey, null);
+  filterStore.updateFilter(props.filterToKey, null);
 };
+
 defineExpose({
   resetValues,
 });

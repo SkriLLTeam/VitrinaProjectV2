@@ -27,37 +27,31 @@ export const useFiltersStore = defineStore("FiltersStore", {
       if (key in this.filters) {
         this.filters[key] =
           key === "operation_type" && value ? value.toUpperCase() : value;
-    
+
         if (key === "operation_type" && value) {
           this.filters.category_id = null;
         }
       }
     },
 
+    getFilter(key) {
+      return this.filters[key] ?? null; 
+    },
+
     resetFilters() {
-      this.filters = {
-        ...this.filters,
-        category_id: null,
-        rooms: null,
-        is_studio: null,
-        price_from: null,
-        price_to: null,
-        quadrature_from: null,
-        quadrature_to: null,
-        floor_from: null,
-        floor_to: null,
-        repair_type: null,
-        district_id: null,
-        house_quadrature_from: null,
-        house_quadrature_to: null,
-      };
+      Object.keys(this.filters).forEach((key) => {
+        this.filters[key] = null;
+      });
+
       this.currentPage = 1;
       this.isTitleVisible = true;
       this.triggerRefetch();
     },
+
     hideTitle() {
       this.isTitleVisible = false;
     },
+
     setRefetch(refetch) {
       this.refetchFn = refetch;
     },
@@ -67,6 +61,7 @@ export const useFiltersStore = defineStore("FiltersStore", {
         this.refetchFn();
       }
     },
+
     setCurrentPage(page) {
       this.currentPage = page;
     },
