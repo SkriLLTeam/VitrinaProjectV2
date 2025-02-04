@@ -52,29 +52,74 @@ const scrollToTop = () => {
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
 });
-const { data: advertisementsData, refetch, isLoading } = useQuery({
-  queryKey: [computedPage, locale],
+const categoryMapping = {
+  1: "flats",
+  2: "commercial",
+  3: "newBuildings",
+  4: "houses",
+};
+const {
+  data: advertisementsData,
+  refetch,
+  isLoading,
+} = useQuery({
+  queryKey: [
+    computedPage,
+    locale,
+    filterStore.filtersApplied,
+    JSON.stringify(filterStore.filters),
+  ],
+
   queryFn: async () => {
     const params = new URLSearchParams();
     params.append("limit", limit);
     params.append("offset", (filterStore.currentPage - 1) * limit);
-    const filters = filterStore.filters;
-    for (const key in filters) {
-      if (
-        filters[key] !== null &&
-        filters[key] !== undefined &&
-        filters[key] !== "default"
-      ) {
-        params.append(key, filters[key]);
-      }
+
+    if (!filterStore.filtersApplied) {
+      const response = await axios.get(
+        `${advertisements}?${params.toString()}`
+      );
+      return response.data;
     }
+
+    if (filterStore.filters.operation_type) {
+      params.append("operation_type", filterStore.filters.operation_type);
+    }
+
+    const categoryId = filterStore.filters.category_id;
+    if (categoryId) {
+      const activeCategory = categoryMapping[categoryId];
+      if (activeCategory && filterStore.filters[activeCategory]) {
+        const activeFilters = filterStore.filters[activeCategory];
+
+        for (const key in activeFilters) {
+          const value = activeFilters[key];
+
+          if (key === "checkboxes") continue;
+          if (key === "rooms" && Array.isArray(value)) {
+            if (value.length > 0) {
+              params.append(key, value.join(","));
+            }
+          }
+          else if (key === "is_studio") {
+            params.append(key, value ? "true" : "false");
+          }
+          else if (value !== null && value !== undefined) {
+            params.append(key, value);
+          }
+        }
+      }
+      params.append("category_id", categoryId);
+    }
+
     const response = await axios.get(`${advertisements}?${params.toString()}`);
-    console.log(`Отправка запроса: ${advertisements}?${params.toString()}`);
+    console.log(`${advertisements}?${params.toString()}`);
+    
+
     return response.data;
   },
   refetchOnWindowFocus: false,
 });
-
 
 
 const { data: disctrictsData } = useQuery({

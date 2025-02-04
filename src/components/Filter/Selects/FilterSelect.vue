@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch,onMounted } from "vue";
 import { useFiltersStore } from "@/stores/FiltersStore";
 import SelectUI from "@/components/UI/Forms/SelectUI.vue";
 
@@ -21,16 +21,22 @@ const props = defineProps({
   },
   modelValue: Object,
   filterKey: String,
+  category: String,
 });
 
+
+
+// Записываем данные с инпута в стор
 watch(selectedValue, (newValue) => {
-  filterStore.updateFilter(props.filterKey, newValue);
+  filterStore.updateFilter(props.category, props.filterKey, newValue);
 });
-const resetValues = () => {
+// Визуальный сброс select при изменении
+watch(() => filterStore.resetTrigger, () => {
   selectedValue.value = "default";
-};
-defineExpose({
-  resetValues,
+});
+// Для восстановление фильтра при переходе назад
+onMounted(() => {
+  selectedValue.value = filterStore.getFilter(props.category, props.filterKey) || "default";
 });
 </script>
 

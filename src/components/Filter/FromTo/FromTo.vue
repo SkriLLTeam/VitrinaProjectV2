@@ -32,33 +32,32 @@ const props = defineProps({
   modelValue: Object,
   filterFromKey: String,
   filterToKey: String,
+  category: String,
 });
 
-onMounted(() => {
-  fromValue.value = filterStore.getFilter(props.filterFromKey);
-  toValue.value = filterStore.getFilter(props.filterToKey);
-});
-
+// Записываем значения в стор
 watch([fromValue, toValue], ([newFrom, newTo]) => {
   const sanitizedFrom = newFrom ? newFrom.toString().replace(/\D/g, "") : null;
   const sanitizedTo = newTo ? newTo.toString().replace(/\D/g, "") : null;
 
-  // Сохраняем в сторе
-  filterStore.updateFilter(props.filterFromKey, sanitizedFrom);
-  filterStore.updateFilter(props.filterToKey, sanitizedTo);
+  filterStore.updateFilter(props.category, props.filterFromKey, sanitizedFrom);
+  filterStore.updateFilter(props.category, props.filterToKey, sanitizedTo);
+});
+// Визуальный сброс инпутов
+watch(
+  () => filterStore.resetTrigger,
+  () => {
+    fromValue.value = null;
+    toValue.value = null;
+  }
+);
+// Для восстановление фильтра при переходе назад
+onMounted(() => {
+  fromValue.value = filterStore.getFilter(props.category, props.filterFromKey);
+  toValue.value = filterStore.getFilter(props.category, props.filterToKey);
 });
 
-const resetValues = () => {
-  fromValue.value = null;
-  toValue.value = null;
-  filterStore.updateFilter(props.filterFromKey, null);
-  filterStore.updateFilter(props.filterToKey, null);
-};
-
-defineExpose({
-  resetValues,
-});
-
+// Маска номер
 const maskOptions = ref({
   mask: Number, // Числовой ввод
   signed: false, // Без отрицательных чисел

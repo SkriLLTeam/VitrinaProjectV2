@@ -5,15 +5,15 @@
         <button
           class="filter__swap_btn"
           @click="selectOperation('buy')"
-          :class="{ active: sold }"
-        >
+          :class="{ active: filterStore.filters.operation_type === 'BUY' }"
+          >
           {{ $t("tabs.buy") }}
         </button>
         <button
           class="filter__swap_btn"
           @click="selectOperation('rent')"
-          :class="{ active: rent }"
-        >
+          :class="{ active: filterStore.filters.operation_type === 'RENT' }"
+          >
           {{ $t("tabs.rent") }}
         </button>
       </div>
@@ -22,7 +22,7 @@
         <button
           v-for="(tab, index) in filteredTabs"
           :key="index"
-          :class="{ active: activeTab === index }"
+          :class="{ active: filterStore.activeTab === index }"
           @click="updateActiveTab(index)"
           class="filter__tabs-btn"
         >
@@ -34,15 +34,14 @@
       <div class="tab-content">
         <transition name="fade" mode="out-in">
           <component
-            :is="filteredTabs[activeTab].component"
-            :sold="sold"
-            :rent="rent"
+            :is="filteredTabs[filterStore.activeTab].component"
+            :sold="filterStore.filters.operation_type === 'buy'"
+            :rent="filterStore.filters.operation_type === 'rent'"
             :districts="disctrictsData"
-            :toggleCheckbox="toggleCheckbox"
-            :checkboxes="checkboxes"
-            :selectedOperation="selectedOperation"
+            :selectedOperation="filterStore.filters.operation_type"
             :category="category"
           ></component>
+   
         </transition>
       </div>
     </div>
@@ -50,25 +49,22 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import {  computed } from "vue";
 import { useFiltersStore } from "@/stores/FiltersStore";
 import Tab1 from "./Tabs/FlatsFilter.vue";
 import Tab2 from "./Tabs/NewBuildingsFilter.vue";
 import Tab3 from "./Tabs/HousesFilter.vue";
 import Tab4 from "./Tabs/CommercialFilter.vue";
 
-const selectedOperation = ref("buy");
-const category = ref(1);
 const props = defineProps({
   disctrictsData: {
     type: Array,
   },
 });
-
-const activeTab = ref(0);
-const sold = ref(true);
-const rent = ref(false);
 const filterStore = useFiltersStore();
+
+const category = computed(() => filterStore.filters.category_id);
+
 
 const tabs = [
   {
@@ -92,63 +88,28 @@ const tabs = [
     id: 4,
   },
 ];
-const checkboxes = ref([
-  { checked: false, val: -1, title: "Студия" },
-  { checked: false, val: 1, title: "1" },
-  { checked: false, val: 2, title: "2" },
-  { checked: false, val: 3, title: "3" },
-  { checked: false, val: 4, title: "4+" },
-]);
 
 const filteredTabs = computed(() => {
-  if (rent.value) {
-    return tabs.filter((tab) => tab.name !== "Новостройки");
+  if (filterStore.filters.operation_type === "rent") {
+    return tabs.filter((tab) => tab.name !== "tabs.new_building");
   }
   return tabs;
 });
 
 const selectOperation = (type) => {
-  if (type === "buy") {
-    sold.value = true;
-    rent.value = false;
-  } else {
-    sold.value = false;
-    rent.value = true;
-  }
-  selectedOperation.value = type;
-  activeTab.value = 0;
-
-  filterStore.resetFilters();
-
-  filterStore.updateFilter("operation_type", selectedOperation.value);
-  filterStore.updateFilter("category_id", null); 
-  filterStore.triggerRefetch();
+  filterStore.updateFilter(null, "operation_type", type);
+  filterStore.setActiveTab(0, 1); 
+  filterStore.applyFilters();
+  
 };
 
 const updateActiveTab = (index) => {
-  activeTab.value = index;
   const selectedTabId = tabs[index].id;
-  category.value = selectedTabId;
-  filterStore.resetFilters();
-  filterStore.updateFilter("category_id", selectedTabId);
-  filterStore.triggerRefetch();
+  filterStore.setActiveTab(index, selectedTabId);
+  filterStore.applyFilters();
 };
 
-const toggleCheckbox = (index) => {
-  checkboxes.value[index].checked = !checkboxes.value[index].checked;
-  if (checkboxes.value[index].val === -1) {
-    filterStore.updateFilter("is_studio", checkboxes.value[index].checked);
-  } else {
-    const selectedRooms = checkboxes.value
-      .filter((checkbox) => checkbox.checked && checkbox.val !== -1)
-      .map((checkbox) => checkbox.val);
 
-    filterStore.updateFilter(
-      "rooms",
-      selectedRooms.length ? selectedRooms : null
-    );
-  }
-};
 </script>
 
 <style>

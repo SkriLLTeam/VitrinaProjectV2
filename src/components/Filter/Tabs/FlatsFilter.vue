@@ -3,18 +3,19 @@
     <div class="filter__form-desktop">
       <div class="filter__form-flats-top">
         <Checkboxes
+          category="flats"
           :labeltitle="$t('tabs.rooms')"
-          :checkboxes="checkboxes"
-          @toggleCheckbox="toggleCheckbox"
+          :checkboxes="filterStore.getCheckboxes('flats')"
+          @toggleCheckbox="filterStore.toggleCheckbox"
         />
         <FromTo
-          ref="priceRef"
+          category="flats"
           filterFromKey="price_from"
           filterToKey="price_to"
           :labeltitle="$t('tabs.price')"
         />
         <FromTo
-          ref="quadratureRef"
+          category="flats"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
           :labeltitle="$t('tabs.quadrature')"
@@ -22,19 +23,19 @@
       </div>
       <div class="filter__form-flats-bottom">
         <FromTo
-          ref="floorRef"
+          category="flats"
           filterFromKey="floor_from"
           filterToKey="floor_to"
           :labeltitle="$t('tabs.floor')"
         />
         <FilterSelect
-          ref="selectRepair"
+          category="flats"
           filterKey="repair_type"
           :labeltitle="$t('tabs.repair')"
           :list="repairList"
         />
         <FilterSelect
-          ref="selectDistrict"
+          category="flats"
           filterKey="district_id"
           :labeltitle="$t('tabs.district')"
           :list="districts"
@@ -51,36 +52,37 @@
     <div class="filter__form-mob">
       <div class="filter__form-flats-top">
         <Checkboxes
+          category="flats"
           :labeltitle="$t('tabs.rooms')"
-          :checkboxes="checkboxes"
-          @toggleCheckbox="toggleCheckbox"
+          :checkboxes="filterStore.getCheckboxes('flats')"
+          @toggleCheckbox="filterStore.toggleCheckbox"
         />
         <FromTo
-          ref="priceRefMob"
+          category="flats"
           filterFromKey="price_from"
           filterToKey="price_to"
           :labeltitle="$t('tabs.price')"
         />
         <FromTo
-          ref="quadratureRefMob"
+          category="flats"
           filterFromKey="quadrature_from"
           filterToKey="quadrature_to"
           :labeltitle="$t('tabs.quadrature')"
         />
         <FromTo
-          ref="floorRefMob"
+          category="flats"
           filterFromKey="floor_from"
           filterToKey="floor_to"
           :labeltitle="$t('tabs.floor')"
         />
         <FilterSelect
-          ref="selectRepairMob"
+          category="flats"
           :labeltitle="$t('tabs.repair')"
           filterKey="repair_type"
           :list="repairList"
         />
         <FilterSelect
-          ref="selectDistrictMob"
+          category="flats"
           filterKey="district_id"
           :labeltitle="$t('tabs.district')"
           :list="districts"
@@ -97,34 +99,18 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import { useFiltersStore } from "@/stores/FiltersStore";
-import Checkboxes from "../Checkboxes/Checkboxes.vue";
 import FromTo from "../FromTo/FromTo.vue";
+import Checkboxes from "../Checkboxes/Checkboxes.vue";
 import FilterSelect from "../Selects/FilterSelect.vue";
 
-const priceRef = ref(null);
-const quadratureRef = ref(null);
-const floorRef = ref(null);
-const priceRefMob = ref(null);
-const quadratureRefMob = ref(null);
-const floorRefMob = ref(null);
-const selectRepair = ref(null);
-const selectDistrict = ref(null);
-const selectRepairMob = ref(null);
-const selectDistrictMob = ref(null);
 const filterStore = useFiltersStore();
 const { t } = useI18n();
 
 const props = defineProps({
-  rent: Boolean,
-  sold: Boolean,
   districts: Array,
-  toggleCheckbox: Function,
-  checkboxes: Array,
-  selectedOperation: String,
-  category: Number,
 });
 
 const repairList = computed(() => [
@@ -140,29 +126,10 @@ const repairList = computed(() => [
 ]);
 
 const resetAll = () => {
-  props.checkboxes.forEach((checkbox) => {
-    checkbox.checked = false;
-  });
-
-  if (priceRef.value) priceRef.value.resetValues();
-  if (quadratureRef.value) quadratureRef.value.resetValues();
-  if (floorRef.value) floorRef.value.resetValues();
-  if (priceRefMob.value) priceRefMob.value.resetValues();
-  if (quadratureRefMob.value) quadratureRefMob.value.resetValues();
-  if (floorRefMob.value) floorRefMob.value.resetValues();
-  if (selectRepair.value) selectRepair.value.resetValues();
-  if (selectDistrict.value) selectDistrict.value.resetValues();
-  if (selectRepairMob.value) selectRepairMob.value.resetValues();
-  if (selectDistrictMob.value) selectDistrictMob.value.resetValues();
-
   filterStore.resetFilters();
 };
 
 const applyFilters = () => {
-  filterStore.updateFilter("operation_type", props.selectedOperation);
-  filterStore.updateFilter("category_id", props.category);
-  filterStore.triggerRefetch();
-  filterStore.hideTitle();
-  filterStore.currentPage = 1;
+  filterStore.applyFilters();
 };
 </script>
