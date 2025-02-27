@@ -65,8 +65,15 @@
           </button>
         </div>
       </div>
-
       <div class="apartament__user-content-address">
+        <div class="apartament__user-content-address-block">
+          <span class="apartament__user-content-address-block-title">
+            {{ $t("contents.address.apartCreatedDate") }}
+          </span>
+          <span class="apartament__user-content-address-block-descr">
+            {{ date }}
+          </span>
+        </div>
         <div class="apartament__user-content-address-block">
           <span class="apartament__user-content-address-block-title">
             {{ $t("contents.address.title") }}</span
@@ -81,6 +88,7 @@
             }}
           </span>
         </div>
+
         <div class="apartament__user-content-address-block">
           <span class="apartament__user-content-address-block-title">
             {{ $t("contents.address.rooms_qty") }}</span
@@ -95,6 +103,17 @@
           >
           <span class="apartament__user-content-address-block-descr">
             {{ userInfo?.quadrature }} м²
+          </span>
+        </div>
+        <div
+          class="apartament__user-content-address-block"
+          v-if="userInfo?.house_quadrature_from"
+        >
+          <span class="apartament__user-content-address-block-title">
+            {{ $t("contents.address.house_quadrature") }}</span
+          >
+          <span class="apartament__user-content-address-block-descr">
+            {{ userInfo?.house_quadrature_from }} м²
           </span>
         </div>
         <div class="apartament__user-content-address-block">
@@ -144,6 +163,7 @@ import { useI18n } from "vue-i18n";
 import { ref } from "vue";
 import Modal from "../UI/Modal.vue";
 import { media } from "@/utils/util";
+import { computed } from "vue";
 
 const props = defineProps({
   userInfo: {
@@ -165,8 +185,11 @@ const orderModalClose = () => {
   isOrderModal.value = false;
 };
 
-const makeCall = (e) => {
+const date = computed(() =>
+  new Date(Date.now(props?.userInfo?.created_at)).toLocaleDateString()
+);
 
+const makeCall = (e) => {
   e.preventDefault();
   window.location.href = `tel:${props?.userInfo?.user?.phone_number}`;
 };

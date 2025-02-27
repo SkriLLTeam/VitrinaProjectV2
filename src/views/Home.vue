@@ -113,7 +113,7 @@ const {
     }
 
     const response = await axios.get(`${advertisements}?${params.toString()}`);
-    console.log(`${advertisements}?${params.toString()}`);
+    // console.log(`${advertisements}?${params.toString()}`);
     
 
     return response.data;

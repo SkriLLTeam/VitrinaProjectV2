@@ -121,8 +121,10 @@
       "rooms_qty": "Honalar soni:",
       "total_area": "Umumiy maydon:",
       "floor": "Qavat:",
+      "house_quadrature": "Yer maydoni:",
       "creation_year": "Qurilish yili:",
-      "condition": "Xolati:"
+      "condition": "Xolati:",
+      "apartCreatedDate": "E’lon yaratilgan sana:"
     }
   },
   "tabs": {
