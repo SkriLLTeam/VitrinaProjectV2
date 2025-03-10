@@ -76,6 +76,20 @@
         </div>
         <div class="apartament__user-content-address-block">
           <span class="apartament__user-content-address-block-title">
+            {{ $t("tabs.district") }}</span
+          >
+          <span class="apartament__user-content-address-block-descr">
+            {{
+              locale.toLowerCase() == "ru"
+                ? userInfo?.district.name
+                : locale.toLowerCase() == "uz"
+                ? userInfo?.district.name_uz
+                : userInfo?.district.name
+            }}
+          </span>
+        </div>
+        <div class="apartament__user-content-address-block">
+          <span class="apartament__user-content-address-block-title">
             {{ $t("contents.address.title") }}</span
           >
           <span class="apartament__user-content-address-block-descr">
