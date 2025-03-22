@@ -200,7 +200,7 @@ const orderModalClose = () => {
 };
 
 const date = computed(() =>
-  new Date(Date.now(props?.userInfo?.created_at)).toLocaleDateString()
+  new Date(Date.parse(props?.userInfo?.created_at)).toLocaleDateString()
 );
 
 const makeCall = (e) => {
