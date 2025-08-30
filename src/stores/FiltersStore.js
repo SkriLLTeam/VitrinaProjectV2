@@ -15,7 +15,7 @@ export const useFiltersStore = defineStore("FiltersStore", {
         district_id: null,
         is_studio: null,
         checkboxes: [
-          { checked: false, val: -1, title: "Студия" },
+          // { checked: false, val: -1, title: "Студия" },
           { checked: false, val: 1, title: "1" },
           { checked: false, val: 2, title: "2" },
           { checked: false, val: 3, title: "3" },
@@ -40,7 +40,7 @@ export const useFiltersStore = defineStore("FiltersStore", {
         floor_to: null,
         district_id: null,
         checkboxes: [
-          { checked: false, val: -1, title: "Студия" },
+          // { checked: false, val: -1, title: "Студия" },
           { checked: false, val: 1, title: "1" },
           { checked: false, val: 2, title: "2" },
           { checked: false, val: 3, title: "3" },
