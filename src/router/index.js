@@ -54,9 +54,22 @@ const router = createRouter({
     },
   ],
 
-  scrollBehavior() {
+  scrollBehavior(to, from, savedPosition) {
+    console.log(savedPosition);
+    
+    // если есть сохранённая позиция (например, при "назад")
+    if (savedPosition) {
+      return savedPosition;
+    }
+
+    // если маршрут "home" — не трогаем скролл
+    if (to.name === 'home') {
+      return {};
+    }
+
+    // для остальных маршрутов — всегда вверх
     return { top: 0 };
-  },
+  }
 });
 
 
