@@ -55,21 +55,21 @@ const router = createRouter({
   ],
 
   scrollBehavior(to, from, savedPosition) {
-    console.log(savedPosition);
-    
-    // если есть сохранённая позиция (например, при "назад")
     if (savedPosition) {
       return savedPosition;
     }
 
-    // если маршрут "home" — не трогаем скролл
-    if (to.name === 'home') {
-      return {};
+    if (to.name === "home" && from.name !== "home") {
+      return { top: 0, left: 0 };
     }
 
-    // для остальных маршрутов — всегда вверх
-    return { top: 0 };
+    if (to.hash) {
+      return { el: to.hash, behavior: "smooth" };
+    }
+
+    return { top: 0, left: 0 };
   }
+
 });
 
 
