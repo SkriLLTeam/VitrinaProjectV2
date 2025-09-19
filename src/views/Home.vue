@@ -11,6 +11,7 @@
         <button v-if="showButton" @click="scrollToTop" class="scroll-to-top">
           <i class="far fa-arrow-to-top"></i>
         </button>
+        <div ref="cardsAnchor"></div>
         <ApartamentList
           :totalPages="totalPages"
           @changePage="handlePageChange"
@@ -23,7 +24,7 @@
 </template>
 
 <script setup>
-import { computed, ref, onMounted } from "vue";
+import { computed, ref, onMounted, watch, nextTick } from "vue";
 import { useQuery } from "@tanstack/vue-query";
 import { advertisements, districts } from "@/utils/util";
 import { useFiltersStore } from "@/stores/FiltersStore";
@@ -39,7 +40,7 @@ const computedPage = computed(() => filterStore.currentPage);
 const { locale } = useI18n();
 
 const showButton = ref(false);
-
+const cardsAnchor = ref(null);
 const handleScroll = () => {
   showButton.value = window.scrollY > 300;
 };
@@ -49,7 +50,9 @@ const scrollToTop = () => {
     behavior: "smooth",
   });
 };
+
 onMounted(() => {
+  scrollToCards(false);
   window.addEventListener("scroll", handleScroll);
 });
 const categoryMapping = {
@@ -58,11 +61,7 @@ const categoryMapping = {
   3: "newBuildings",
   4: "houses",
 };
-const {
-  data: advertisementsData,
-  refetch,
-  isLoading,
-} = useQuery({
+const { data: advertisementsData, refetch, isLoading } = useQuery({
   queryKey: [
     computedPage,
     locale,
@@ -76,9 +75,7 @@ const {
     params.append("offset", (filterStore.currentPage - 1) * limit);
 
     if (!filterStore.filtersApplied) {
-      const response = await axios.get(
-        `${advertisements}?${params.toString()}`
-      );
+      const response = await axios.get(`${advertisements}?${params.toString()}`);
       return response.data;
     }
 
@@ -100,11 +97,9 @@ const {
             if (value.length > 0) {
               params.append(key, value.join(","));
             }
-          }
-          else if (key === "is_studio") {
+          } else if (key === "is_studio") {
             params.append(key, value ? "true" : "false");
-          }
-          else if (value !== null && value !== undefined) {
+          } else if (value !== null && value !== undefined) {
             params.append(key, value);
           }
         }
@@ -114,13 +109,11 @@ const {
 
     const response = await axios.get(`${advertisements}?${params.toString()}`);
     // console.log(`${advertisements}?${params.toString()}`);
-    
 
     return response.data;
   },
   refetchOnWindowFocus: false,
 });
-
 
 const { data: disctrictsData } = useQuery({
   queryKey: ["districts", locale],
@@ -141,6 +134,38 @@ const handlePageChange = (newPage) => {
   filterStore.setCurrentPage(newPage);
 };
 
+const scrollToCards = async (smooth = true) => {
+  await nextTick();
+  const el = cardsAnchor.value || document.querySelector(".apartament__list");
+  if (!el) return;
+
+  const header = document.querySelector(".header");
+  const headerH = header ? header.offsetHeight : 0;
+
+  const y = el.getBoundingClientRect().top + window.scrollY - headerH - 12;
+  window.scrollTo({ top: y < 0 ? 0 : y, behavior: smooth ? "smooth" : "auto" });
+};
+
+watch(isLoading, (loading) => {
+  if (loading === false) scrollToCards();
+});
+watch(
+  () => advertisementsData?.value?.results?.length,
+  () => scrollToCards(),
+  { flush: "post" }
+);
+
+// скролл при смене страницы
+watch(
+  () => filterStore.currentPage,
+  () => scrollToCards()
+);
+
+// скролл при применении фильтров
+watch(
+  () => filterStore.filtersApplied,
+  () => scrollToCards()
+);
 filterStore.setRefetch(refetch);
 </script>
 
