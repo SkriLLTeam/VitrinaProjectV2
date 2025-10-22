@@ -163,6 +163,16 @@
             }}
           </span>
         </div>
+
+        <div
+          class="apartament__user-content-address-block"
+          v-if="userInfo?.operation_type == 'Аренда'"
+        >
+          <span class="apartament__user-content-address-block-title">
+            {{ $t("contents.address.commision") }}</span
+          >
+          <span class="apartament__user-content-address-block-descr"> 50% </span>
+        </div>
       </div>
     </div>
   </aside>
@@ -184,6 +194,7 @@ const props = defineProps({
     type: Object,
   },
 });
+console.log(props.userInfo);
 
 const isOrderModal = ref(false);
 const showNumber = ref(false);
