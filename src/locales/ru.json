@@ -124,7 +124,8 @@
       "house_quadrature": "Площадь участка:",
       "creation_year": "Год постройки:",
       "condition": "Состояние:",
-      "apartCreatedDate": "Дата создания обьявления:"
+      "apartCreatedDate": "Дата создания обьявления:",
+      "commision": "Комиссия агентства: "
     }
   },
   "tabs": {
