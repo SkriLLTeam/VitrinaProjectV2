@@ -31,9 +31,9 @@
             <a
               class="apartament__user-content-info-avatar-name"
               target="_blank"
-              style
-              :href="'https://t.me/' + userInfo?.user?.tg_username"
+              @click.prevent="sendThisApartments(userInfo?.user?.tg_username)"
             >
+              <!-- :href="'https://t.me/' + userInfo?.user?.tg_username" -->
               {{
                 ` ${userInfo?.user?.first_name} ${userInfo?.user?.lastname}` ||
                 userInfo?.user?.tg_username
@@ -221,7 +221,12 @@ const orderModalOpen = () => {
 const orderModalClose = () => {
   isOrderModal.value = false;
 };
-
+const sendThisApartments = (tg_username) => {
+  const adUrl = window.location.href;
+  const text = `Здравствуйте хотел бы получить информацию о данной квартире ${adUrl}`;
+  const tgLink = `https://t.me/${tg_username}?text=${encodeURIComponent(text)}`;
+  window.open(tgLink, "_blank");
+};
 const date = computed(() =>
   new Date(Date.parse(props?.userInfo?.created_at)).toLocaleDateString()
 );
