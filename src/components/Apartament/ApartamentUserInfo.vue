@@ -15,8 +15,8 @@
           >No {{ userInfo?.unique_id }}</span
         >
         <span class="apartament__user-content-caption-price"
-          >{{ userInfo?.price?.toLocaleString() }} USD</span
-        >
+          >{{ userInfo?.price?.toLocaleString() }}
+        </span>
       </div>
 
       <div class="apartament__user-content-info">
@@ -206,7 +206,6 @@ const props = defineProps({
     type: Object,
   },
 });
-console.log(props.userInfo);
 
 const isOrderModal = ref(false);
 const showNumber = ref(false);
