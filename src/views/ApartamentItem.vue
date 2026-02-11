@@ -48,12 +48,13 @@ const zoomClose = () => {
 const { data, isLoading } = useQuery({
   queryKey: [apartamentId, locale],
   queryFn: async () => {
-    const response = await axios.get(`${advertisements}${apartamentId.value}`);
-    if (response.data) {
-      console.log(response.data);
-      return response.data;
-    } else {
-      router.push("/not_found");
+    try {
+      const response = await axios.get(`${advertisements}${apartamentId.value}`);
+      if (response.data) {
+        return response.data;
+      }
+    } catch (error) {
+      router.replace("/not_found");
     }
   },
 });
