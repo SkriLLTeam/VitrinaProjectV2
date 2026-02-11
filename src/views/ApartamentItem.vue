@@ -10,19 +10,15 @@
         <ApartamentCaption :userCaption="data" />
         <SimilarAds :similarAds="data?.related_objects" />
       </div>
-      <ZoomSlider
-        @zoomClose="zoomClose"
-        :gallery="data?.images"
-        v-if="isVisible"
-      />
+      <ZoomSlider @zoomClose="zoomClose" :gallery="data?.images" v-if="isVisible" />
     </div>
   </transition>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { advertisements } from "@/utils/util";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useQuery } from "@tanstack/vue-query";
 import { useI18n } from "vue-i18n";
 // import { useFiltersStore } from "@/stores/FiltersStore";
@@ -34,6 +30,7 @@ import axios from "axios";
 import ZoomSlider from "@/components/Apartament/ZoomSlider.vue";
 
 const route = useRoute();
+const router = useRouter();
 const apartamentId = computed(() => route.params.id);
 const { locale } = useI18n();
 const isVisible = ref(false);
@@ -52,10 +49,14 @@ const { data, isLoading } = useQuery({
   queryKey: [apartamentId, locale],
   queryFn: async () => {
     const response = await axios.get(`${advertisements}${apartamentId.value}`);
-    return response.data;
+    if (response.data) {
+      console.log(response.data);
+      return response.data;
+    } else {
+      router.push("/not_found");
+    }
   },
 });
-
 </script>
 
 <style lang="scss" scoped>
