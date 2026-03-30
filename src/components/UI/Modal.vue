@@ -54,7 +54,11 @@
           ></textarea>
         </div>
         <div class="order__modal-block-btns">
-          <button class="revbtn order__modal-block-btn" type="button" @click="resetForm">
+          <button
+            class="revbtn order__modal-block-btn"
+            type="button"
+            @click="resetForm"
+          >
             {{ $t("button.clear") }}
           </button>
           <button class="btn order__modal-block-btn" type="submit">
@@ -111,7 +115,7 @@ const { data: modalCategories } = useQuery({
 watch(selectedId, (newValue) => {
   if (modalCategories.value) {
     const selectedCategory = modalCategories.value.find(
-      (category) => category.id == newValue
+      (category) => category.id == newValue,
     );
     if (selectedCategory) {
       postObj.value.object_type = selectedCategory.name;
@@ -127,6 +131,13 @@ const mutation = useMutation({
   },
   onSuccess: (response) => {
     console.log("Запрос отправлен успешно");
+    console.log(window.dataLayer);
+    
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "form_submit_success",
+      form_name: "lead_form",
+    });
   },
   onError: (response) => {
     console.log("Ошибка отправки данных");
